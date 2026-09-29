@@ -1,0 +1,815 @@
+{
+ "label": "SEMI-SYNTHETIC",
+ "year": 2025,
+ "tz": "America/Los_Angeles (local clock; DST hour shifts ignored)",
+ "n_zones": 168,
+ "steps": 105120,
+ "step_min": 5,
+ "recommended_policy": "sensor_ml",
+ "dr_days": [
+  "2025-08-22",
+  "2025-08-07",
+  "2025-08-21",
+  "2025-09-03",
+  "2025-08-06",
+  "2025-08-08",
+  "2025-08-20",
+  "2025-08-29",
+  "2025-09-16",
+  "2025-09-01"
+ ],
+ "dr_window": [
+  13,
+  17
+ ],
+ "results": {
+  "measured": {
+   "always_on": {
+    "annual_kwh": 585868.7999999993,
+    "energy_usd": 25551.09068159997,
+    "demand_usd": 6219.839999999992,
+    "facilities_usd": 4301.721599999994,
+    "peak_kw_summer_high_peak": 66.87999999999992,
+    "monthly_kwh": [
+     49758.71999999994,
+     44943.35999999995,
+     49758.71999999994,
+     48153.59999999995,
+     49758.71999999994,
+     48153.59999999995,
+     49758.71999999994,
+     49758.71999999994,
+     48153.59999999995,
+     49758.71999999994,
+     48153.59999999995,
+     49758.71999999994
+    ],
+    "underlit_occupied_share": 0.0,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 0,
+    "kwh_by_kind": {
+     "amenity": 31535.999999999993,
+     "corridor": 210240.0,
+     "garage": 157680.0,
+     "lobby": 35040.0,
+     "restroom": 67276.79999999993,
+     "stairwell": 84095.99999999999
+    },
+    "total_usd": 36072.652281599956
+   },
+   "schedule": {
+    "annual_kwh": 445664.9999999994,
+    "energy_usd": 20264.95031879998,
+    "demand_usd": 6219.839999999992,
+    "facilities_usd": 4301.721599999994,
+    "peak_kw_summer_high_peak": 66.87999999999992,
+    "monthly_kwh": [
+     37850.99999999996,
+     34187.99999999996,
+     37850.99999999996,
+     36629.99999999996,
+     37850.99999999996,
+     36629.99999999996,
+     37850.99999999996,
+     37850.99999999996,
+     36629.99999999996,
+     37850.99999999996,
+     36629.99999999996,
+     37850.99999999996
+    ],
+    "underlit_occupied_share": 0.06967272559525103,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 0,
+    "kwh_by_kind": {
+     "amenity": 19710.0,
+     "corridor": 170820.0,
+     "garage": 116289.0,
+     "lobby": 28470.0,
+     "restroom": 42048.00000000001,
+     "stairwell": 68327.99999999999
+    },
+    "total_usd": 30786.511918799966
+   },
+   "sensor": {
+    "annual_kwh": 386841.1879166665,
+    "energy_usd": 17531.598552945823,
+    "demand_usd": 5779.959999999999,
+    "facilities_usd": 4016.8911999999996,
+    "peak_kw_summer_high_peak": 62.48999999999999,
+    "monthly_kwh": [
+     32762.49999999999,
+     29625.34958333332,
+     32733.12958333332,
+     31844.217083333322,
+     32745.583749999987,
+     31915.926666666655,
+     32913.59458333332,
+     32856.046249999985,
+     31788.674583333323,
+     32992.43499999999,
+     31769.818749999988,
+     32893.91208333332
+    ],
+    "underlit_occupied_share": 7.895429034508791e-05,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 420,
+    "kwh_by_kind": {
+     "amenity": 8442.999999999998,
+     "corridor": 169779.34375,
+     "garage": 115820.4375,
+     "lobby": 24435.166666666668,
+     "restroom": 23413.340000000004,
+     "stairwell": 44949.9
+    },
+    "total_usd": 27328.44975294582
+   },
+   "sensor_ml": {
+    "annual_kwh": 405980.19374999986,
+    "energy_usd": 18404.08523889166,
+    "demand_usd": 5927.714999999997,
+    "facilities_usd": 4112.727999999999,
+    "peak_kw_summer_high_peak": 64.10499999999996,
+    "monthly_kwh": [
+     34462.64708333332,
+     31151.889166666653,
+     34409.92458333332,
+     33345.578749999986,
+     34409.415416666656,
+     33424.61166666665,
+     34575.172916666656,
+     34336.08874999999,
+     33430.12874999999,
+     34542.967499999984,
+     33402.046666666654,
+     34489.72249999999
+    ],
+    "underlit_occupied_share": 5.3892956611956077e-05,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 400,
+    "kwh_by_kind": {
+     "amenity": 10603.599999999999,
+     "corridor": 173937.0625,
+     "garage": 119767.3875,
+     "lobby": 25525.5,
+     "restroom": 26597.2,
+     "stairwell": 49549.443750000006
+    },
+    "total_usd": 28444.528238891657
+   },
+   "sensor_ml_union": {
+    "annual_kwh": 438251.0191666664,
+    "energy_usd": 19859.380602424986,
+    "demand_usd": 6214.121249999993,
+    "facilities_usd": 4301.721599999994,
+    "peak_kw_summer_high_peak": 66.85499999999992,
+    "monthly_kwh": [
+     37263.85874999998,
+     33602.70374999998,
+     37267.77958333331,
+     35996.941666666644,
+     37165.590416666644,
+     35985.762916666645,
+     37242.68291666664,
+     37115.83041666664,
+     36100.90874999997,
+     37276.36916666664,
+     35987.106666666645,
+     37245.48416666664
+    ],
+    "underlit_occupied_share": 2.3952425160869368e-05,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 235,
+    "kwh_by_kind": {
+     "amenity": 14322.5,
+     "corridor": 179175.625,
+     "garage": 124981.1625,
+     "lobby": 26310.666666666668,
+     "restroom": 32092.590000000004,
+     "stairwell": 61368.475000000006
+    },
+    "total_usd": 30375.223452424972
+   },
+   "ml_only": {
+    "annual_kwh": 424636.44666666636,
+    "energy_usd": 19316.467860537487,
+    "demand_usd": 6213.133749999994,
+    "facilities_usd": 4301.721599999994,
+    "peak_kw_summer_high_peak": 66.82999999999993,
+    "monthly_kwh": [
+     36114.24083333331,
+     32562.145416666644,
+     36100.817499999976,
+     34854.153749999976,
+     36059.57416666664,
+     34865.347499999974,
+     36026.90458333331,
+     36027.73291666664,
+     34989.07041666664,
+     36116.86833333331,
+     34900.60416666664,
+     36018.98708333331
+    ],
+    "underlit_occupied_share": 0.03799897004571808,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 101965,
+    "kwh_by_kind": {
+     "amenity": 11815.399999999998,
+     "corridor": 176013.3125,
+     "garage": 121566.29999999999,
+     "lobby": 25433.166666666668,
+     "restroom": 29661.880000000012,
+     "stairwell": 60146.38750000001
+    },
+    "total_usd": 29831.323210537474
+   },
+   "sensor_ml_dr": {
+    "annual_kwh": 405920.9122499999,
+    "energy_usd": 18400.33746246166,
+    "demand_usd": 5927.714999999997,
+    "facilities_usd": 4112.727999999999,
+    "peak_kw_summer_high_peak": 64.10499999999996,
+    "monthly_kwh": [
+     34462.64708333332,
+     31151.889166666653,
+     34409.92458333332,
+     33345.578749999986,
+     34409.415416666656,
+     33424.61166666665,
+     34575.172916666656,
+     34296.85774999999,
+     33410.078249999984,
+     34542.967499999984,
+     33402.046666666654,
+     34489.72249999999
+    ],
+    "underlit_occupied_share": 0.005942197475325675,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 400,
+    "kwh_by_kind": {
+     "amenity": 10588.044999999998,
+     "corridor": 173937.0625,
+     "garage": 119767.3875,
+     "lobby": 25525.5,
+     "restroom": 26553.47350000001,
+     "stairwell": 49549.443750000006
+    },
+    "total_usd": 28440.780462461655
+   }
+  },
+  "what_if_0.1": {
+   "sensor": {
+    "annual_kwh": 386472.90083333314,
+    "energy_usd": 17515.569668495824,
+    "demand_usd": 5778.4574999999995,
+    "facilities_usd": 4012.2011999999995,
+    "peak_kw_summer_high_peak": 62.48999999999999,
+    "monthly_kwh": [
+     32733.66708333332,
+     29594.362083333323,
+     32706.107499999987,
+     31814.01499999999,
+     32715.529999999988,
+     31887.732916666653,
+     32882.54999999999,
+     32820.38749999999,
+     31760.595416666656,
+     32960.55624999999,
+     31734.270416666655,
+     32863.126666666656
+    ],
+    "underlit_occupied_share": 0.0016984043692772001,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 8425,
+    "kwh_by_kind": {
+     "amenity": 8412.0,
+     "corridor": 169673.125,
+     "garage": 115700.21250000001,
+     "lobby": 24421.833333333332,
+     "restroom": 23342.580000000005,
+     "stairwell": 44923.14999999998
+    },
+    "total_usd": 27306.228368495824
+   },
+   "sensor_ml": {
+    "annual_kwh": 405745.35083333316,
+    "energy_usd": 18394.286595733327,
+    "demand_usd": 5923.798749999998,
+    "facilities_usd": 4109.002799999998,
+    "peak_kw_summer_high_peak": 64.02999999999996,
+    "monthly_kwh": [
+     34443.967916666654,
+     31133.47583333332,
+     34392.351249999985,
+     33329.068749999984,
+     34388.71583333332,
+     33403.81833333332,
+     34554.52958333332,
+     34314.07249999999,
+     33412.27749999999,
+     34522.169999999984,
+     33380.50708333332,
+     34470.39624999998
+    ],
+    "underlit_occupied_share": 0.0011443936465748697,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 7570,
+    "kwh_by_kind": {
+     "amenity": 10585.999999999998,
+     "corridor": 173881.71875,
+     "garage": 119702.02500000002,
+     "lobby": 25517.333333333332,
+     "restroom": 26568.980000000003,
+     "stairwell": 49489.29375
+    },
+    "total_usd": 28427.088145733323
+   },
+   "sensor_ml_union": {
+    "annual_kwh": 438166.6641666664,
+    "energy_usd": 19855.97401768332,
+    "demand_usd": 6214.121249999993,
+    "facilities_usd": 4301.721599999994,
+    "peak_kw_summer_high_peak": 66.85499999999992,
+    "monthly_kwh": [
+     37257.97958333331,
+     33595.68874999998,
+     37261.10458333331,
+     35989.72833333331,
+     37159.371666666644,
+     35978.972499999974,
+     37235.15749999997,
+     37108.11833333331,
+     36094.45249999998,
+     37270.53791666664,
+     35979.57708333331,
+     37235.97541666664
+    ],
+    "underlit_occupied_share": 0.0005041098369505192,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 4040,
+    "kwh_by_kind": {
+     "amenity": 14308.099999999999,
+     "corridor": 179155.9375,
+     "garage": 124953.8625,
+     "lobby": 26308.166666666668,
+     "restroom": 32080.360000000004,
+     "stairwell": 61360.23749999999
+    },
+    "total_usd": 30371.816867683305
+   }
+  },
+  "what_if_0.3": {
+   "sensor": {
+    "annual_kwh": 384201.1766666665,
+    "energy_usd": 17410.980342874995,
+    "demand_usd": 5766.533749999999,
+    "facilities_usd": 4000.5163999999995,
+    "peak_kw_summer_high_peak": 62.29999999999999,
+    "monthly_kwh": [
+     32536.475416666653,
+     29414.76499999999,
+     32507.15208333332,
+     31628.61249999999,
+     32530.817916666652,
+     31704.559166666655,
+     32682.51458333332,
+     32630.08208333332,
+     31574.410416666655,
+     32769.37624999999,
+     31554.894999999986,
+     32667.516249999986
+    ],
+    "underlit_occupied_share": 0.013820327536107173,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 32515,
+    "kwh_by_kind": {
+     "amenity": 8247.699999999999,
+     "corridor": 168884.40625,
+     "garage": 114894.8625,
+     "lobby": 24333.666666666668,
+     "restroom": 22987.260000000006,
+     "stairwell": 44853.28124999999
+    },
+    "total_usd": 27178.030492874994
+   },
+   "sensor_ml": {
+    "annual_kwh": 405014.5104166665,
+    "energy_usd": 18363.725848116657,
+    "demand_usd": 5913.8412499999995,
+    "facilities_usd": 4102.222399999999,
+    "peak_kw_summer_high_peak": 63.829999999999984,
+    "monthly_kwh": [
+     34379.07291666665,
+     31076.345833333322,
+     34329.83999999999,
+     33269.57374999999,
+     34328.929999999986,
+     33343.89333333332,
+     34483.59583333332,
+     34247.914999999986,
+     33357.78333333332,
+     34460.61958333332,
+     33326.23166666665,
+     34410.70916666665
+    ],
+    "underlit_occupied_share": 0.004617495294900928,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 27175,
+    "kwh_by_kind": {
+     "amenity": 10496.599999999999,
+     "corridor": 173687.75,
+     "garage": 119513.025,
+     "lobby": 25483.166666666668,
+     "restroom": 26469.749999999996,
+     "stairwell": 49364.21874999999
+    },
+    "total_usd": 28379.789498116654
+   },
+   "sensor_ml_union": {
+    "annual_kwh": 437891.8258333331,
+    "energy_usd": 19844.805905458317,
+    "demand_usd": 6214.121249999993,
+    "facilities_usd": 4301.721599999994,
+    "peak_kw_summer_high_peak": 66.85499999999992,
+    "monthly_kwh": [
+     37233.90666666664,
+     33574.566666666644,
+     37237.77541666664,
+     35966.31208333331,
+     37134.13541666664,
+     35956.684166666644,
+     37208.74083333331,
+     37087.50124999997,
+     36073.13374999998,
+     37247.293749999975,
+     35959.06874999998,
+     37212.707083333305
+    ],
+    "underlit_occupied_share": 0.0020259759615235337,
+    "egress_floor_violations": 0,
+    "stair_in_use_violation_minutes": 13760,
+    "kwh_by_kind": {
+     "amenity": 14245.099999999999,
+     "corridor": 179086.90625,
+     "garage": 124886.40000000002,
+     "lobby": 26295.333333333332,
+     "restroom": 32039.78000000001,
+     "stairwell": 61338.30624999998
+    },
+    "total_usd": 30360.648755458304
+   }
+  }
+ },
+ "kpi": {
+  "kwh_saved_vs_always_on": 179888.6062499995,
+  "pct_saved_vs_always_on": 30.70458885163362,
+  "kwh_saved_vs_schedule": 39684.80624999956,
+  "pct_saved_vs_schedule": 8.90462707414753,
+  "usd_saved_vs_always_on": 7628.124042708299,
+  "usd_saved_vs_schedule": 2341.9836799083096,
+  "peak_kw_cut_vs_always_on": 2.774999999999963,
+  "dr_mean_trim_kw": 1.4820375000000066,
+  "dr_max_trim_kw": 1.6740000000000137,
+  "ladwp_dr_min_kw": 100,
+  "egress_floor_fc": 1.0,
+  "egress_floor_violations_recommended": 0,
+  "egress_floor_violations_all_deployable": 0,
+  "egress_floor_violations_note": "0 by construction: level = max(egress floor, target), and every egress vacant level is at or above the floor",
+  "stair_in_use_fc": 10.0,
+  "stair_in_use_violation_minutes_recommended": 400,
+  "stair_in_use_violation_minutes_sensor_only": 420,
+  "stair_in_use_violation_minutes_always_on": 0,
+  "ml_stair_minutes_avoided_vs_sensor_only": 20,
+  "pct_saved_sensor_only_vs_always_on": 33.97136220316443,
+  "ml_extra_kwh_vs_sensor_only": 19139.005833333358,
+  "ml_extra_usd_vs_sensor_only": 1116.0784859458363,
+  "what_if": {
+   "measured": {
+    "sensor": {
+     "stair_in_use_violation_minutes": 420,
+     "underlit_occupied_share": 7.895429034508791e-05,
+     "annual_kwh": 386841.1879166665
+    },
+    "sensor_ml": {
+     "stair_in_use_violation_minutes": 400,
+     "underlit_occupied_share": 5.3892956611956077e-05,
+     "annual_kwh": 405980.19374999986
+    },
+    "sensor_ml_union": {
+     "stair_in_use_violation_minutes": 235,
+     "underlit_occupied_share": 2.3952425160869368e-05,
+     "annual_kwh": 438251.0191666664
+    }
+   },
+   "what_if_0.1": {
+    "sensor": {
+     "stair_in_use_violation_minutes": 8425,
+     "underlit_occupied_share": 0.0016984043692772001,
+     "annual_kwh": 386472.90083333314
+    },
+    "sensor_ml": {
+     "stair_in_use_violation_minutes": 7570,
+     "underlit_occupied_share": 0.0011443936465748697,
+     "annual_kwh": 405745.35083333316
+    },
+    "sensor_ml_union": {
+     "stair_in_use_violation_minutes": 4040,
+     "underlit_occupied_share": 0.0005041098369505192,
+     "annual_kwh": 438166.6641666664
+    }
+   },
+   "what_if_0.3": {
+    "sensor": {
+     "stair_in_use_violation_minutes": 32515,
+     "underlit_occupied_share": 0.013820327536107173,
+     "annual_kwh": 384201.1766666665
+    },
+    "sensor_ml": {
+     "stair_in_use_violation_minutes": 27175,
+     "underlit_occupied_share": 0.004617495294900928,
+     "annual_kwh": 405014.5104166665
+    },
+    "sensor_ml_union": {
+     "stair_in_use_violation_minutes": 13760,
+     "underlit_occupied_share": 0.0020259759615235337,
+     "annual_kwh": 437891.8258333331
+    }
+   }
+  }
+ },
+ "policy_labels": {
+  "as_operated": "As operated (recorded)",
+  "always_on": "Always on 24/7",
+  "schedule": "Fixed schedule 07-22",
+  "ideal_sensor": "Ideal sensor (upper bound)",
+  "sensor": "Motion sensor + 15 min hold",
+  "sensor_ml": "Sensor + ML (ML may only extend a hold)",
+  "sensor_ml_union": "Sensor + ML union (ML may also switch on)",
+  "ml_only": "ML only (unsafe counterfactual)"
+ },
+ "miss_rates": {
+  "measured": 0.005208333333333333,
+  "what_if_0.1": 0.1,
+  "what_if_0.3": 0.3
+ },
+ "holidays_count": 11,
+ "stair_alternative": {
+  "label": "SEMI-SYNTHETIC + INJECTED",
+  "design_fc": 20.0,
+  "w_per_ft2": 0.8,
+  "current_design_fc": 15.0,
+  "current_w_per_ft2": 0.6,
+  "note": "stairs designed so the code setback (vacant level) still meets the stair in-use floor; W scales with fc [ASSUMPTION]",
+  "sensor": {
+   "annual_kwh": 401824.4879166665,
+   "total_usd": 28295.116780737495,
+   "stair_in_use_violation_minutes": 0,
+   "extra_kwh_vs_current_design": 14983.299999999988,
+   "extra_usd_vs_current_design": 966.6670277916746,
+   "pct_saved_vs_always_on": 31.4139124806327
+  },
+  "sensor_ml": {
+   "annual_kwh": 422496.6749999998,
+   "total_usd": 29527.833545704154,
+   "stair_in_use_violation_minutes": 0,
+   "extra_kwh_vs_current_design": 16516.481249999953,
+   "extra_usd_vs_current_design": 1083.3053068124973,
+   "pct_saved_vs_always_on": 27.885445512715425
+  }
+ },
+ "pools": {
+  "1": {
+   "zone_kinds": [
+    "stairwell"
+   ],
+   "n_zones": 64,
+   "weekday_days": 9,
+   "weekend_days": 9,
+   "weekend_borrowed_from_weekday": true,
+   "weekday_borrowed_from_weekend": false,
+   "occupied_share": 0.021219135802469136,
+   "days": [
+    "2021-12-13",
+    "2021-12-14",
+    "2021-12-15",
+    "2021-12-16",
+    "2021-12-17",
+    "2021-12-20",
+    "2021-12-21",
+    "2021-12-22",
+    "2021-12-23"
+   ]
+  },
+  "2": {
+   "zone_kinds": [
+    "amenity"
+   ],
+   "n_zones": 3,
+   "weekday_days": 9,
+   "weekend_days": 9,
+   "weekend_borrowed_from_weekday": true,
+   "weekday_borrowed_from_weekend": false,
+   "occupied_share": 0.21412037037037038,
+   "days": [
+    "2021-12-13",
+    "2021-12-14",
+    "2021-12-15",
+    "2021-12-16",
+    "2021-12-17",
+    "2021-12-20",
+    "2021-12-21",
+    "2021-12-22",
+    "2021-12-23"
+   ]
+  },
+  "3": {
+   "zone_kinds": [
+    "restroom"
+   ],
+   "n_zones": 64,
+   "weekday_days": 9,
+   "weekend_days": 9,
+   "weekend_borrowed_from_weekday": true,
+   "weekday_borrowed_from_weekend": false,
+   "occupied_share": 0.30439814814814814,
+   "days": [
+    "2021-12-13",
+    "2021-12-14",
+    "2021-12-15",
+    "2021-12-16",
+    "2021-12-17",
+    "2021-12-20",
+    "2021-12-21",
+    "2021-12-22",
+    "2021-12-23"
+   ]
+  },
+  "4": {
+   "zone_kinds": [
+    "corridor",
+    "garage"
+   ],
+   "n_zones": 36,
+   "weekday_days": 15,
+   "weekend_days": 15,
+   "weekend_borrowed_from_weekday": true,
+   "weekday_borrowed_from_weekend": false,
+   "occupied_share": 0.5837962962962963,
+   "days": [
+    "2021-11-12",
+    "2021-11-15",
+    "2021-11-16",
+    "2021-11-17",
+    "2021-12-09",
+    "2021-12-10",
+    "2021-12-13",
+    "2021-12-14",
+    "2021-12-15",
+    "2021-12-16",
+    "2021-12-17",
+    "2021-12-20",
+    "2021-12-21",
+    "2021-12-22",
+    "2021-12-23"
+   ]
+  },
+  "5": {
+   "zone_kinds": [
+    "lobby"
+   ],
+   "n_zones": 1,
+   "weekday_days": 15,
+   "weekend_days": 15,
+   "weekend_borrowed_from_weekday": true,
+   "weekday_borrowed_from_weekend": false,
+   "occupied_share": 0.35532407407407407,
+   "days": [
+    "2021-11-12",
+    "2021-11-15",
+    "2021-11-16",
+    "2021-11-17",
+    "2021-12-09",
+    "2021-12-10",
+    "2021-12-13",
+    "2021-12-14",
+    "2021-12-15",
+    "2021-12-16",
+    "2021-12-17",
+    "2021-12-20",
+    "2021-12-21",
+    "2021-12-22",
+    "2021-12-23"
+   ]
+  }
+ },
+ "assumptions": [
+  "zone areas, W/ft2 and design fc are [ASSUMPTION] (see inventory)",
+  "occupancy per zone kind is resampled from REAL ROBOD held-out test days of one mapped room ([ASSUMPTION] mapping); weekends and US federal holidays draw weekend days",
+  "presence and M1 probability are resampled jointly per day so M1 errors carry over",
+  "motion-sensor detections are INJECTED at the UCI 864 PIR miss/false-trigger rates, independent per 5-min step",
+  "always-on baseline = every common-area fixture at design power 24/7 (a pre-controls building)",
+  "fixed schedule = design power 07:00-21:59, vacant level otherwise",
+  "DR days are SIMULATED: the 10 hottest weekdays of the LADWP DR season in Open-Meteo 2025 REANALYSIS, 13:00-17:00, trim 15% on non-egress zones only",
+  "$ = LADWP A-2 Rate B base energy + demand + facilities charges (adjustment factors excluded); demand is a coincident-peak estimate",
+  "lighting only; HVAC not simulated"
+ ],
+ "inventory": {
+  "label": "SEMI-SYNTHETIC",
+  "tz": "America/Los_Angeles",
+  "floors": 32,
+  "n_zones": 168,
+  "by_kind": {
+   "corridor": {
+    "count": 32,
+    "area_ft2": 48000.0,
+    "design_w": 24000.0
+   },
+   "stairwell": {
+    "count": 64,
+    "area_ft2": 16000.0,
+    "design_w": 9600.0
+   },
+   "restroom": {
+    "count": 64,
+    "area_ft2": 12800.0,
+    "design_w": 7680.0
+   },
+   "lobby": {
+    "count": 1,
+    "area_ft2": 4000.0,
+    "design_w": 4000.0
+   },
+   "garage": {
+    "count": 4,
+    "area_ft2": 120000.0,
+    "design_w": 18000.0
+   },
+   "amenity": {
+    "count": 3,
+    "area_ft2": 4500.0,
+    "design_w": 3600.0
+   }
+  },
+  "total_design_w": 66880.0,
+  "assumptions": [
+   {
+    "kind": "corridor",
+    "area_ft2_each": 1500.0,
+    "w_per_ft2": 0.5,
+    "design_fc": 10.0,
+    "occupancy_from": "Room 4 office",
+    "tag": "Assumption"
+   },
+   {
+    "kind": "stairwell",
+    "area_ft2_each": 250.0,
+    "w_per_ft2": 0.6,
+    "design_fc": 15.0,
+    "occupancy_from": "Room 1 lecture",
+    "tag": "Assumption"
+   },
+   {
+    "kind": "lobby",
+    "area_ft2_each": 4000.0,
+    "w_per_ft2": 1.0,
+    "design_fc": 20.0,
+    "occupancy_from": "Room 5 library",
+    "tag": "Assumption"
+   },
+   {
+    "kind": "garage",
+    "area_ft2_each": 30000.0,
+    "w_per_ft2": 0.15,
+    "design_fc": 5.0,
+    "occupancy_from": "Room 4 office",
+    "tag": "Assumption"
+   },
+   {
+    "kind": "restroom",
+    "area_ft2_each": 200.0,
+    "w_per_ft2": 0.6,
+    "design_fc": 15.0,
+    "occupancy_from": "Room 3 office",
+    "tag": "Assumption"
+   },
+   {
+    "kind": "amenity",
+    "area_ft2_each": 1500.0,
+    "w_per_ft2": 0.8,
+    "design_fc": 30.0,
+    "occupancy_from": "Room 2 lecture",
+    "tag": "Assumption"
+   }
+  ]
+ },
+ "weather": {
+  "source": "Open-Meteo archive (REANALYSIS), requested timezone=GMT then converted to America/Los_Angeles",
+  "latitude": 34.059753,
+  "longitude": -118.2375,
+  "elevation": 85.0,
+  "timezone": "GMT",
+  "utc_offset_seconds": 0,
+  "rows": 8760,
+  "first_local": "2024-12-31 16:00:00-08:00",
+  "last_local": "2025-12-31 15:00:00-08:00"
+ }
+}

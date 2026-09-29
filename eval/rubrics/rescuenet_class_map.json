@@ -1,0 +1,10 @@
+{
+  "note": "Written 2026-09-24 before any model output (D-007). The Hugging Face mirror USF-IAE/RescueNet_BDA labels each UAV scene Intact, Damaged or Collapsed (three levels, coarser than the four RescueNet building classes). Predicted FEMA PDA values are collapsed to these three levels for scoring. Inaccessible predictions count as unassessable, never as Intact.",
+  "map": {
+    "Intact": {"fema_group": ["Undamaged", "Affected"], "s": "S0"},
+    "Damaged": {"fema_group": ["Minor", "Major"], "s": "S2"},
+    "Collapsed": {"fema_group": ["Destroyed"], "s": "S4"}
+  },
+  "ordinal": {"Intact": 0, "Damaged": 1, "Collapsed": 2},
+  "predicted_to_class": {"Undamaged": "Intact", "Affected": "Intact", "Minor": "Damaged", "Major": "Damaged", "Destroyed": "Collapsed", "Inaccessible": null}
+}

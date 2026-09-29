@@ -1,0 +1,106 @@
+{
+ "created_utc": "2026-09-26T22:32:03Z",
+ "code_git_sha": "0a3fb76f733d00fe3dee9cfee58caf68315c5e16",
+ "sklearn_version": "1.9.1",
+ "data": {
+  "name": "LEAD1.0-small",
+  "label": "REAL (human anomaly labels)",
+  "url": "https://raw.githubusercontent.com/samy101/lead-dataset/main/data/lead1.0-small.zip",
+  "licence": "none stated (GitHub API licence null; Kaggle terms not verified): internal evaluation only",
+  "sha256": "b0e34c66c0c4ce780b7bb19b199d33e19210675f16be102a5ac32d6b22e39d8f",
+  "accessed": "2026-09-26",
+  "citation": "LEAD1.0 annotated energy-anomaly dataset, arXiv:2203.17256; data from github.com/samy101/lead-dataset",
+  "publication": "aggregate metrics only; the labelled series are not redistributed"
+ },
+ "split": {
+  "by": "building",
+  "seed": 0,
+  "n_test_buildings": 60,
+  "n_train_buildings": 140
+ },
+ "n_rows_test": 490417,
+ "n_anomalies_test": 10139,
+ "prevalence_test": 0.02067424253237551,
+ "chance_pr_auc": 0.02067424253237551,
+ "features": [
+  "y_n",
+  "lag1_n",
+  "lag24_n",
+  "lag168_n",
+  "resid_n",
+  "diff1_n",
+  "is_zero",
+  "hour",
+  "dow"
+ ],
+ "models": {
+  "robust_z": {
+   "roc_auc": 0.7776039557096095,
+   "pr_auc": 0.1779536728788137,
+   "pr_auc_ci95_building_bootstrap": [
+    0.13050130433793786,
+    0.3187675131167858
+   ],
+   "at_top_1pct": {
+    "budget_share": 0.01,
+    "n_flagged": 4905,
+    "precision": 0.309072375127421,
+    "recall": 0.1495216490778183
+   },
+   "fit_seconds": 0.0,
+   "at_threshold": {
+    "threshold": 5.0,
+    "unit": "1.4826 x MAD (sd-equivalents), same scale as electrical.baseline_anomalies",
+    "source": "K = cascade.building.rules ANOMALY_MAD_K (team-proposed, validate), applied to 1.4826 x MAD as in electrical.baseline_anomalies. Same K and scale; different baseline (trailing 4-week same-hour median and trailing 28-day MAD here, a fixed first-28-day hour-of-week median and pooled MAD there).",
+    "n_flagged": 20261,
+    "flag_share": 0.04131382068729265,
+    "precision": 0.2375993287596861,
+    "recall": 0.4748002761613571
+   },
+   "at_threshold_raw_mads": {
+    "threshold": 5.0,
+    "unit": "raw MADs (sensitivity only; NOT the building layer's scale)",
+    "source": "robust_z x 1.4826 >= K, i.e. K raw median absolute residuals (up to the 1e-6 guard term)",
+    "n_flagged": 33482,
+    "flag_share": 0.06827251094476741,
+    "precision": 0.16701511259781376,
+    "recall": 0.5515336818226649
+   }
+  },
+  "isolation_forest": {
+   "roc_auc": 0.7728561707140058,
+   "pr_auc": 0.15463747426380126,
+   "pr_auc_ci95_building_bootstrap": [
+    0.11535567264011576,
+    0.2183769570971152
+   ],
+   "at_top_1pct": {
+    "budget_share": 0.01,
+    "n_flagged": 4905,
+    "precision": 0.3215086646279307,
+    "recall": 0.15553802150113424
+   },
+   "fit_seconds": 19.8
+  },
+  "hgb_supervised": {
+   "roc_auc": 0.9131279075698523,
+   "pr_auc": 0.6300857593729505,
+   "pr_auc_ci95_building_bootstrap": [
+    0.5519445404843418,
+    0.6967736830109632
+   ],
+   "at_top_1pct": {
+    "budget_share": 0.01,
+    "n_flagged": 4905,
+    "precision": 0.8841997961264016,
+    "recall": 0.4277542163921491
+   },
+   "fit_seconds": 31.5
+  }
+ },
+ "notes": [
+  "robust_z needs no training and is the baseline",
+  "rows with a missing reading or label are dropped before scoring",
+  "top-1% budget threshold is taken on the held-out scores (an alert budget, not a tuned cut-off)"
+ ]
+}

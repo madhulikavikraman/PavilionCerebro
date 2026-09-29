@@ -1,0 +1,82 @@
+{
+ "name": "dev_gate02",
+ "n_images_in_run": 50,
+ "n_manifest": 50,
+ "gate": {
+  "n": 50,
+  "precision": 0.8108108108108109,
+  "precision_ci": [
+   0.6666666666666666,
+   0.9210526315789473
+  ],
+  "recall": 0.7894736842105263,
+  "recall_ci": [
+   0.6585365853658537,
+   0.9048701298701298
+  ],
+  "f1": 0.8,
+  "f1_ci": [
+   0.6857142857142857,
+   0.8864267676767678
+  ],
+  "routing_fraction": 0.74,
+  "unusable": 0,
+  "misses": [
+   "ir_test_00364",
+   "ir_test_02154",
+   "ir_test_02175",
+   "ir_test_00163",
+   "ir_test_02185",
+   "ir_test_01450",
+   "ir_test_01695",
+   "ir_test_00848"
+  ],
+  "per_dataset": {
+   "corrosion_cs": {
+    "n": 15,
+    "precision": 1.0,
+    "recall": 1.0,
+    "routed": 15
+   },
+   "dacl10k": {
+    "n": 15,
+    "precision": 0.7142857142857143,
+    "recall": 1.0,
+    "routed": 14
+   },
+   "ir_solar": {
+    "n": 12,
+    "precision": 0.0,
+    "recall": 0.0,
+    "routed": 0
+   },
+   "rescuenet": {
+    "n": 8,
+    "precision": 0.625,
+    "recall": 1.0,
+    "routed": 8
+   }
+  }
+ },
+ "grading": {
+  "steel_coating": {
+   "n_routed_with_truth": 15,
+   "u_rate": 1.0
+  },
+  "building_disaster": {
+   "n_routed_with_truth": 8,
+   "u_rate": 1.0
+  }
+ },
+ "ops": {
+  "gate": {
+   "calls": 50,
+   "median_seconds": 4.979,
+   "usd_total": 0.0,
+   "models": [
+    "qwen3-vl:4b-instruct"
+   ]
+  },
+  "usd_per_image": 0.0
+ }
+}

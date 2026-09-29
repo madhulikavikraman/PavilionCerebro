@@ -1,0 +1,1215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pavilion Cerebro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --paper:#EEF2F5; --paper-2:#E5EBF0; --panel:#FBFCFD; --panel-a:rgba(251,252,253,.95);
+    --ink:#13212E; --ink-2:#34475A; --muted:#5B6D7F; --line:#C8D2DB; --line-2:#DDE4EA; --depth:#BFCAD4;
+    --accent:#3346F0; --accent-deep:#1F2DB5; --accent-soft:#E1E5FF;
+    --hazard:#F2541B; --hazard-deep:#B83A0D; --hazard-soft:#FFE2D5;
+    --heal:#0E9F6E; --heal-deep:#08724F; --heal-soft:#D5F2E5; --amber:#C98200;
+    --display:'Big Shoulders Display','Arial Narrow','Roboto Condensed',Impact,sans-serif;
+    --body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --gutter:clamp(16px,5vw,72px);
+    --x1:1px 1px 0 var(--depth),2px 2px 0 var(--depth),3px 3px 0 var(--depth),4px 4px 0 var(--depth),5px 5px 0 var(--depth),6px 6px 0 var(--depth);
+    --x2:var(--x1),7px 7px 0 var(--depth),8px 8px 0 var(--depth),9px 9px 0 var(--depth),10px 10px 0 var(--depth),10px 12px 28px rgba(19,33,46,.10);
+    color-scheme:light;
+  }
+  *,*::before,*::after{box-sizing:border-box;border-radius:0 !important}
+  html{scroll-behavior:smooth;background:var(--paper)}
+  body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--body);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  h1,h2,h3{text-wrap:balance;margin:0}
+  p{margin:0}
+
+  /* ---------- fixed world layers ---------- */
+  #world{position:fixed;inset:0;width:100vw;height:100vh;display:block;z-index:0}
+  .leaders{position:fixed;inset:0;width:100vw;height:100vh;z-index:1;pointer-events:none;overflow:visible}
+  .leaders line{stroke-width:1}
+  .labels{position:fixed;inset:0;z-index:2;pointer-events:none}
+  .chip{position:absolute;left:0;top:0;display:flex;font:500 11px/1 var(--mono);background:var(--panel);border:1px solid var(--hazard);color:var(--ink);white-space:nowrap;box-shadow:3px 3px 0 var(--hazard-soft);cursor:pointer;opacity:0;will-change:transform,opacity;transition:border-color .25s,box-shadow .25s}
+  .chip b{background:var(--hazard);color:#fff;padding:5px 6px;font-weight:600;letter-spacing:.06em;transition:background .25s}
+  .chip span{padding:5px 7px}
+  .chip.working{border-color:var(--accent);box-shadow:3px 3px 0 var(--accent-soft)}
+  .chip.working b{background:var(--accent)}
+  .chip.fixed{border-color:var(--heal);box-shadow:3px 3px 0 var(--heal-soft)}
+  .chip.fixed b{background:var(--heal)}
+  .agent-tag{position:absolute;left:0;top:0;font:600 10.5px/1 var(--mono);letter-spacing:.08em;color:var(--accent-deep);background:var(--panel);border:1px solid var(--accent);padding:4px 6px;opacity:0;white-space:nowrap;box-shadow:2px 2px 0 var(--accent-soft)}
+  .name-tag{position:absolute;left:0;top:0;font:600 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--ink);background:var(--panel);border:1px solid var(--ink);padding:6px 9px;box-shadow:3px 3px 0 var(--accent);white-space:nowrap;opacity:0}
+  .name-tag em{font-style:normal;color:var(--accent)}
+
+  /* ---------- top bar ---------- */
+  .topbar{position:fixed;inset:0 0 auto 0;z-index:30;display:flex;align-items:center;gap:24px;height:calc(58px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) var(--gutter) 0;background:rgba(238,242,245,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .brand{display:flex;align-items:center;gap:11px;background:none;border:0;padding:0;color:var(--ink);cursor:pointer;font:inherit}
+  .brand-mark{width:24px;height:24px;border:2px solid var(--ink);position:relative;box-shadow:3px 3px 0 var(--accent);flex:none}
+  .brand-mark::after{content:"";position:absolute;inset:5px;background:var(--accent);transform:rotate(45deg)}
+  .brand-name{font:800 23px/1 var(--display);letter-spacing:.05em}
+  .brand-sub{font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-left:12px;border-left:1px solid var(--line)}
+  .nav{margin-left:auto;display:flex;gap:clamp(12px,1.8vw,26px)}
+  .nav button{font:500 11.5px/1 var(--mono);text-transform:uppercase;letter-spacing:.12em;color:var(--ink-2);background:none;border:0;border-bottom:2px solid transparent;padding:7px 0;cursor:pointer}
+  .nav button:hover{border-color:var(--accent);color:var(--ink)}
+
+  /* ---------- HUD ---------- */
+  .hud{position:fixed;z-index:20;right:clamp(16px,3vw,40px);top:calc(78px + env(safe-area-inset-top,0px));width:228px;padding:14px 16px 13px;background:var(--panel);border:1px solid var(--line);box-shadow:var(--x1);--state:var(--muted)}
+  .hud-label{font:500 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .hud-row{display:flex;align-items:baseline;gap:8px;margin:8px 0 10px}
+  .hud-num{font:800 54px/.86 var(--display);font-variant-numeric:tabular-nums;color:var(--ink);min-width:1.6em}
+  .hud-of{font:500 12px/1 var(--mono);color:var(--muted)}
+  .hud-state{margin-left:auto;font:600 10.5px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--state);padding:5px 7px}
+  .hud-bar{display:grid;grid-template-columns:repeat(20,1fr);gap:2px;height:9px}
+  .hud-bar i{background:var(--line-2)}
+  .hud-bar i.on{background:var(--state)}
+  .hud-foot{display:flex;justify-content:space-between;margin-top:10px;font:500 10.5px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .hud-foot strong{color:var(--ink);font-weight:600}
+
+  /* ---------- shared type ---------- */
+  .eyebrow{font:500 11.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:18px;height:2px;background:var(--accent)}
+  h1{font:900 clamp(48px,8.6vw,128px)/.84 var(--display);text-transform:uppercase;letter-spacing:-.005em;color:var(--ink);text-shadow:1px 1px 0 var(--depth),2px 2px 0 var(--depth),3px 3px 0 var(--depth),4px 4px 0 var(--depth)}
+  h1 .hl{color:var(--accent);text-shadow:1px 1px 0 #B9C0FF,2px 2px 0 #B9C0FF,3px 3px 0 #B9C0FF,4px 4px 0 #B9C0FF}
+  h2{font:800 clamp(38px,4.6vw,62px)/.9 var(--display);text-transform:uppercase;color:var(--ink);text-shadow:1px 1px 0 var(--depth),2px 2px 0 var(--depth),3px 3px 0 var(--depth)}
+  h3{font:800 22px/1.05 var(--display);text-transform:uppercase;letter-spacing:.02em}
+  .lede{font-size:clamp(16px,1.35vw,19px);line-height:1.55;color:var(--ink-2);max-width:34em}
+  .mono{font-family:var(--mono)}
+  .small{font-size:13px;color:var(--muted)}
+
+  /* ---------- 3D slabs & buttons ---------- */
+  .slab{background:var(--panel-a);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:1px solid var(--line);box-shadow:var(--x2);pointer-events:auto}
+  .btn{appearance:none;cursor:pointer;display:inline-flex;align-items:center;gap:10px;font:600 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;padding:15px 20px;border:1.5px solid var(--ink);background:var(--panel);color:var(--ink);box-shadow:1px 1px 0 var(--ink),2px 2px 0 var(--ink),3px 3px 0 var(--ink),4px 4px 0 var(--ink),5px 5px 0 var(--ink);transition:transform .15s,box-shadow .15s;pointer-events:auto}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:1px 1px 0 var(--ink),2px 2px 0 var(--ink),3px 3px 0 var(--ink),4px 4px 0 var(--ink),5px 5px 0 var(--ink),6px 6px 0 var(--ink),7px 7px 0 var(--ink)}
+  .btn:active{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink),2px 2px 0 var(--ink)}
+  .btn.primary{background:var(--accent);border-color:var(--accent-deep);color:#fff;box-shadow:1px 1px 0 var(--accent-deep),2px 2px 0 var(--accent-deep),3px 3px 0 var(--accent-deep),4px 4px 0 var(--accent-deep),5px 5px 0 var(--accent-deep)}
+  .btn.primary:hover{box-shadow:1px 1px 0 var(--accent-deep),2px 2px 0 var(--accent-deep),3px 3px 0 var(--accent-deep),4px 4px 0 var(--accent-deep),5px 5px 0 var(--accent-deep),6px 6px 0 var(--accent-deep),7px 7px 0 var(--accent-deep)}
+  .btn.primary:active{box-shadow:1px 1px 0 var(--accent-deep),2px 2px 0 var(--accent-deep)}
+
+  /* ---------- chapters ---------- */
+  main{position:relative;z-index:3;pointer-events:none}
+  .chapter{position:relative;padding-inline:var(--gutter)}
+  .hero{min-height:100svh;display:flex;align-items:center;padding-block:110px 70px}
+  .hero-inner{max-width:600px;display:grid;gap:26px;pointer-events:auto}
+  .ctas{display:flex;flex-wrap:wrap;gap:16px 18px;margin-top:4px}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;font:500 11.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  .hero-meta span{display:flex;align-items:center;gap:8px}
+  .hero-meta span::before{content:"";width:7px;height:7px;background:var(--accent);transform:rotate(45deg)}
+  .scroll-hint{position:absolute;left:var(--gutter);bottom:26px;font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}
+  .scroll-hint i{width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);animation:nudge 1.8s infinite}
+  @keyframes nudge{0%,100%{transform:translateY(-2px) rotate(45deg)}50%{transform:translateY(3px) rotate(45deg)}}
+
+  .tall{display:flex;flex-direction:column;justify-content:flex-start}
+  #scan{height:240vh} #swarm{height:400vh} #healthy{height:160vh}
+  .sticky{position:sticky;top:calc(118px + env(safe-area-inset-top,0px));width:min(440px,37vw);padding:26px 26px 24px;display:grid;gap:16px}
+  .sticky .lede{font-size:15.5px}
+
+  .issue{border:1px solid var(--line);background:var(--panel);display:grid}
+  .issue-head{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line-2)}
+  .issue-code{font:600 11px/1 var(--mono);letter-spacing:.08em;color:#fff;background:var(--hazard);padding:5px 7px}
+  .issue-name{font:800 19px/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+  .issue-body{display:grid;gap:9px;padding:11px 12px 13px}
+  .issue-body div{display:grid;grid-template-columns:88px minmax(0,1fr);gap:10px;font-size:13.5px;line-height:1.45}
+  .issue-body dt,.issue-k{font:500 10px/1.4 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .issue.empty .issue-body{color:var(--muted);font-size:13.5px;display:block}
+  .meter{display:flex;justify-content:space-between;align-items:center;font:500 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .meter strong{color:var(--ink);font-weight:600}
+  .pips{display:grid;grid-template-columns:repeat(11,1fr);gap:3px;height:8px;margin-top:-6px}
+  .pips i{background:var(--line-2)} .pips i.on{background:var(--hazard)} .pips i.ok{background:var(--heal)}
+
+  .feed{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+  .feed li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 10px;padding:10px 12px;border:1px solid var(--line);background:var(--panel);font-size:13px;line-height:1.4}
+  .feed .p{grid-row:span 2;font:600 10.5px/1 var(--mono);letter-spacing:.06em;color:#fff;background:var(--accent);padding:6px 6px;align-self:start}
+  .feed li.done .p{background:var(--heal)}
+  .feed .r{color:var(--ink-2)}
+  .feed .a{font:500 12px/1.4 var(--mono);color:var(--accent-deep)}
+  .feed li.done .a{color:var(--heal-deep)}
+  .feed-empty{font-size:13.5px;color:var(--muted);padding:10px 12px;border:1px dashed var(--line)}
+  .tag{display:inline-flex;align-self:start;justify-self:start;font:500 10px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:5px 7px;background:var(--panel)}
+  .stat-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+  .stat{border:1px solid var(--line);background:var(--panel);padding:12px}
+  .stat b{display:block;font:800 34px/.9 var(--display);color:var(--heal-deep);font-variant-numeric:tabular-nums}
+  .stat span{font:500 10px/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  /* ---------- business ---------- */
+  .divider{padding:14vh var(--gutter) 2vh;display:flex;align-items:center;gap:18px;font:500 11.5px/1 var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .divider::after{content:"";flex:1;height:1px;background:var(--line)}
+  .biz{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.4fr);gap:clamp(24px,4vw,64px);padding-block:12vh;min-height:110vh;align-items:start}
+  .bubble-col{position:sticky;top:calc(120px + env(safe-area-inset-top,0px));pointer-events:auto;max-width:400px}
+  .bubble{position:relative;background:var(--panel);border:1.5px solid var(--ink);padding:18px 20px 20px;box-shadow:1px 1px 0 var(--accent),2px 2px 0 var(--accent),3px 3px 0 var(--accent),4px 4px 0 var(--accent),5px 5px 0 var(--accent),6px 6px 0 var(--accent)}
+  .bubble::after{content:"";position:absolute;left:38px;bottom:-15px;width:22px;height:22px;background:var(--panel);border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink);transform:skewX(35deg) rotate(0deg);transform-origin:top left}
+  .bubble .who{font:600 10.5px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--accent-deep);margin-bottom:10px;display:block}
+  .bubble p{font:600 clamp(18px,1.6vw,22px)/1.35 var(--body);color:var(--ink)}
+  .panel{padding:clamp(22px,3vw,40px);display:grid;gap:22px}
+  .panel .lede{font-size:16px}
+
+  .table-wrap{overflow-x:auto;border:1px solid var(--line);background:var(--panel)}
+  .matrix{border-collapse:collapse;width:100%;min-width:720px;font-size:13px}
+  .matrix th,.matrix td{border-bottom:1px solid var(--line-2);padding:9px 6px;text-align:center}
+  .matrix thead th{font:600 10px/1.2 var(--mono);letter-spacing:.06em;color:var(--muted);text-transform:uppercase;vertical-align:bottom;background:var(--paper)}
+  .matrix th.row{text-align:left;padding-left:12px;font-weight:500;min-width:170px}
+  .matrix th.row b{display:block;font:600 13px/1.2 var(--body);color:var(--ink)}
+  .matrix th.row small{font:400 11.5px/1.3 var(--body);color:var(--muted)}
+  .matrix td.sep,.matrix th.sep{border-left:1px solid var(--line)}
+  .sq{display:inline-block;width:12px;height:12px;border:1.5px solid var(--line);vertical-align:middle}
+  .sq.full{background:var(--ink-2);border-color:var(--ink-2)}
+  .sq.part{background:linear-gradient(135deg,var(--ink-2) 50%,transparent 50%);border-color:var(--ink-2)}
+  .matrix tr.us{background:var(--accent-soft)}
+  .matrix tr.us th.row b{color:var(--accent-deep)}
+  .matrix tr.us .sq.full{background:var(--accent);border-color:var(--accent)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 18px;font:500 11px/1.4 var(--mono);color:var(--muted)}
+  .legend span{display:flex;align-items:center;gap:7px}
+
+  .facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .fact{border:1px solid var(--line);background:var(--panel);padding:14px 14px 12px;display:grid;gap:8px;align-content:start}
+  .fact b{font:800 30px/.95 var(--display);color:var(--ink);font-variant-numeric:tabular-nums}
+  .fact p{font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+  .fact cite{font:400 11px/1.3 var(--mono);color:var(--muted);font-style:normal}
+  .fact cite a{text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:2px}
+
+  .steps{display:grid;gap:12px;list-style:none;margin:0;padding:0}
+  .steps li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:14px;align-items:start;border:1px solid var(--line);background:var(--panel);padding:14px}
+  .steps .n{font:900 40px/.8 var(--display);color:var(--accent);text-shadow:1px 1px 0 #B9C0FF,2px 2px 0 #B9C0FF,3px 3px 0 #B9C0FF}
+  .steps h3{margin-bottom:5px}
+  .steps p{font-size:14px;line-height:1.5;color:var(--ink-2)}
+  .code{font:500 12.5px/1.6 var(--mono);background:var(--ink);color:#DCE3FF;padding:14px 16px;overflow-x:auto;white-space:pre;border:1px solid var(--ink);box-shadow:4px 4px 0 var(--accent)}
+  .code .k{color:#8FA0FF} .code .c{color:#7E8FA3}
+
+  .tiers{display:grid;gap:0;justify-items:center;padding-top:10px}
+  .tier{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:'k d v';align-items:center;gap:14px;padding:14px 16px;border:1px solid var(--ink);color:var(--ink);background:var(--panel);box-shadow:1px 1px 0 var(--depth),2px 2px 0 var(--depth),3px 3px 0 var(--depth),4px 4px 0 var(--depth),5px 5px 0 var(--depth),6px 6px 0 var(--depth);margin-top:-1px}
+  .tier.t1{width:100%;background:var(--panel)}
+  .tier.t2{width:80%;background:var(--accent-soft)}
+  .tier.t3{width:60%;background:var(--accent);color:#fff;border-color:var(--accent-deep);box-shadow:1px 1px 0 var(--accent-deep),2px 2px 0 var(--accent-deep),3px 3px 0 var(--accent-deep),4px 4px 0 var(--accent-deep),5px 5px 0 var(--accent-deep),6px 6px 0 var(--accent-deep)}
+  .tiers .tier:nth-child(1){order:3} .tiers .tier:nth-child(2){order:2} .tiers .tier:nth-child(3){order:1}
+  .tier .tk{grid-area:k;font:600 11px/1 var(--mono);letter-spacing:.14em}
+  .tier .tv{grid-area:v;font:800 30px/.9 var(--display);font-variant-numeric:tabular-nums;white-space:nowrap}
+  .tier .td{grid-area:d;font-size:12.5px;line-height:1.35;opacity:.85}
+
+  .bars{display:grid;gap:18px;padding:18px 18px 12px;border:1px solid var(--line);background:var(--panel)}
+  .bar-row{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr);gap:14px;align-items:center}
+  .bar-name{font-size:13px;line-height:1.3}
+  .bar-name small{display:block;font:400 11px/1.3 var(--mono);color:var(--muted)}
+  .track{position:relative;height:22px}
+  .b3{position:absolute;left:0;top:0;height:22px}
+  .b3::before{content:"";position:absolute;left:0;top:-6px;height:6px;width:100%;transform:skewX(-45deg);transform-origin:bottom left}
+  .b3::after{content:"";position:absolute;right:-6px;top:0;width:6px;height:100%;transform:skewY(-45deg);transform-origin:top left}
+  .b3.fc{background:repeating-linear-gradient(135deg,var(--accent-soft) 0 5px,#fff 5px 8px);border:1px solid #AEB7FF;width:var(--w)}
+  .b3.fc::before{background:#EEF0FF;border:1px solid #AEB7FF;border-bottom:0}
+  .b3.fc::after{background:#C7CDFF}
+  .b3.base{background:var(--accent);width:var(--w);min-width:3px}
+  .b3.base::before{background:#6C7BFF}
+  .b3.base::after{background:var(--accent-deep)}
+  .bar-val{position:absolute;top:3px;left:calc(var(--end) + 14px);font:500 11.5px/1.4 var(--mono);white-space:nowrap;color:var(--ink)}
+  .bar-val em{font-style:normal;color:var(--muted)}
+  .axis{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr);gap:14px}
+  .axis-t{position:relative;height:16px;border-top:1px solid var(--line);font:400 10.5px/1 var(--mono);color:var(--muted)}
+  .axis-t span{position:absolute;top:5px;transform:translateX(-50%)}
+  .axis-t span:first-child{transform:none}
+
+  .tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;perspective:900px}
+  .tile{border:1px solid var(--line);background:var(--panel);padding:16px 16px 15px;display:grid;gap:8px;align-content:start;box-shadow:var(--x1);transform-style:preserve-3d;transition:transform .2s ease-out,box-shadow .2s;will-change:transform}
+  .tile .code-t{font:600 10.5px/1 var(--mono);letter-spacing:.12em;color:var(--accent-deep);background:var(--accent-soft);justify-self:start;padding:5px 7px}
+  .tile h3{font-size:21px}
+  .tile p{font-size:13.5px;line-height:1.45;color:var(--ink-2)}
+
+  .val-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .val{padding:18px 18px 16px;border:1.5px solid var(--ink);background:var(--panel);display:grid;gap:8px;box-shadow:var(--x1)}
+  .val.big{background:var(--accent);border-color:var(--accent-deep);color:#fff;box-shadow:1px 1px 0 var(--accent-deep),2px 2px 0 var(--accent-deep),3px 3px 0 var(--accent-deep),4px 4px 0 var(--accent-deep),5px 5px 0 var(--accent-deep),6px 6px 0 var(--accent-deep)}
+  .val .vk{font:600 10.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+  .val .vv{font:900 clamp(40px,4.4vw,58px)/.85 var(--display);font-variant-numeric:tabular-nums}
+  .val p{font-size:13px;line-height:1.45;opacity:.9}
+  .val a{text-decoration:underline;text-underline-offset:2px}
+  .math{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:500 13px/1.3 var(--mono);padding:14px;border:1px dashed var(--ink-2);background:var(--panel)}
+  .math b{background:var(--ink);color:#fff;padding:5px 8px;font-weight:600}
+  .math i{font-style:normal;color:var(--muted)}
+  .comps{display:grid;gap:10px}
+  .comp{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr);gap:12px;padding:12px 14px;border:1px solid var(--line);background:var(--panel);font-size:13.5px;line-height:1.45}
+  .comp b{font:800 18px/1.1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+  .assume{font-size:12.5px;line-height:1.55;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+
+  footer.site{position:relative;z-index:3;margin-top:8vh;background:var(--panel);border-top:1px solid var(--line);padding:48px var(--gutter) 56px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:40px}
+  footer .brand-name{font-size:34px}
+  footer p{font-size:13.5px;color:var(--ink-2);max-width:36em;margin-top:12px}
+  .sources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 24px;font-size:12.5px;line-height:1.45;list-style:none;margin:10px 0 0;padding:0}
+  .sources a{color:var(--ink-2);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:2px}
+  .sources a:hover{color:var(--accent-deep)}
+
+  .no-webgl .hud,.no-webgl .labels,.no-webgl .leaders{display:none}
+
+  @media (max-width:980px){
+    .nav{display:none}
+    .brand-sub{display:none}
+  }
+  @media (max-width:860px){
+    .hud{left:16px;right:16px;width:auto;top:calc(66px + env(safe-area-inset-top,0px));display:grid;grid-template-columns:auto auto minmax(0,1fr);grid-template-rows:auto auto;align-items:center;column-gap:12px;row-gap:5px;padding:8px 12px}
+    .hud-label{grid-column:1;grid-row:1/3;max-width:62px;line-height:1.25}
+    .hud-row{grid-column:2;grid-row:1/3;margin:0}
+    .hud-num{font-size:34px}
+    .hud-of{display:none}
+    .hud-state{margin-left:6px}
+    .hud-bar{grid-column:3;grid-row:1}
+    .hud-foot{display:none}
+    .hud-bar{grid-row:1/3}
+    .hero{align-items:flex-start;padding-block:128px 40px}
+    .hero-inner{gap:16px}
+    .hero .lede{font-size:15px}
+    .hero-meta{display:none}
+    .ctas{gap:12px}
+    .ctas .btn{padding:12px 13px;font-size:11.5px}
+    .scroll-hint{display:none}
+    .tall{justify-content:flex-end;padding-bottom:14px}
+    .sticky{top:auto;bottom:12px;width:100%;max-height:44svh;overflow:auto;padding:16px;gap:10px}
+    .sticky .lede{display:none}
+    .sticky h2{font-size:30px}
+    .chip span{display:none}
+    .biz{grid-template-columns:1fr;padding-block:40svh 6vh;min-height:0}
+    .bubble-col{position:relative;top:0}
+    .facts,.tiles,.val-grid{grid-template-columns:1fr}
+    .bar-row,.axis{grid-template-columns:1fr}
+    .axis div:first-child{display:none}
+    .tier.t2{width:88%}.tier.t3{width:76%}
+    .tier{grid-template-columns:auto minmax(0,1fr);grid-template-areas:'k v' 'd d';gap:8px 12px}
+    .tier .tv{justify-self:end}
+    .comp{grid-template-columns:1fr}
+    footer.site{grid-template-columns:1fr}
+    .sources{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .scroll-hint i{animation:none}
+    .tile,.btn{transition:none}
+  }
+</style>
+</head>
+<body>
+
+
+<canvas id="world" aria-hidden="true"></canvas>
+<svg class="leaders" id="leaders" aria-hidden="true"></svg>
+<div class="labels" id="labels" aria-hidden="true"></div>
+
+<header class="topbar">
+  <button type="button" class="brand" data-jump="hero" aria-label="NOVI-INFRA, back to top">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">NOVI-INFRA</span>
+    <span class="brand-sub">Pavilion Cerebro</span>
+  </button>
+  <nav class="nav" aria-label="Sections">
+    <button type="button" data-jump="scan">Demo</button>
+    <button type="button" data-jump="gap">Gap</button>
+    <button type="button" data-jump="brain">Brain</button>
+    <button type="button" data-jump="market">Market</button>
+    <button type="button" data-jump="customers">Customers</button>
+    <button type="button" data-jump="valuation">Valuation</button>
+  </nav>
+</header>
+
+<aside class="hud" id="hud" aria-live="polite">
+  <div class="hud-label">Building health</div>
+  <div class="hud-row"><span class="hud-num" id="hudNum">—</span><span class="hud-of">/100</span><span class="hud-state" id="hudState">Unmonitored</span></div>
+  <div class="hud-bar" id="hudBar"></div>
+  <div class="hud-foot"><span>Agents <strong id="hudAgents">0/11</strong></span><span>Open <strong id="hudOpen">?</strong></span></div>
+</aside>
+
+<main>
+  <!-- ============ PAGE 1 · THE BUILDING ============ -->
+  <section class="chapter hero" id="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">NOVI-INFRA presents Pavilion Cerebro</p>
+      <h1>Every building needs a <span class="hl">brain.</span></h1>
+      <p class="lede">Pavilion Cerebro is a swarm of AI agents that watches a building's structure, wiring, power, water and air around the clock, and fixes problems before they turn into failures.</p>
+      <div class="ctas">
+        <button type="button" class="btn primary" data-jump="scan">Watch the swarm work</button>
+        <button type="button" class="btn" data-jump="market">See the market</button>
+      </div>
+      <div class="hero-meta"><span>11 building systems</span><span>1 brain</span><span>24/7 watch</span></div>
+    </div>
+    <div class="scroll-hint"><i></i>Scroll to scan the building</div>
+  </section>
+
+  <section class="chapter tall" id="scan">
+    <div class="sticky slab">
+      <p class="eyebrow">Scan · basement to roof</p>
+      <h2>11 systems. 11 ways to fail.</h2>
+      <p class="lede">Cerebro reads every system at once and finds what a yearly inspection would catch too late: a cracked column, a hot breaker, a leaking pipe, an overheating battery bank.</p>
+      <div class="issue empty" id="issue">
+        <div class="issue-head"><span class="issue-code">SCAN</span><span class="issue-name">Starting at ground level</span></div>
+        <div class="issue-body">The scan plane moves up the building. Each problem it finds appears as a tag you can hover.</div>
+      </div>
+      <div class="meter"><span>Found <strong id="foundN">0</strong> of 11</span><span>Health <strong id="scanHealth">—</strong></span></div>
+      <div class="pips" id="scanPips"></div>
+    </div>
+  </section>
+
+  <section class="chapter tall" id="swarm">
+    <div class="sticky slab">
+      <p class="eyebrow">Swarm · 11 agents deployed</p>
+      <h2>One brain splits into eleven agents.</h2>
+      <p class="lede">Each agent takes one system. The brain ranks every problem by risk × consequence, so the battery bank gets fixed before the hairline crack.</p>
+      <ol class="feed" id="feed"><li class="feed-empty">Agents are leaving the brain…</li></ol>
+      <span class="tag">Simulated demo feed</span>
+    </div>
+  </section>
+
+  <section class="chapter tall" id="healthy">
+    <div class="sticky slab">
+      <p class="eyebrow">Verified · all clear</p>
+      <h2>Building health: 98.</h2>
+      <p class="lede">Every fix is checked, logged and costed. The agents merge back into one brain and keep watching, day and night.</p>
+      <div class="stat-row">
+        <div class="stat"><b>11/11</b><span>Issues resolved</span></div>
+        <div class="stat"><b>0</b><span>Open alerts</span></div>
+        <div class="stat"><b>+60</b><span>Health points</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PAGE 2 · THE BUSINESS ============ -->
+  <div class="divider" id="business">The business</div>
+
+  <section class="chapter biz" id="gap">
+    <div class="bubble-col">
+      <div class="bubble"><span class="who">Pavilion Cerebro says</span><p>The market sells tools for pieces of a building. There is no brain for the whole thing. NOVI-INFRA is building that brain.</p></div>
+    </div>
+    <div class="panel slab">
+      <p class="eyebrow">The gap</p>
+      <h2>Today each system is watched by a different tool, or by nobody.</h2>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th class="row">Tools on the market today</th>
+              <th>STR</th><th>ENV</th><th>ELEC</th><th>WIRE</th><th>HVAC</th><th>H2O</th><th>FIRE</th><th>LIFT</th><th>AIR</th><th>PWR</th><th>CYBER</th>
+              <th class="sep">Fuses all</th><th>Acts itself</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th class="row"><b>Building automation (BMS)</b><small>e.g. Metasys, Desigo, Niagara</small></th>
+              <td></td><td></td><td></td><td></td><td><i class="sq full"></i></td><td></td><td><i class="sq part"></i></td><td></td><td><i class="sq part"></i></td><td><i class="sq full"></i></td><td></td><td class="sep"><i class="sq part"></i></td><td><i class="sq part"></i></td></tr>
+            <tr><th class="row"><b>Autonomous HVAC AI</b><small>e.g. BrainBox AI</small></th>
+              <td></td><td></td><td></td><td></td><td><i class="sq full"></i></td><td></td><td></td><td></td><td></td><td><i class="sq full"></i></td><td></td><td class="sep"></td><td><i class="sq full"></i></td></tr>
+            <tr><th class="row"><b>Structural sensors</b><small>e.g. Sisgeo, Campbell Scientific</small></th>
+              <td><i class="sq full"></i></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="sep"></td><td></td></tr>
+            <tr><th class="row"><b>Drone inspection</b><small>e.g. Hammer Missions, Optelos</small></th>
+              <td><i class="sq part"></i></td><td><i class="sq full"></i></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="sep"></td><td></td></tr>
+            <tr><th class="row"><b>Electrical monitoring</b><small>e.g. Eaton Exertherm, Ting</small></th>
+              <td></td><td></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="sep"></td><td></td></tr>
+            <tr><th class="row"><b>Leak detection</b><small>Flow meters, shutoff valves</small></th>
+              <td></td><td></td><td></td><td></td><td></td><td><i class="sq full"></i></td><td></td><td></td><td></td><td></td><td></td><td class="sep"></td><td><i class="sq part"></i></td></tr>
+            <tr><th class="row"><b>Elevator IoT</b><small>e.g. KONE 24/7, Otis ONE</small></th>
+              <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><i class="sq full"></i></td><td></td><td></td><td></td><td class="sep"></td><td></td></tr>
+            <tr class="us"><th class="row"><b>Pavilion Cerebro</b><small>One swarm, one coordinator</small></th>
+              <td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td><i class="sq full"></i></td><td class="sep"><i class="sq full"></i></td><td><i class="sq full"></i></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="legend"><span><i class="sq full"></i>Covers</span><span><i class="sq part"></i>Partly</span><span><i class="sq"></i>No</span><span>Cerebro row shows platform scope: every agent plugs into the same coordinator.</span></div>
+      <div class="facts">
+        <div class="fact"><b>~10%</b><p>of US commercial buildings run any building automation at all. Most small and mid-size buildings have none.</p><cite>PNNL, <a href="https://www.pnnl.gov/main/publications/external/technical_reports/pnnl-22169.pdf" target="_blank" rel="noopener">SMB monitoring study</a></cite></div>
+        <div class="fact"><b>39,000</b><p>US fires a year start with electrical faults: about 31,600 in homes and 7,400 in commercial buildings.</p><cite>NFPA via <a href="https://www.fm.com/boiler-re/Insights/Understanding-electrical-fires" target="_blank" rel="noopener">FM</a></cite></div>
+        <div class="fact"><b>30 yrs</b><p>Florida condos of 3+ stories now need a structural milestone inspection at 30 years, then every 10.</p><cite><a href="https://condos.myfloridalicense.com/inspections/" target="_blank" rel="noopener">Florida DBPR</a></cite></div>
+        <div class="fact"><b>12 mo</b><p>NFPA 70B (2023) requires every piece of electrical equipment to be inspected at least once a year.</p><cite><a href="https://www.tuvsud.com/en-us/resource-centre/blogs/risk-engineering/nfpa-70b-2023-new-standard-for-electrical-equipment-and-infrared-testing" target="_blank" rel="noopener">TÜV SÜD on NFPA 70B</a></cite></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter biz" id="brain">
+    <div class="bubble-col">
+      <div class="bubble"><span class="who">Pavilion Cerebro says</span><p>Eleven agents report to me. I decide what gets fixed first, and I check that it stays fixed.</p></div>
+    </div>
+    <div class="panel slab">
+      <p class="eyebrow">How it works</p>
+      <h2>Pavilion Cerebro is the brain.</h2>
+      <p class="lede">Agents are the senses. The coordinator is the brain. Every agent speaks the same language, so adding a new building system means adding one more agent, not rebuilding the platform.</p>
+      <ol class="steps">
+        <li><span class="n">1</span><div><h3>Sense</h3><p>Each agent watches one system: sensor feeds, BMS points, camera and drone images, inspection records.</p></div></li>
+        <li><span class="n">2</span><div><h3>Think</h3><p>The coordinator fuses every report into one building risk picture and ranks it by risk × consequence × time.</p></div></li>
+        <li><span class="n">3</span><div><h3>Act</h3><p>Past a threshold it acts: isolates a circuit, closes a valve, throttles a battery, pages the right person.</p></div></li>
+        <li><span class="n">4</span><div><h3>Heal</h3><p>It confirms the fix held, logs the cost and updates the building's health score.</p></div></li>
+      </ol>
+      <div class="code"><span class="c"># one report format for every agent</span>
+<span class="k">report</span> = {
+  agent_id, subsystem,
+  risk_score: <span class="k">0.0–1.0</span>, confidence,
+  evidence, timestamp
+}</div>
+    </div>
+  </section>
+
+  <section class="chapter biz" id="market">
+    <div class="bubble-col">
+      <div class="bubble"><span class="who">Pavilion Cerebro says</span><p>Owners already spend billions making buildings smarter. I give that spend one brain.</p></div>
+    </div>
+    <div class="panel slab">
+      <p class="eyebrow">Market</p>
+      <h2>A $121.6B market growing 9% a year.</h2>
+      <div class="tiers" aria-label="Market tiers">
+        <div class="tier t1"><span class="tk">TAM</span><span class="td">Global smart building market, 2026. Forecast $204.4B by 2032.</span><span class="tv">$121.6B</span></div>
+        <div class="tier t2"><span class="tk">SAM</span><span class="td">~590,000 US commercial buildings that already run automation × $12,000 a year</span><span class="tv">$7.1B/yr</span></div>
+        <div class="tier t3"><span class="tk">SOM</span><span class="td">3,000 buildings by Year 5 (0.5% of SAM)</span><span class="tv">$36M ARR</span></div>
+      </div>
+      <p class="small">Tiers are stacked for reading, not drawn to scale.</p>
+      <h3>Where the spend is, $ billions</h3>
+      <div class="bars" role="img" aria-label="Market sizes: smart buildings 121.6 to 204.4 billion; predictive maintenance 13.9 to 23.8; facility management software 3.8 to 9.6; structural health monitoring 2.5 to 4.1">
+        <div class="bar-row"><div class="bar-name">Smart buildings<small>2026 → 2032 · 9.0%/yr</small></div><div class="track"><div class="b3 fc" style="--w:97.33%"></div><div class="b3 base" style="--w:57.90%"></div><span class="bar-val" style="--end:57.9%">$121.6B <em>→ $204.4B</em></span></div></div>
+        <div class="bar-row"><div class="bar-name">Predictive maintenance<small>2026 → 2031 · 11.4%/yr</small></div><div class="track"><div class="b3 fc" style="--w:11.33%"></div><div class="b3 base" style="--w:6.62%"></div><span class="bar-val" style="--end:11.33%">$13.9B <em>→ $23.8B</em></span></div></div>
+        <div class="bar-row"><div class="bar-name">Facility mgmt software<small>2024 → 2033 · 11.1%/yr</small></div><div class="track"><div class="b3 fc" style="--w:4.57%"></div><div class="b3 base" style="--w:1.81%"></div><span class="bar-val" style="--end:4.57%">$3.8B <em>→ $9.6B</em></span></div></div>
+        <div class="bar-row"><div class="bar-name">Structural health monitoring<small>2024 → 2029 · 10.4%/yr</small></div><div class="track"><div class="b3 fc" style="--w:1.95%"></div><div class="b3 base" style="--w:1.19%"></div><span class="bar-val" style="--end:1.95%">$2.5B <em>→ $4.1B</em></span></div></div>
+        <div class="axis"><div></div><div class="axis-t"><span style="left:0">0</span><span style="left:23.81%">50</span><span style="left:47.62%">100</span><span style="left:71.43%">150</span><span style="left:95.24%">200</span></div></div>
+      </div>
+      <div class="legend"><span><i class="sq full" style="background:var(--accent);border-color:var(--accent)"></i>Base year</span><span><i class="sq" style="background:var(--accent-soft);border-color:#AEB7FF"></i>Forecast</span><span>Sources: MarketsandMarkets, Grand View Research, EIA CBECS, PNNL</span></div>
+    </div>
+  </section>
+
+  <section class="chapter biz" id="customers">
+    <div class="bubble-col">
+      <div class="bubble"><span class="who">Pavilion Cerebro says</span><p>If you own, run, insure or certify a building, I work for you.</p></div>
+    </div>
+    <div class="panel slab">
+      <p class="eyebrow">Customers</p>
+      <h2>Who pays for a building brain.</h2>
+      <div class="tiles">
+        <div class="tile"><span class="code-t">CRE</span><h3>Real estate owners &amp; REITs</h3><p>Protect asset value and cut emergency repair spend across a whole portfolio.</p></div>
+        <div class="tile"><span class="code-t">FM</span><h3>Facility management firms</h3><p>Run more sites with the same team. Every alert arrives ranked and explained.</p></div>
+        <div class="tile"><span class="code-t">HOA</span><h3>Condo associations</h3><p>Florida milestone inspections and reserve studies need condition and repair-cost data on a schedule.</p></div>
+        <div class="tile"><span class="code-t">HOSP</span><h3>Hospitals</h3><p>Downtime, fire risk and water safety are patient-safety problems.</p></div>
+        <div class="tile"><span class="code-t">DC</span><h3>Data centers</h3><p>Battery rooms and switchgear carry the fire risk, and NFPA 70B wants proof of maintenance.</p></div>
+        <div class="tile"><span class="code-t">EDU</span><h3>Universities &amp; campuses</h3><p>Hundreds of aging buildings and one facilities team.</p></div>
+        <div class="tile"><span class="code-t">GOV</span><h3>Public buildings</h3><p>Schools, transit and civic buildings carrying deferred maintenance.</p></div>
+        <div class="tile"><span class="code-t">INS</span><h3>Insurers</h3><p>Fewer claims. State Farm already gives customers electrical-fire sensors for free.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter biz" id="valuation">
+    <div class="bubble-col">
+      <div class="bubble"><span class="who">Pavilion Cerebro says</span><p>Here is what I'm worth today, and the math for Year 5.</p></div>
+    </div>
+    <div class="panel slab">
+      <p class="eyebrow">Valuation · estimate</p>
+      <h2>Estimated valuation</h2>
+      <div class="val-grid">
+        <div class="val"><span class="vk">Today · pre-seed</span><span class="vv">$12M</span><p>Post-money target, inside the $10M–$15M median SAFE caps for 2025 pre-seed rounds (<a href="https://carta.com/data/state-of-pre-seed-2025/" target="_blank" rel="noopener">Carta</a>).</p></div>
+        <div class="val big"><span class="vk">Year 5 · target</span><span class="vv">$162M–$292M</span><p>$36M ARR at 4.5–8.1× revenue, the private SaaS median to top-quartile range (<a href="https://aventis-advisors.com/saas-valuation-multiples/" target="_blank" rel="noopener">Aventis Advisors</a>).</p></div>
+      </div>
+      <div class="math"><b>3,000</b><i>buildings ×</i><b>$12,000</b><i>/ yr =</i><b>$36M ARR</b><i>× 4.5–8.1 =</i><b>$162M–$292M</b></div>
+      <div class="comps">
+        <div class="comp"><b>BrainBox AI</b><span>Autonomous HVAC AI in 14,000+ buildings. Acquired by Trane in 2025 after raising about $82M. Price not disclosed.</span></div>
+        <div class="comp"><b>PassiveLogic</b><span>Autonomous building platform. Raised a $74M Series C in September 2025, over $125M in total, with Johnson Controls investing.</span></div>
+      </div>
+      <p class="assume">Assumptions: $1,000 per building per month; 3,000 buildings by Year 5 (0.5% of the ~590,000 automation-ready US buildings); multiples from private SaaS deals 2015–2026. An internal estimate for discussion, not financial advice.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div>
+    <span class="brand-name">NOVI-INFRA</span>
+    <p>Pavilion Cerebro is NOVI-INFRA's flagship product: a swarm of AI agents with one brain for building health. Demo readings on this page are simulated. Market figures come from the sources listed.</p>
+  </div>
+  <div>
+    <p class="eyebrow">Sources</p>
+    <ul class="sources">
+      <li><a href="https://www.marketsandmarkets.com/Market-Reports/smart-building-market-1169.html" target="_blank" rel="noopener">MarketsandMarkets · Smart buildings</a></li>
+      <li><a href="https://www.marketsandmarkets.com/Market-Reports/operational-predictive-maintenance-market-8656856.html" target="_blank" rel="noopener">MarketsandMarkets · Predictive maintenance</a></li>
+      <li><a href="https://www.marketsandmarkets.com/Market-Reports/structural-health-monitoring-market-101431220.html" target="_blank" rel="noopener">MarketsandMarkets · Structural health monitoring</a></li>
+      <li><a href="https://www.grandviewresearch.com/industry-analysis/facility-management-software-market-report" target="_blank" rel="noopener">Grand View Research · FM software</a></li>
+      <li><a href="https://www.eia.gov/todayinenergy/detail.php?id=46118" target="_blank" rel="noopener">EIA · 5.9M US commercial buildings (CBECS 2018)</a></li>
+      <li><a href="https://www.pnnl.gov/main/publications/external/technical_reports/pnnl-22169.pdf" target="_blank" rel="noopener">PNNL · Building automation adoption</a></li>
+      <li><a href="https://carta.com/data/state-of-pre-seed-2025/" target="_blank" rel="noopener">Carta · State of Pre-Seed 2025</a></li>
+      <li><a href="https://aventis-advisors.com/saas-valuation-multiples/" target="_blank" rel="noopener">Aventis Advisors · SaaS multiples</a></li>
+      <li><a href="https://thelogic.co/news/brainbox-ai-sale-trane-tech/" target="_blank" rel="noopener">The Logic · BrainBox AI sale</a></li>
+      <li><a href="https://www.prnewswire.com/news-releases/rewiring-autonomy-passivelogic-raises-74-million-to-scale-physical-ai-in-the-real-world-302559872.html" target="_blank" rel="noopener">PR Newswire · PassiveLogic Series C</a></li>
+      <li><a href="https://newsroom.statefarm.com/state-farm-ting-electrical-fire/" target="_blank" rel="noopener">State Farm · Free Ting sensors</a></li>
+      <li><a href="https://www.fm.com/boiler-re/Insights/Understanding-electrical-fires" target="_blank" rel="noopener">FM · Electrical fire statistics</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script type="module">
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+
+/* ================= helpers ================= */
+const clamp01 = x => Math.max(0, Math.min(1, x));
+const lerp = (a, b, t) => a + (b - a) * t;
+const smooth = (e0, e1, x) => { const t = clamp01((x - e0) / (e1 - e0)); return t * t * (3 - 2 * t); };
+const easeIO = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+const C = {
+  paper: 0xEEF2F5, ground: 0xE7ECF1, accent: 0x3346F0, accentLite: 0x6C7BFF,
+  hazard: 0xF2541B, heal: 0x0E9F6E, ink: 0x1B2A38, eye: 0x7CF3D0
+};
+
+/* ================= story data (priority order = repair order) ================= */
+const SYS = [
+  { code:'PWR',  name:'Energy & batteries', chip:'Battery bank B-01', pos:[3.7,1.35,3.05], sev:9,
+    wrong:'Energy waste, demand peaks, battery and solar faults, EV charging load',
+    measure:'Whole-building and circuit energy, battery temperature and state of health',
+    sensors:'Smart meters, submeters, battery management data',
+    reading:'Cell temperature 58 °C and rising', action:'Charge rate throttled to 50%. Facilities paged.' },
+  { code:'ELEC', name:'Panels & switchgear', chip:'Switchgear SG-2', pos:[2.05,1.55,-3.1], sev:8,
+    wrong:'Loose or corroded connections heating up, overloads, poor power quality',
+    measure:'Heat at connections, current on each circuit, voltage sags and harmonics',
+    sensors:'Permanent heat sensors, power-quality meters, smart breakers, clamp-on current sensors',
+    reading:'Bus joint 34 °C above ambient', action:'Load shifted to feeder B. Thermography ticket opened.' },
+  { code:'WIRE', name:'Wiring in walls', chip:'Circuit 3-14', pos:[2.4,5.8,-3.8], sev:7,
+    wrong:'Aging insulation, old aluminum or knob-and-tube wiring, arcing',
+    measure:'Arcing noise and local hot spots',
+    sensors:'Arc-fault breakers, high-frequency voltage sensing, cable reflectometry',
+    reading:'Arc signature on circuit 3-14', action:'Circuit isolated. Electrician dispatched.' },
+  { code:'FIRE', name:'Fire & life safety', chip:'Sprinkler riser L5', pos:[2.0,9.15,1.0], sev:7,
+    wrong:'Sprinkler pressure loss, closed valves, faulty detectors',
+    measure:'Riser pressure, valve tamper alarms, fire-panel trouble signals',
+    sensors:'Pressure transducers, tamper switches, connected fire panels',
+    reading:'Riser pressure 310 kPa, below setpoint', action:'Control valve reopened. Pressure restored.' },
+  { code:'STR',  name:'Structure & materials', chip:'Column C-2', pos:[4.75,4.3,3.95], sev:6,
+    wrong:'Concrete cracks, rebar rusting, steel fatigue, wood rot, settling',
+    measure:'Crack width and growth, strain, vibration shifts, tilt, rust risk in concrete',
+    sensors:'Crack meters, strain and fiber-optic sensors, accelerometers, drone vision, UPV',
+    reading:'Crack 0.4 mm wide on column C-2, growing', action:'Zone flagged for inspection. Floor load restricted.' },
+  { code:'LIFT', name:'Elevators', chip:'Elevator E-1', pos:[-1.6,6.05,-0.85], sev:5,
+    wrong:'Door faults, motor and brake wear',
+    measure:'Door cycles, speed, vibration',
+    sensors:'Manufacturer IoT kits on the controller and car',
+    reading:'Car E-1 stopped between L3 and L4', action:'Car recalled to L3. Doors released.' },
+  { code:'HVAC', name:'HVAC & mechanical', chip:'Chiller CH-1', pos:[2.4,12.4,-1.6], sev:5,
+    wrong:'Stuck dampers, drifting sensors, heating and cooling at once, refrigerant leaks, worn bearings',
+    measure:'BMS points against expected behavior, vibration, motor current',
+    sensors:'Fault-detection analytics on BMS data, vibration and motor-current sensors',
+    reading:'Chiller CH-1 efficiency down 18%', action:'Switched to backup loop. Coil cleaning booked.' },
+  { code:'H2O',  name:'Plumbing & water', chip:'Pipe leak L2', pos:[2.4,4.65,-3.45], sev:4,
+    wrong:'Leaks, pipe corrosion, freezing, Legionella',
+    measure:'Unusual flow, water on floors, hot water temperature, disinfectant level, pH',
+    sensors:'Leak sensors with automatic shutoff valves, flow meters',
+    reading:'Unplanned flow of 2.1 L/min on L2 branch', action:'Shutoff valve closed. Plumber dispatched.' },
+  { code:'ENV',  name:'Envelope', chip:'Façade F-4', pos:[-3.6,7.4,4.3], sev:3,
+    wrong:'Water getting in, façade layers coming loose, failed sealant',
+    measure:'Moisture inside roof and wall layers, heat anomalies',
+    sensors:'Roof and wall moisture sensors, thermal drones',
+    reading:'Moisture behind façade panel F-4', action:'Sealant repair ordered before the next rain.' },
+  { code:'AIR',  name:'Indoor air', chip:'Air quality L4', pos:[3.2,7.3,0.6], sev:3,
+    wrong:'Poor ventilation, mold',
+    measure:'CO₂, PM2.5, VOCs, humidity, radon',
+    sensors:'Indoor air-quality sensors in every zone',
+    reading:'CO₂ at 1,850 ppm on L4', action:'Ventilation raised to 100% outside air.' },
+  { code:'CYBER',name:'Cyber', chip:'BMS controller', pos:[-3.9,3.05,-2.55], sev:3,
+    wrong:'BMS controllers exposed to the internet, protocols with no login',
+    measure:'Network traffic to building controllers',
+    sensors:'Network separation, BACnet Secure Connect, traffic monitoring',
+    reading:'Controller reachable from outside on port 47808', action:'External traffic blocked. Controller isolated.' }
+];
+const N = SYS.length;
+
+/* ================= DOM refs ================= */
+const $ = s => document.querySelector(s);
+const hudNum = $('#hudNum'), hudState = $('#hudState'), hudBar = $('#hudBar'), hudAgents = $('#hudAgents'), hudOpen = $('#hudOpen'), hud = $('#hud');
+for (let i = 0; i < 20; i++) hudBar.appendChild(document.createElement('i'));
+const scanPips = $('#scanPips'); for (let i = 0; i < N; i++) scanPips.appendChild(document.createElement('i'));
+const labelsEl = $('#labels'), leadersEl = $('#leaders');
+const issueEl = $('#issue'), foundEl = $('#foundN'), scanHealthEl = $('#scanHealth'), feedEl = $('#feed');
+
+let hoverIdx = -1, hoverUntil = 0;
+const chips = SYS.map((s, i) => {
+  const el = document.createElement('div');
+  el.className = 'chip';
+  el.innerHTML = `<b>${s.code}</b><span>${s.chip}</span>`;
+  el.addEventListener('pointerenter', () => { hoverIdx = i; hoverUntil = performance.now() + 6000; });
+  el.addEventListener('click', () => { hoverIdx = i; hoverUntil = performance.now() + 6000; });
+  labelsEl.appendChild(el);
+  const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+  leadersEl.appendChild(ln);
+  return { el, ln, w: 0, h: 0, x: 0, y: 0, vis: 0 };
+});
+const tags = SYS.map(s => { const el = document.createElement('div'); el.className = 'agent-tag'; el.textContent = s.code; labelsEl.appendChild(el); return el; });
+const nameTag = document.createElement('div'); nameTag.className = 'name-tag'; nameTag.innerHTML = 'Pavilion Cerebro <em>· the brain</em>'; labelsEl.appendChild(nameTag);
+let nameW = 0;
+function measureChips() { chips.forEach(c => { c.w = c.el.offsetWidth; c.h = c.el.offsetHeight; }); nameW = nameTag.offsetWidth; }
+
+/* ================= in-page jumps (no URL navigation) ================= */
+document.querySelectorAll('[data-jump]').forEach(btn => btn.addEventListener('click', e => {
+  e.preventDefault();
+  const el = document.getElementById(btn.dataset.jump); if (!el) return;
+  const y = btn.dataset.jump === 'hero' ? 0 : el.getBoundingClientRect().top + window.scrollY - 70;
+  window.scrollTo({ top: Math.max(0, y), behavior: RM ? 'auto' : 'smooth' });
+}));
+
+/* ================= tile tilt (3D) ================= */
+if (!RM) document.querySelectorAll('.tile').forEach(t => {
+  t.addEventListener('pointermove', e => {
+    const r = t.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+    t.style.transform = `rotateX(${(-y * 8).toFixed(2)}deg) rotateY(${(x * 10).toFixed(2)}deg) translateZ(6px)`;
+  });
+  t.addEventListener('pointerleave', () => { t.style.transform = ''; });
+});
+
+/* ================= renderer ================= */
+const canvas = $('#world');
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: 'high-performance' });
+} catch (e) { document.documentElement.classList.add('no-webgl'); }
+
+if (renderer) {
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(C.paper);
+scene.fog = new THREE.Fog(C.paper, 55, 130);
+const camera = new THREE.PerspectiveCamera(32, innerWidth / innerHeight, 0.1, 400);
+
+scene.add(new THREE.HemisphereLight(0xffffff, 0xd6dee6, 1.35));
+const sun = new THREE.DirectionalLight(0xffffff, 1.55);
+sun.position.set(16, 28, 14); sun.castShadow = true;
+sun.shadow.mapSize.set(2048, 2048);
+Object.assign(sun.shadow.camera, { left: -22, right: 22, top: 22, bottom: -22, near: 1, far: 90 });
+sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.03;
+scene.add(sun);
+const fill = new THREE.DirectionalLight(0xdfe6ff, 0.45); fill.position.set(-18, 10, -6); scene.add(fill);
+
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(500, 500), new THREE.MeshStandardMaterial({ color: C.ground, roughness: 1 }));
+ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+const grid = new THREE.GridHelper(160, 80, 0xC3CDD7, 0xD6DEE5); grid.position.y = 0.012;
+grid.material.transparent = true; grid.material.opacity = 0.9; scene.add(grid);
+
+/* ---------- materials ---------- */
+const std = (color, o = {}) => new THREE.MeshStandardMaterial(Object.assign({ color, roughness: 0.85 }, o));
+const M = {
+  plinth: std(0xDDE4EA), slab: std(0xF1F4F7), column: std(0xF6F8FA, { roughness: .8 }), concrete: std(0xF3F5F7),
+  glass: new THREE.MeshStandardMaterial({ color: 0xC9DEEC, roughness: .1, metalness: .1, transparent: true, opacity: .2, depthWrite: false, side: THREE.DoubleSide }),
+  window: std(0xA9C2D5, { roughness: .2, metalness: .2 }), mullion: std(0xB4C3D0, { roughness: .6 }),
+  metal: std(0xD2DAE2, { roughness: .45, metalness: .25 }), dark: std(0x273645, { roughness: .5 }),
+  solar: std(0x3A5A80, { roughness: .3, metalness: .35 }), pipeW: std(0x8DB5D8, { roughness: .45 }),
+  car: std(0xE9EEF3, { roughness: .5 }), edge: new THREE.LineBasicMaterial({ color: 0x8595A5, transparent: true, opacity: .45 })
+};
+const world = new THREE.Group(); scene.add(world);
+function box(w, h, d, mat, x, y, z, parent = world, cast = true) {
+  const m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+  m.position.set(x, y, z); m.castShadow = cast; m.receiveShadow = true; parent.add(m); return m;
+}
+function edges(mesh, mat = M.edge) { const e = new THREE.LineSegments(new THREE.EdgesGeometry(mesh.geometry), mat); mesh.add(e); return e; }
+
+/* ---------- building ---------- */
+const B = { W: 10, D: 8, FL: 7, FH: 1.5, base: 0.4 };
+const L = n => B.base + n * B.FH;
+const TOP = L(B.FL);
+const SH = { x: -1.6, z: -1.9, w: 2, d: 2 };
+
+box(13.6, 0.3, 11.6, M.plinth, 0, 0.15, 0, world, false);
+{ // slabs with shaft hole
+  const s = new THREE.Shape(); s.moveTo(-B.W / 2, -B.D / 2); s.lineTo(B.W / 2, -B.D / 2); s.lineTo(B.W / 2, B.D / 2); s.lineTo(-B.W / 2, B.D / 2); s.lineTo(-B.W / 2, -B.D / 2);
+  const h = new THREE.Path(); const hx0 = SH.x - SH.w / 2, hx1 = SH.x + SH.w / 2, hy0 = -(SH.z + SH.d / 2), hy1 = -(SH.z - SH.d / 2);
+  h.moveTo(hx0, hy0); h.lineTo(hx0, hy1); h.lineTo(hx1, hy1); h.lineTo(hx1, hy0); h.lineTo(hx0, hy0); s.holes.push(h);
+  const g = new THREE.ExtrudeGeometry(s, { depth: 0.2, bevelEnabled: false });
+  for (let n = 0; n <= B.FL; n++) {
+    const m = new THREE.Mesh(g, M.slab); m.rotation.x = -Math.PI / 2; m.position.y = L(n) - 0.1;
+    m.castShadow = true; m.receiveShadow = true; world.add(m); edges(m);
+  }
+}
+// columns
+const colXs = [-4.75, -1.6, 1.6, 4.75], colZs = [-3.75, 0, 3.75];
+const colGeo = new THREE.BoxGeometry(0.34, B.FH - 0.2, 0.34);
+const colInst = new THREE.InstancedMesh(colGeo, M.column, colXs.length * colZs.length * B.FL);
+colInst.castShadow = true; colInst.receiveShadow = true;
+{ let k = 0; const mtx = new THREE.Matrix4();
+  for (let n = 0; n < B.FL; n++) for (const x of colXs) for (const z of colZs) {
+    if (n === 2 && x === 4.75 && z === 3.75) { mtx.makeScale(0.0001, 0.0001, 0.0001); }
+    else mtx.makeTranslation(x, L(n) + B.FH / 2, z);
+    colInst.setMatrixAt(k++, mtx);
+  }
+  colInst.count = k; world.add(colInst); }
+const strMat = M.column.clone();
+const strCol = box(0.34, B.FH - 0.2, 0.34, strMat, 4.75, L(2) + B.FH / 2, 3.75);
+
+// curtain walls (back + left) with mullions
+const wallH = TOP - L(0), wallY = (TOP + L(0)) / 2;
+{ const back = new THREE.Mesh(new THREE.PlaneGeometry(B.W, wallH), M.glass); back.position.set(0, wallY, -3.98); world.add(back);
+  const left = new THREE.Mesh(new THREE.PlaneGeometry(B.D, wallH), M.glass); left.rotation.y = Math.PI / 2; left.position.set(-4.98, wallY, 0); world.add(left);
+  for (let k = 0; k <= 8; k++) box(0.06, wallH, 0.06, M.mullion, -5 + k * 1.25, wallY, -3.98, world, false);
+  for (let k = 0; k <= 6; k++) box(0.06, wallH, 0.06, M.mullion, -4.98, wallY, -4 + k * (8 / 6), world, false); }
+// front façade strip (left) with windows
+const facade = box(2.8, 6.2, 0.18, M.concrete, -3.6, 6.4, 4.09); edges(facade);
+for (let n = 2; n <= 5; n++) for (const x of [-4.3, -2.9]) box(0.8, 0.75, 0.04, M.window, x, L(n) + 0.8, 4.19, world, false);
+
+// elevator shaft + car
+const shaftH = TOP + 1.3 - L(0);
+const shaft = new THREE.Mesh(new THREE.BoxGeometry(SH.w, shaftH, SH.d), new THREE.MeshStandardMaterial({ color: 0xD3E3EF, transparent: true, opacity: .16, depthWrite: false, roughness: .1 }));
+shaft.position.set(SH.x, L(0) + shaftH / 2, SH.z); world.add(shaft); edges(shaft, new THREE.LineBasicMaterial({ color: 0x6F8194, transparent: true, opacity: .55 }));
+const carMat = M.car.clone();
+const car = box(1.5, 1.15, 1.5, carMat, SH.x, L(1), SH.z); edges(car);
+box(2.3, 1.2, 2.3, M.concrete, SH.x, TOP + 0.7, SH.z);
+
+// roof: parapet, chiller, solar
+const pY = TOP + 0.1 + 0.22;
+box(B.W, 0.44, 0.14, M.concrete, 0, pY, B.D / 2 - 0.07); box(B.W, 0.44, 0.14, M.concrete, 0, pY, -B.D / 2 + 0.07);
+box(0.14, 0.44, B.D, M.concrete, B.W / 2 - 0.07, pY, 0); box(0.14, 0.44, B.D, M.concrete, -B.W / 2 + 0.07, pY, 0);
+const chillMat = M.metal.clone();
+const chiller = box(3.0, 1.1, 1.8, chillMat, 2.4, TOP + 0.1 + 0.55, -1.6); edges(chiller);
+const fans = [1.7, 3.1].map(x => {
+  const ring = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.1, 16), M.dark); ring.position.set(x, TOP + 1.25, -1.6); world.add(ring);
+  const blades = new THREE.Group(); blades.position.set(x, TOP + 1.32, -1.6);
+  for (let k = 0; k < 2; k++) { const b = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.03, 0.14), M.metal); b.rotation.y = k * Math.PI / 2; blades.add(b); }
+  world.add(blades); return blades;
+});
+for (const x of [-4.0, -2.65]) for (const z of [1.1, 2.6]) { const p = box(1.2, 0.05, 1.1, M.solar, x, TOP + 0.55, z); p.rotation.x = -0.32; box(0.08, 0.35, 0.08, M.metal, x, TOP + 0.3, z + 0.3, world, false); }
+
+// L0: switchgear + battery bank
+const swgMat = M.metal.clone();
+for (const x of [1.2, 2.05, 2.9]) { const c = box(0.8, 1.25, 0.55, swgMat, x, L(0) + 0.1 + 0.625, -3.45); edges(c); box(0.02, 1.0, 0.02, M.dark, x, L(0) + 0.75, -3.17, world, false); }
+const batMat = M.car.clone();
+for (const x of [3.3, 4.1]) { const b = box(0.7, 1.0, 0.6, batMat, x, L(0) + 0.6, 2.7); edges(b); box(0.72, 0.08, 0.62, new THREE.MeshBasicMaterial({ color: C.accent }), x, L(0) + 0.95, 2.7, world, false); }
+// L1: server rack + LEDs
+box(0.7, 1.35, 0.7, M.dark, -3.9, L(1) + 0.1 + 0.675, -3.0);
+const ledMats = []; for (let k = 0; k < 6; k++) { const m = new THREE.MeshBasicMaterial({ color: C.eye }); ledMats.push(m); box(0.14, 0.04, 0.02, m, -3.95 + (k % 2) * 0.22, L(1) + 0.5 + Math.floor(k / 2) * 0.35, -2.64, world, false); }
+// risers
+const pipe = (r, len, mat, x, y, z, rot) => { const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 10), mat); m.position.set(x, y, z); if (rot) m.rotation[rot[0]] = rot[1]; m.castShadow = true; world.add(m); return m; };
+pipe(0.09, TOP - L(0), M.pipeW, 4.3, wallY, -3.45);
+const fireMat = std(0xD5715B, { roughness: .5 });
+pipe(0.1, TOP - L(0), fireMat, 4.62, wallY, -3.45);
+const waterBranch = pipe(0.08, 3.1, M.pipeW, 2.75, L(3) - 0.25, -3.45, ['z', Math.PI / 2]);
+pipe(0.09, 4.45, fireMat, 4.62, L(6) - 0.25, -1.225, ['x', Math.PI / 2]);
+pipe(0.09, 5.0, fireMat, 2.1, L(6) - 0.25, 1.0, ['z', Math.PI / 2]);
+for (let k = 0; k < 4; k++) { const h = new THREE.Mesh(new THREE.ConeGeometry(0.08, 0.14, 4), fireMat); h.rotation.x = Math.PI; h.position.set(0.2 + k * 1.2, L(6) - 0.38, 1.0); world.add(h); }
+// conduit
+const condMat = std(0x9AA7B4, { roughness: .5 });
+box(0.08, 5.3, 0.08, condMat, 0.6, L(0) + 2.75, -3.86, world, false);
+box(3.0, 0.08, 0.08, condMat, 2.1, 5.8, -3.86, world, false);
+// puddle (irregular low-poly)
+const puddleShape = new THREE.Shape(); { const pts = 8; for (let k = 0; k < pts; k++) { const a = k / pts * Math.PI * 2, r = 0.42 + rnd() * 0.25; const x = Math.cos(a) * r * 1.3, y = Math.sin(a) * r; k ? puddleShape.lineTo(x, y) : puddleShape.moveTo(x, y); } }
+const puddleMat = new THREE.MeshBasicMaterial({ color: 0x5E9FD6, transparent: true, opacity: 0, depthWrite: false });
+const puddle = new THREE.Mesh(new THREE.ShapeGeometry(puddleShape), puddleMat); puddle.rotation.x = -Math.PI / 2; puddle.position.set(2.4, L(2) + 0.105, -3.05); world.add(puddle);
+
+/* ---------- cracks ---------- */
+function crackGeo(pts, w) {
+  const pos = [];
+  for (let i = 0; i < pts.length - 1; i++) {
+    const [ax, ay] = pts[i], [bx, by] = pts[i + 1]; const dx = bx - ax, dy = by - ay, l = Math.hypot(dx, dy) || 1;
+    const nx = -dy / l * w / 2, ny = dx / l * w / 2;
+    pos.push(ax + nx, ay + ny, 0, ax - nx, ay - ny, 0, bx + nx, by + ny, 0, bx + nx, by + ny, 0, ax - nx, ay - ny, 0, bx - nx, by - ny, 0);
+  }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3)); return g;
+}
+function jag(x0, y0, x1, y1, n, amp) { const out = []; for (let i = 0; i <= n; i++) { const t = i / n; out.push([lerp(x0, x1, t) + (i && i < n ? (rnd() - .5) * amp : 0), lerp(y0, y1, t)]); } return out; }
+function makeCrack(main, branches, w) {
+  const grp = new THREE.Group();
+  const dark = new THREE.MeshBasicMaterial({ color: 0x17222D, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide });
+  const glow = new THREE.MeshBasicMaterial({ color: C.hazard, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide });
+  [main, ...branches].forEach(p => { grp.add(new THREE.Mesh(crackGeo(p, w * 3.2), glow)); const d = new THREE.Mesh(crackGeo(p, w), dark); d.position.z = 0.002; grp.add(d); });
+  return { grp, dark, glow };
+}
+const colCrack = makeCrack(jag(-0.06, 0.55, 0.05, -0.55, 9, 0.12), [jag(0.0, 0.1, 0.14, -0.2, 3, 0.05)], 0.03);
+colCrack.grp.position.set(4.75, L(2) + B.FH / 2, 3.75 + 0.176); world.add(colCrack.grp);
+const facCrack = makeCrack(jag(0.02, 0.9, -0.05, -0.7, 12, 0.18), [jag(-0.02, 0.3, 0.25, 0.0, 4, 0.08), jag(0.0, -0.2, -0.22, -0.5, 4, 0.08)], 0.035);
+facCrack.grp.position.set(-3.6, 7.35, 4.186); world.add(facCrack.grp);
+const streakMat = new THREE.MeshBasicMaterial({ color: 0x6E8CA6, transparent: true, opacity: 0, depthWrite: false });
+const streak = new THREE.Mesh(new THREE.PlaneGeometry(0.34, 1.5), streakMat); streak.position.set(-3.62, 6.1, 4.184); world.add(streak);
+
+/* ---------- particles ---------- */
+function particles(n, color, size) {
+  const g = new THREE.BufferGeometry(); const pos = new Float32Array(n * 3); g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const mat = new THREE.PointsMaterial({ color, size, transparent: true, opacity: 0, depthWrite: false, sizeAttenuation: true });
+  const pts = new THREE.Points(g, mat); pts.frustumCulled = false; world.add(pts);
+  const s = Array.from({ length: n }, () => [rnd(), rnd(), rnd(), rnd()]);
+  return { g, pos, mat, s, n };
+}
+const FX = {
+  heatE: particles(22, 0xFF7A3D, 0.09), heatP: particles(22, 0xFF7A3D, 0.09),
+  sparks: particles(18, 0xFFB020, 0.08), smoke: particles(26, 0x98A3AE, 0.16),
+  drips: particles(18, 0x4F95D0, 0.07), haze: particles(110, 0x8C8474, 0.16),
+  facDrip: particles(10, 0x4F95D0, 0.06), heal: particles(34, C.accentLite, 0.09)
+};
+function rise(fx, cx, cy, cz, sx, sz, h, spd, t) { for (let i = 0; i < fx.n; i++) { const s = fx.s[i]; const ph = (t * spd + s[0]) % 1; fx.pos[i * 3] = cx + (s[1] - .5) * sx + Math.sin(t * 2 + s[2] * 6) * .05; fx.pos[i * 3 + 1] = cy + ph * h; fx.pos[i * 3 + 2] = cz + (s[3] - .5) * sz; } fx.g.attributes.position.needsUpdate = true; }
+function fall(fx, cx, top, bot, cz, sp, spd, t) { for (let i = 0; i < fx.n; i++) { const s = fx.s[i]; const ph = (t * spd + s[0]) % 1; fx.pos[i * 3] = cx + (s[1] - .5) * sp; fx.pos[i * 3 + 1] = top - ph * ph * (top - bot); fx.pos[i * 3 + 2] = cz + (s[3] - .5) * sp; } fx.g.attributes.position.needsUpdate = true; }
+function burst(fx, c, r) { for (let i = 0; i < fx.n; i++) { fx.pos[i * 3] = c.x + (Math.random() - .5) * 2 * r; fx.pos[i * 3 + 1] = c.y + (Math.random() - .5) * 2 * r; fx.pos[i * 3 + 2] = c.z + (Math.random() - .5) * 2 * r; } fx.g.attributes.position.needsUpdate = true; }
+function drift(fx, x0, x1, y0, y1, z0, z1, t) { for (let i = 0; i < fx.n; i++) { const s = fx.s[i]; fx.pos[i * 3] = lerp(x0, x1, s[0]) + Math.sin(t * .3 + s[2] * 9) * .35; fx.pos[i * 3 + 1] = lerp(y0, y1, s[1]) + Math.sin(t * .5 + s[3] * 7) * .12; fx.pos[i * 3 + 2] = lerp(z0, z1, s[2]) + Math.cos(t * .25 + s[1] * 9) * .35; } fx.g.attributes.position.needsUpdate = true; }
+
+/* ---------- hotspot markers ---------- */
+const HP = SYS.map(s => new THREE.Vector3(...s.pos));
+const sqGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(-.3, -.3, 0), new THREE.Vector3(.3, -.3, 0), new THREE.Vector3(.3, .3, 0), new THREE.Vector3(-.3, .3, 0)]);
+const colHaz = new THREE.Color(C.hazard), colHeal = new THREE.Color(C.heal), colAcc = new THREE.Color(C.accent);
+const markers = SYS.map((s, i) => {
+  const g = new THREE.Group(); g.position.copy(HP[i]);
+  const mat = new THREE.MeshBasicMaterial({ color: C.hazard, transparent: true, depthTest: false });
+  const gem = new THREE.Mesh(new THREE.OctahedronGeometry(0.15, 0), mat); gem.renderOrder = 10; g.add(gem);
+  const rmat = new THREE.LineBasicMaterial({ color: C.hazard, transparent: true, depthTest: false });
+  const ring = new THREE.LineLoop(sqGeo, rmat); ring.renderOrder = 10; g.add(ring);
+  g.visible = false; world.add(g); return { g, gem, ring, mat, rmat };
+});
+
+/* ---------- scan planes ---------- */
+function scanFrame(color) {
+  const g = new THREE.Group(); const mat = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0, depthWrite: false });
+  const W = 11.6, D = 9.6, t = 0.06;
+  [[W, t, t, 0, 0, D / 2], [W, t, t, 0, 0, -D / 2], [t, t, D, W / 2, 0, 0], [t, t, D, -W / 2, 0, 0]].forEach(a => { const m = new THREE.Mesh(new THREE.BoxGeometry(a[0], a[1], a[2]), mat); m.position.set(a[3], a[4], a[5]); g.add(m); });
+  const fmat = new THREE.MeshBasicMaterial({ color, transparent: true, opacity: 0, depthWrite: false, side: THREE.DoubleSide });
+  const f = new THREE.Mesh(new THREE.PlaneGeometry(W, D), fmat); f.rotation.x = -Math.PI / 2; g.add(f);
+  world.add(g); return { g, mat, fmat };
+}
+const scanP = scanFrame(C.accent), healP = scanFrame(C.heal);
+
+/* ---------- bots ---------- */
+const visorMat = new THREE.MeshStandardMaterial({ color: 0x15212D, roughness: .3, metalness: .45 });
+function makeBot(mini) {
+  const root = new THREE.Group(), body = new THREE.Group(), head = new THREE.Group();
+  root.add(body); body.add(head);
+  const shellGeo = new THREE.IcosahedronGeometry(1, 1);
+  const shellMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .22, metalness: .05, flatShading: true, transparent: true, opacity: mini ? .9 : .6 });
+  const shell = new THREE.Mesh(shellGeo, shellMat); shell.castShadow = true; head.add(shell);
+  const edgeMat = new THREE.LineBasicMaterial({ color: C.accent, transparent: true, opacity: mini ? .75 : .5 });
+  head.add(new THREE.LineSegments(new THREE.EdgesGeometry(shellGeo), edgeMat));
+  const coreMat = new THREE.MeshBasicMaterial({ color: C.accent });
+  const core = new THREE.Mesh(new THREE.IcosahedronGeometry(0.5, 0), coreMat); head.add(core);
+  const visor = new THREE.Mesh(new THREE.BoxGeometry(1.32, .36, .42), visorMat); visor.position.set(0, .1, .8); head.add(visor);
+  const eyeMat = new THREE.MeshBasicMaterial({ color: C.eye });
+  const eyes = [-.28, .28].map(x => { const e = new THREE.Mesh(new THREE.BoxGeometry(.2, .2, .04), eyeMat); e.position.set(x, .1, 1.03); head.add(e); return e; });
+  // pavilion canopy (square roof on four posts)
+  const canopy = new THREE.Group(); canopy.position.y = 1.62; head.add(canopy);
+  const roofMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .35, flatShading: true });
+  const roof = new THREE.Mesh(new THREE.ConeGeometry(1.05, .5, 4, 1), roofMat); roof.rotation.y = Math.PI / 4; roof.castShadow = true; canopy.add(roof);
+  const roofEdge = new THREE.LineSegments(new THREE.EdgesGeometry(roof.geometry), edgeMat); roofEdge.rotation.y = Math.PI / 4; canopy.add(roofEdge);
+  for (const [x, z] of [[.5, .5], [-.5, .5], [.5, -.5], [-.5, -.5]]) { const p = new THREE.Mesh(new THREE.BoxGeometry(.06, .34, .06), visorMat); p.position.set(x, -.42, z); canopy.add(p); }
+  const bot = { root, body, head, shell, shellMat, core, coreMat, eyes, eyeMat, canopy, edgeMat };
+  if (!mini) {
+    const torso = new THREE.Mesh(new THREE.OctahedronGeometry(.44, 0), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .3, flatShading: true }));
+    torso.scale.y = 1.3; torso.position.y = -1.55; torso.castShadow = true; body.add(torso);
+    torso.add(new THREE.LineSegments(new THREE.EdgesGeometry(torso.geometry), edgeMat));
+    bot.hands = [-1, 1].map(sx => { const h = new THREE.Mesh(new THREE.BoxGeometry(.26, .26, .26), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: .3 })); h.position.set(sx * 1.38, -.9, .2); h.castShadow = true; h.add(new THREE.LineSegments(new THREE.EdgesGeometry(h.geometry), edgeMat)); body.add(h); return h; });
+    const orbit = new THREE.Group(); orbit.position.y = -.1; body.add(orbit);
+    const tMat = new THREE.MeshBasicMaterial({ color: C.accent, transparent: true });
+    bot.tets = []; for (let k = 0; k < 6; k++) { const t = new THREE.Mesh(new THREE.TetrahedronGeometry(.13, 0), tMat); orbit.add(t); bot.tets.push(t); }
+    bot.orbit = orbit; bot.tMat = tMat;
+  }
+  return bot;
+}
+const brain = makeBot(false); scene.add(brain.root);
+const minis = SYS.map(() => { const b = makeBot(true); b.root.scale.setScalar(0); scene.add(b.root); return b; });
+const beamMat = SYS.map(() => new THREE.MeshBasicMaterial({ color: C.accentLite, transparent: true, opacity: 0, depthWrite: false }));
+const beams = SYS.map((_, i) => { const m = new THREE.Mesh(new THREE.BoxGeometry(.045, 1, .045), beamMat[i]); m.visible = false; scene.add(m); return m; });
+const linkGeo = new THREE.BufferGeometry(); linkGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(N * 6), 3));
+const linkMat = new THREE.LineBasicMaterial({ color: C.accent, transparent: true, opacity: 0, depthWrite: false });
+const links = new THREE.LineSegments(linkGeo, linkMat); links.frustumCulled = false; scene.add(links);
+
+/* ================= scroll layout ================= */
+const IDS = ['hero', 'scan', 'swarm', 'healthy', 'gap', 'brain', 'market', 'customers', 'valuation'];
+let secs = [], vw = innerWidth, vh = innerHeight, narrow = false;
+function measure() {
+  vw = innerWidth; vh = innerHeight; narrow = vw < 860 || vw / vh < 0.9;
+  secs = IDS.map(id => { const el = document.getElementById(id); const r = el.getBoundingClientRect(); return { top: r.top + scrollY, h: r.height }; });
+  renderer.setSize(vw, vh, false); camera.aspect = vw / vh; measureChips();
+}
+const prog = (i, y) => clamp01((y + vh * .5 - secs[i].top) / secs[i].h);
+
+// camera + mascot poses per section. m = mascot anchor in screen NDC.
+const P = (tgt, az, el, dist, fitW, sx, sy, m) => ({ tgt, az, el, dist, fitW, sx, sy, m });
+const WIDE = [
+  P([0.4, 5.9, 0], 38, 15, 40, 24, .17, .03, { nx: -.08, ny: .3, d: 25, s: 1.0 }),
+  P([0.6, 6.1, 0], 36, 19, 34, 17, .19, 0, { nx: .0, ny: .56, d: 27, s: .7 }),
+  P([0.3, 6.4, 0], 44, 22, 35, 18, .18, 0, { nx: -.02, ny: .5, d: 27, s: .8 }),
+  P([0.2, 6.0, 0], 52, 15, 38, 22, .16, 0, { nx: -.04, ny: .36, d: 25, s: .95 }),
+  P([0, 7.0, 0], 60, 9, 62, 26, .3, .02, { nx: -.6, ny: -.2, d: 20, s: 1.0 }),
+  P([0, 7.0, 0], 66, 11, 64, 26, .32, .02, { nx: -.38, ny: -.08, d: 24, s: 1.0 }),
+  P([0, 7.0, 0], 72, 9, 62, 26, .3, .02, { nx: -.64, ny: -.3, d: 20, s: .95 }),
+  P([0, 7.0, 0], 78, 9, 62, 26, .3, .02, { nx: -.64, ny: -.3, d: 20, s: .95 }),
+  P([0, 7.0, 0], 84, 9, 62, 26, .3, .02, { nx: -.64, ny: -.3, d: 20, s: .95 })
+];
+const NARROW = [
+  P([0.4, 5.9, 0], 38, 15, 40, 19, 0, .3, { nx: .55, ny: -.22, d: 30, s: .5 }),
+  P([0.6, 6.1, 0], 36, 19, 34, 14, 0, -.17, { nx: -.6, ny: .5, d: 30, s: .5 }),
+  P([0.3, 6.4, 0], 44, 22, 35, 15, 0, -.17, { nx: -.6, ny: .55, d: 30, s: .55 }),
+  P([0.2, 6.0, 0], 52, 15, 38, 17, 0, -.15, { nx: -.58, ny: .52, d: 30, s: .6 }),
+  P([0, 7.0, 0], 60, 9, 60, 22, 0, -.3, { nx: .52, ny: .64, d: 22, s: .6 }),
+  P([0, 7.0, 0], 66, 11, 60, 22, 0, -.3, { nx: .0, ny: .6, d: 26, s: .6 }),
+  P([0, 7.0, 0], 72, 9, 60, 22, 0, -.3, { nx: .52, ny: .64, d: 22, s: .6 }),
+  P([0, 7.0, 0], 78, 9, 60, 22, 0, -.3, { nx: .52, ny: .64, d: 22, s: .6 }),
+  P([0, 7.0, 0], 84, 9, 60, 22, 0, -.3, { nx: .52, ny: .64, d: 22, s: .6 })
+];
+function blendPose(a, b, f) {
+  const o = { tgt: a.tgt.map((v, i) => lerp(v, b.tgt[i], f)), m: {} };
+  for (const k of ['az', 'el', 'dist', 'fitW', 'sx', 'sy']) o[k] = lerp(a[k], b[k], f);
+  for (const k of ['nx', 'ny', 'd', 's']) o.m[k] = lerp(a.m[k], b.m[k], f);
+  return o;
+}
+
+/* ================= state ================= */
+const tmpV = new THREE.Vector3(), tmpV2 = new THREE.Vector3(), camR = new THREE.Vector3(), camU = new THREE.Vector3(), camF = new THREE.Vector3();
+const brainPos = new THREE.Vector3(), ringPos = SYS.map(() => new THREE.Vector3()), agentPos = SYS.map(() => new THREE.Vector3());
+const deployPos = HP.map(p => p.clone().add(new THREE.Vector3(0.78, 0.55, 0.78)));
+let sY = scrollY, mx = 0, my = 0, smx = 0, smy = 0, last = performance.now(), t = 0;
+let lastIssue = -2, lastFeedSig = '', lastHud = '';
+addEventListener('pointermove', e => { mx = e.clientX / vw * 2 - 1; my = -(e.clientY / vh * 2 - 1); }, { passive: true });
+
+function bez(a, c, b, u, out) { const iu = 1 - u; return out.set(iu * iu * a.x + 2 * iu * u * c.x + u * u * b.x, iu * iu * a.y + 2 * iu * u * c.y + u * u * b.y, iu * iu * a.z + 2 * iu * u * c.z + u * u * b.z); }
+const ctrl = new THREE.Vector3();
+
+function frame(now) {
+  requestAnimationFrame(frame);
+  if (document.hidden) return;
+  const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt * (RM ? .35 : 1);
+  sY = RM ? scrollY : sY + (scrollY - sY) * Math.min(1, dt * 7);
+  if (Math.abs(scrollY - sY) < .5) sY = scrollY;
+  smx += (mx - smx) * Math.min(1, dt * 3); smy += (my - smy) * Math.min(1, dt * 3);
+
+  // section progress
+  const p = IDS.map((_, i) => prog(i, sY));
+  let k = 0; for (let i = 0; i < secs.length; i++) if (secs[i].top <= sY + vh * .5) k = i;
+  const u = p[k];
+  const POSES = narrow ? NARROW : WIDE;
+  const f = smooth(.62, 1, u);
+  const pose = blendPose(POSES[k], POSES[Math.min(k + 1, POSES.length - 1)], k === POSES.length - 1 ? 0 : f);
+
+  // camera
+  const aspect = vw / vh;
+  const dist = Math.max(pose.dist, pose.fitW / (2 * Math.tan(THREE.MathUtils.degToRad(16)) * aspect));
+  const az = THREE.MathUtils.degToRad(pose.az), el = THREE.MathUtils.degToRad(pose.el);
+  const tgt = tmpV.set(...pose.tgt);
+  camera.position.set(tgt.x + Math.sin(az) * Math.cos(el) * dist, tgt.y + Math.sin(el) * dist, tgt.z + Math.cos(az) * Math.cos(el) * dist);
+  if (!RM) { camera.position.x += smx * .9; camera.position.y += smy * .6; }
+  camera.lookAt(tgt);
+  camera.setViewOffset(vw, vh, -pose.sx * vw, -pose.sy * vh, vw, vh);
+  camera.updateMatrixWorld();
+  camera.matrixWorld.extractBasis(camR, camU, camF); camF.negate();
+
+  // mascot anchor (screen-space → world)
+  tmpV2.set(pose.m.nx, pose.m.ny, .5).unproject(camera).sub(camera.position).normalize();
+  brainPos.copy(camera.position).addScaledVector(tmpV2, pose.m.d);
+
+  // ----- story state -----
+  const pScan = p[1], pSwarm = p[2], pHeal = p[3], pGap = p[4], pBrain = p[5], pMarket = p[6];
+  const scanY = lerp(-0.4, 13.4, smooth(.04, .78, pScan));
+  const scanVis = smooth(0, .05, pScan) * (1 - smooth(.76, .84, pScan));
+  scanP.g.position.y = scanY; scanP.mat.opacity = scanVis * .9; scanP.fmat.opacity = scanVis * .07;
+  const healY = lerp(-0.4, 13.4, smooth(.12, .8, pHeal));
+  const healVis = smooth(.1, .16, pHeal) * (1 - smooth(.74, .82, pHeal));
+  healP.g.position.y = healY; healP.mat.opacity = healVis * .9; healP.fmat.opacity = healVis * .07;
+  const bizF = Math.max(smooth(.86, 1, pHeal), smooth(0, .12, pGap));
+  const ringF = smooth(.04, .3, pBrain) * (1 - smooth(.86, 1, pBrain)) * (1 - smooth(0, .1, pMarket));
+
+  const rev = [], hh = [], kk = [];
+  let health = 98, revSum = 0, found = 0, fixed = 0, deployed = 0;
+  for (let i = 0; i < N; i++) {
+    const y = HP[i].y;
+    rev[i] = smooth(y - .3, y + .6, scanY);
+    const st = .24 + i * .06; hh[i] = smooth(st, st + .05, pSwarm);
+    kk[i] = rev[i] * (1 - hh[i]);
+    health -= SYS[i].sev * kk[i]; revSum += rev[i];
+    if (rev[i] > .6) found++; if (hh[i] >= .999) fixed++;
+  }
+
+  // ----- damage visuals -----
+  const [kP, kE, kW, kF, kS, kL, kH, kWa, kEn, kA, kC] = kk;
+  const flick = .55 + .45 * Math.sin(t * 9);
+  batMat.emissive.setHex(C.hazard); batMat.emissiveIntensity = kP * (.55 + .3 * flick);
+  rise(FX.heatP, 3.7, L(0) + 1.1, 2.7, 1.4, .5, 1.0, .5, t); FX.heatP.mat.opacity = kP * .85;
+  swgMat.emissive.setHex(C.hazard); swgMat.emissiveIntensity = kE * (.5 + .25 * flick);
+  rise(FX.heatE, 2.05, L(0) + 1.3, -3.3, 2.2, .4, 1.0, .45, t); FX.heatE.mat.opacity = kE * .85;
+  condMat.emissive.setHex(C.hazard); condMat.emissiveIntensity = kW * .8;
+  burst(FX.sparks, HP[2], .22); FX.sparks.mat.opacity = kW * (Math.random() > .35 ? 1 : .2);
+  fireMat.emissive.setHex(C.hazard); fireMat.emissiveIntensity = kF * (.35 + .35 * (Math.sin(t * 5) > 0 ? 1 : 0));
+  strMat.emissive.setHex(C.hazard); strMat.emissiveIntensity = kS * .35;
+  colCrack.dark.opacity = kS; colCrack.glow.opacity = kS * .45;
+  const carY = lerp(L(0) + .7 + (.5 - .5 * Math.cos(t * .32)) * (L(6) - L(0)), L(4) - .35, kL);
+  car.position.y = carY; carMat.emissive.setHex(C.hazard); carMat.emissiveIntensity = kL * (Math.sin(t * 6) > 0 ? .6 : .1);
+  chillMat.emissive.setHex(C.hazard); chillMat.emissiveIntensity = kH * .45;
+  fans.forEach(fb => fb.rotation.y += dt * 7 * (1 - kH));
+  rise(FX.smoke, 2.4, TOP + 1.3, -1.6, 2.4, 1.2, 1.8, .22, t); FX.smoke.mat.opacity = kH * .7;
+  fall(FX.drips, 2.4, L(3) - .33, L(2) + .12, -3.45, .12, .9, t); FX.drips.mat.opacity = kWa;
+  puddleMat.opacity = kWa * .55;
+  facCrack.dark.opacity = kEn; facCrack.glow.opacity = kEn * .45; streakMat.opacity = kEn * .35;
+  fall(FX.facDrip, -3.62, 6.8, 5.2, 4.22, .08, .6, t); FX.facDrip.mat.opacity = kEn * .8;
+  drift(FX.haze, 0.8, 4.6, L(4) + .25, L(5) - .2, -2.7, 3.3, t); FX.haze.mat.opacity = kA * .6;
+  ledMats.forEach((m, j) => { const on = Math.sin(t * (3 + j) + j) > (kC > .05 ? -.6 : 0); m.color.setHex(kC > .05 ? (on ? C.hazard : 0x3A1A12) : (on ? C.eye : 0x2E4A44)); });
+
+  // markers
+  for (let i = 0; i < N; i++) {
+    const mk = markers[i]; const vis = rev[i] * (1 - bizF);
+    mk.g.visible = vis > .01;
+    if (!mk.g.visible) continue;
+    const c = hh[i] >= .999 ? colHeal : (hh[i] > 0 ? colAcc : colHaz);
+    mk.mat.color.copy(c); mk.rmat.color.copy(c); mk.mat.opacity = vis; mk.rmat.opacity = vis * .9;
+    const pulse = hh[i] >= .999 ? 1 : 1 + .35 * Math.abs(Math.sin(t * 2.4 + i));
+    mk.g.scale.setScalar(vis * (1 + Math.sin(Math.PI * hh[i]) * .8));
+    mk.ring.scale.setScalar(pulse);
+    mk.ring.quaternion.copy(camera.quaternion);
+    mk.gem.rotation.y += dt * 1.6;
+  }
+
+  // ----- brain (mascot) -----
+  const B0 = brain;
+  B0.root.position.copy(brainPos); B0.root.position.y += RM ? 0 : Math.sin(t * 1.5) * .12 * pose.m.s;
+  B0.root.scale.setScalar(pose.m.s);
+  tmpV2.copy(camera.position); tmpV2.y = B0.root.position.y; B0.root.lookAt(tmpV2);
+  B0.head.rotation.y = lerp(B0.head.rotation.y, RM ? 0 : smx * .45, .08);
+  B0.head.rotation.x = lerp(B0.head.rotation.x, RM ? 0 : -smy * .22, .08);
+  B0.canopy.rotation.y += dt * .5; B0.canopy.position.y = 1.62 + Math.sin(t * 2) * .05;
+  const split = Math.sin(Math.PI * smooth(0, .16, pSwarm));
+  B0.core.scale.setScalar(1 + .07 * Math.sin(t * 3) + split * .45);
+  B0.coreMat.color.copy(colAcc).lerp(new THREE.Color(0xffffff), split * .6);
+  const blink = (t % 3.4) < .12; B0.eyes.forEach(e => e.scale.y = blink ? .12 : 1);
+  B0.hands.forEach((h, j) => { h.position.y = -.9 + Math.sin(t * 1.8 + j * 2) * .08; h.rotation.x += dt * .6; h.rotation.z += dt * .4; });
+  const tetVis = clamp01(1 - smooth(0, .12, pSwarm) + smooth(.6, 1, pHeal)) * (1 - ringF);
+  B0.orbit.rotation.y += dt * .9;
+  B0.tets.forEach((tt, j) => { const a = j / 6 * Math.PI * 2; const r = 1.75 + (1 - tetVis) * 1.2; tt.position.set(Math.cos(a) * r, Math.sin(t * 2 + j) * .12, Math.sin(a) * r); tt.rotation.x += dt * 2; tt.scale.setScalar(Math.max(.001, tetVis)); });
+  B0.tMat.opacity = tetVis;
+
+  // name tag
+  const heroVis = 1 - smooth(.55, .92, p[0]);
+
+  // ----- minis (agents) -----
+  const lp = linkGeo.attributes.position.array; let linkAlpha = 0;
+  for (let i = 0; i < N; i++) {
+    const m = minis[i];
+    const di = smooth(.02 + i * .012, .18 + i * .012, pSwarm);
+    const ri = smooth(.12 + i * .025, .52 + i * .025, pHeal);
+    const home = brainPos;
+    const tgtP = deployPos[i];
+    const pos = agentPos[i];
+    ctrl.copy(home).lerp(tgtP, .5); ctrl.y += 4;
+    bez(home, ctrl, tgtP, easeIO(di), pos);
+    if (ri > 0) { bez(tgtP, ctrl, home, easeIO(ri), pos); }
+    // ring (brain section)
+    const a = i / N * Math.PI * 2 + t * .22;
+    const R = 3.1 * pose.m.s;
+    ringPos[i].copy(brainPos).addScaledVector(camR, Math.cos(a) * R).addScaledVector(camU, Math.sin(a) * R * .5 - .3 * pose.m.s).addScaledVector(camF, Math.sin(a) * R * .5);
+    if (ringF > 0) pos.lerp(ringPos[i], ringF);
+    let sc = (di > 0 && ri < 1) ? smooth(0, .18, di) * (1 - smooth(.8, 1, ri)) : 0;
+    sc = Math.max(sc, ringF);
+    const working = hh[i] > 0 && hh[i] < 1;
+    m.root.position.copy(pos);
+    if (working && !RM) { m.root.position.x += Math.sin(t * 30 + i) * .03; m.root.position.y += Math.sin(t * 24 + i) * .03; }
+    else m.root.position.y += Math.sin(t * 2 + i) * .08;
+    m.root.scale.setScalar(Math.max(.0001, sc * .3));
+    m.root.visible = sc > .002;
+    if (working) m.root.lookAt(HP[i]); else { tmpV2.copy(camera.position); m.root.lookAt(tmpV2); }
+    m.canopy.rotation.y += dt * 1.5;
+    m.eyeMat.color.setHex(working ? C.hazard : C.eye);
+    if (di > .5 && ri < .5) deployed++;
+    // beam
+    const bw = working ? Math.sin(Math.PI * hh[i]) : 0;
+    beams[i].visible = bw > .01;
+    if (beams[i].visible) {
+      const bm = beams[i]; tmpV2.copy(HP[i]).sub(m.root.position); const len = tmpV2.length();
+      bm.position.copy(m.root.position).addScaledVector(tmpV2, .5); bm.scale.set(1, len, 1);
+      bm.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), tmpV2.normalize());
+      beamMat[i].opacity = bw * (.7 + .3 * Math.sin(t * 40));
+    }
+    // links brain → agent
+    lp.set([brainPos.x, brainPos.y, brainPos.z, m.root.position.x, m.root.position.y, m.root.position.z], i * 6);
+    linkAlpha = Math.max(linkAlpha, sc);
+  }
+  linkGeo.attributes.position.needsUpdate = true;
+  linkMat.opacity = linkAlpha * .28;
+  const act = hh.findIndex(v => v > 0 && v < 1);
+  if (act >= 0) { burst(FX.heal, HP[act], .45); FX.heal.mat.opacity = Math.sin(Math.PI * hh[act]); } else FX.heal.mat.opacity = 0;
+
+  renderer.render(scene, camera);
+  hud.style.opacity = (1 - bizF).toFixed(3); hud.style.visibility = bizF > .99 ? 'hidden' : 'visible';
+
+  // ----- DOM overlays -----
+  updateLabels(rev, hh, bizF, ringF, heroVis);
+  updateHud(health, revSum, fixed, deployed, found);
+  updatePanels(rev, hh, found, health, now);
+}
+
+/* ---------- label projection ---------- */
+const proj = new THREE.Vector3();
+function toScreen(v) { proj.copy(v).project(camera); return { x: (proj.x + 1) / 2 * vw, y: (1 - proj.y) / 2 * vh, ok: proj.z < 1 && proj.z > -1 }; }
+function updateLabels(rev, hh, bizF, ringF, heroVis) {
+  const items = [];
+  for (let i = 0; i < N; i++) {
+    const c = chips[i]; const vis = rev[i] * (1 - bizF);
+    const s = toScreen(HP[i]);
+    c.vis = s.ok ? vis : 0;
+    if (c.vis < .02) { c.el.style.opacity = 0; c.el.style.pointerEvents = 'none'; c.ln.setAttribute('opacity', 0); continue; }
+    const cls = 'chip' + (hh[i] >= .999 ? ' fixed' : hh[i] > 0 ? ' working' : '');
+    if (c.el.className !== cls) c.el.className = cls;
+    items.push({ c, ax: s.x, ay: s.y, x: s.x + 16, y: s.y - c.h - 8, i });
+  }
+  // simple vertical de-overlap
+  items.sort((a, b) => a.y - b.y);
+  for (let it = 0; it < 4; it++) for (let a = 0; a < items.length; a++) for (let b = a + 1; b < items.length; b++) {
+    const A = items[a], Bq = items[b];
+    if (A.x < Bq.x + Bq.c.w + 4 && Bq.x < A.x + A.c.w + 4 && A.y < Bq.y + Bq.c.h + 4 && Bq.y < A.y + A.c.h + 4) Bq.y = A.y + A.c.h + 5;
+  }
+  for (const it of items) {
+    const { c } = it;
+    const x = Math.min(vw - c.w - 8, Math.max(8, it.x)), y = Math.max(64, Math.min(vh - c.h - 8, it.y));
+    c.el.style.transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
+    c.el.style.opacity = c.vis.toFixed(3); c.el.style.pointerEvents = c.vis > .5 ? 'auto' : 'none';
+    const col = hh[it.i] >= .999 ? '#0E9F6E' : hh[it.i] > 0 ? '#3346F0' : '#F2541B';
+    c.ln.setAttribute('x1', it.ax); c.ln.setAttribute('y1', it.ay); c.ln.setAttribute('x2', x); c.ln.setAttribute('y2', y + c.h / 2);
+    c.ln.setAttribute('stroke', col); c.ln.setAttribute('opacity', (c.vis * .8).toFixed(3));
+  }
+  for (let i = 0; i < N; i++) {
+    const el = tags[i];
+    if (ringF < .02 || !minis[i].root.visible) { el.style.opacity = 0; continue; }
+    const s = toScreen(minis[i].root.position);
+    el.style.transform = `translate3d(${(s.x - 14).toFixed(1)}px,${(s.y + 16).toFixed(1)}px,0)`;
+    el.style.opacity = (ringF * (s.ok ? 1 : 0)).toFixed(3);
+  }
+  tmpV2.copy(brain.root.position); tmpV2.y -= 2.35 * brain.root.scale.x;
+  const ns = toScreen(tmpV2);
+  nameTag.style.transform = `translate3d(${(ns.x - nameW / 2).toFixed(1)}px,${ns.y.toFixed(1)}px,0)`;
+  nameTag.style.opacity = narrow ? 0 : heroVis.toFixed(3);
+}
+
+/* ---------- HUD & panels ---------- */
+function updateHud(health, revSum, fixed, deployed, found) {
+  const unmon = revSum < .05;
+  const hv = Math.round(health);
+  const state = unmon ? 'Unmonitored' : hv < 55 ? 'Critical' : hv < 85 ? 'Degraded' : 'Healthy';
+  const col = unmon ? 'var(--muted)' : hv < 55 ? 'var(--hazard)' : hv < 85 ? 'var(--amber)' : 'var(--heal)';
+  const open = unmon ? '?' : String(found - fixed);
+  const sig = `${unmon}|${hv}|${deployed}|${open}`;
+  if (sig === lastHud) return; lastHud = sig;
+  hudNum.textContent = unmon ? '—' : hv; hudState.textContent = state; hud.style.setProperty('--state', col);
+  const on = unmon ? 0 : Math.round(hv / 5); [...hudBar.children].forEach((el, j) => el.classList.toggle('on', j < on));
+  hudAgents.textContent = `${deployed}/11`; hudOpen.textContent = open;
+}
+function updatePanels(rev, hh, found, health, now) {
+  // scan card
+  let idx = -1;
+  if (hoverIdx >= 0 && now < hoverUntil) idx = hoverIdx;
+  else for (let i = 0; i < N; i++) if (rev[i] > .6 && (idx < 0 || HP[i].y >= HP[idx].y)) idx = i;
+  if (idx !== lastIssue) {
+    lastIssue = idx;
+    if (idx < 0) {
+      issueEl.className = 'issue empty';
+      issueEl.innerHTML = '<div class="issue-head"><span class="issue-code">SCAN</span><span class="issue-name">Starting at ground level</span></div><div class="issue-body">The scan plane moves up the building. Each problem it finds appears as a tag you can hover.</div>';
+    } else {
+      const s = SYS[idx];
+      issueEl.className = 'issue';
+      issueEl.innerHTML = `<div class="issue-head"><span class="issue-code">${s.code}</span><span class="issue-name">${s.name}</span></div><div class="issue-body"><div><span class="issue-k">Goes wrong</span><span>${s.wrong}</span></div><div><span class="issue-k">We measure</span><span>${s.measure}</span></div><div><span class="issue-k">With</span><span>${s.sensors}</span></div></div>`;
+    }
+  }
+  foundEl.textContent = found;
+  scanHealthEl.textContent = found ? Math.round(health) : '—';
+  [...scanPips.children].forEach((el, j) => { el.className = hh[j] >= .999 ? 'ok' : rev[j] > .6 ? 'on' : ''; });
+  // swarm feed
+  const started = []; for (let i = 0; i < N; i++) if (hh[i] > 0) started.push(i);
+  const sig = started.map(i => i + (hh[i] >= .999 ? 'd' : 'w')).join(',');
+  if (sig !== lastFeedSig) {
+    lastFeedSig = sig;
+    if (!started.length) feedEl.innerHTML = '<li class="feed-empty">Agents are leaving the brain and taking positions…</li>';
+    else feedEl.innerHTML = started.slice(-4).reverse().map(i => { const s = SYS[i], done = hh[i] >= .999; return `<li class="${done ? 'done' : ''}"><span class="p">P${i + 1} ${s.code}</span><span class="r">${s.reading}</span><span class="a">${done ? '✓ ' + s.action : 'Agent working…'}</span></li>`; }).join('');
+  }
+}
+
+/* ---------- boot ---------- */
+measure();
+addEventListener('resize', () => { measure(); lastHud = ''; });
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { measure(); });
+setTimeout(measure, 800);
+requestAnimationFrame(frame);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pavilion Cerebro — walkthrough</title>
+<meta name="description" content="A slow, one-idea-at-a-time walkthrough of Pavilion Cerebro, for anyone who isn't an engineer. Real screenshots of the real product, paused, explained one at a time.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<header class="bar">
+  <a class="brand" href="../index.html">&larr; Pavilion Cerebro</a>
+  <span class="tag">Walkthrough mode &middot; self-paced, no jargon</span>
+</header>
+
+<main class="stage" id="stage">
+  <div class="slide" id="slide">
+    <div class="imgwrap"><img id="shot" alt=""></div>
+    <div class="text">
+      <p class="eyebrow mono" id="kicker"></p>
+      <h1 id="headline"></h1>
+      <p class="body" id="body"></p>
+      <p class="foot small" id="foot"></p>
+    </div>
+  </div>
+</main>
+
+<nav class="ctrl">
+  <button id="prev" class="btn" aria-label="Previous">&larr; Back</button>
+  <div class="dots" id="dots"></div>
+  <button id="next" class="btn primary" aria-label="Next">Next &rarr;</button>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "note": "Written 2026-09-24 before any model output (docs/decisions.md D-007). Maps the 12 InfraredSolarModules classes to an IEC TS 62446-3 Class of Abnormality and a unified S-level for scoring. Truth is pattern-based because the 24x40 px crops carry no delta-T; a single hot cell is scored as CoA 2 (the conservative pattern reading), so a predicted CoA 3 on a hot-cell image counts as one grade off, not wrong.",
+  "map": {
+    "No-Anomaly": {"coa": "CoA 1", "s": "S0"},
+    "Shadowing": {"coa": "CoA 1", "s": "S1"},
+    "Soiling": {"coa": "CoA 1", "s": "S1"},
+    "Vegetation": {"coa": "CoA 1", "s": "S1"},
+    "Diode": {"coa": "CoA 2", "s": "S2"},
+    "Diode-Multi": {"coa": "CoA 2", "s": "S2"},
+    "Offline-Module": {"coa": "CoA 2", "s": "S2"},
+    "Cell": {"coa": "CoA 2", "s": "S3"},
+    "Cell-Multi": {"coa": "CoA 2", "s": "S3"},
+    "Hot-Spot": {"coa": "CoA 2", "s": "S3"},
+    "Hot-Spot-Multi": {"coa": "CoA 2", "s": "S3"},
+    "Cracking": {"coa": "CoA 3", "s": "S4"}
+  },
+  "ordinal": {"CoA 1": 0, "CoA 2": 1, "CoA 3": 2}
+}

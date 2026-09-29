@@ -1,0 +1,20 @@
+{
+  "standard": "NBI-0-9",
+  "asset_label": "bridge component (deck, superstructure or substructure) overall condition",
+  "source_note": "FHWA National Bridge Inventory component condition rating 0 to 9 (SNBI March 2022, FHWA-HIF-22-017 Table 20). Grouping Good 7 to 9, Fair 5 to 6, Poor 0 to 4 per docs/research/05_damage_grading_standards.md. Descriptors are paraphrases; replace with verbatim SNBI text before customer use.",
+  "allowed_values": ["9", "8", "7", "6", "5", "4", "3", "2", "1", "0"],
+  "rows": [
+    {"value": "9", "criterion": "Excellent condition; no deficiencies.", "unified": "S0", "action": "record"},
+    {"value": "8", "criterion": "Very good condition; no problems noted.", "unified": "S0", "action": "record"},
+    {"value": "7", "criterion": "Good condition; some minor problems.", "unified": "S1", "action": "monitor"},
+    {"value": "6", "criterion": "Satisfactory condition; structural elements show some minor deterioration.", "unified": "S1", "action": "monitor"},
+    {"value": "5", "criterion": "Fair condition; all primary structural elements are sound but may have minor section loss, cracking, spalling or scour.", "unified": "S2", "action": "schedule"},
+    {"value": "4", "criterion": "Poor condition; advanced section loss, deterioration, spalling or scour.", "unified": "S3", "action": "prioritize"},
+    {"value": "3", "criterion": "Serious condition; loss of section, deterioration, spalling or scour have seriously affected primary structural components; local failures are possible.", "unified": "S3", "action": "prioritize", "flag": "load_posting_review"},
+    {"value": "2", "criterion": "Critical condition; advanced deterioration of primary structural elements; unless closely monitored it may be necessary to close the bridge until corrective action is taken.", "unified": "S4", "action": "escalate"},
+    {"value": "1", "criterion": "Imminent failure condition; major deterioration or section loss present in critical structural components; bridge is closed to traffic but corrective action may put it back in light service.", "unified": "S4", "action": "escalate"},
+    {"value": "0", "criterion": "Failed condition; out of service, beyond corrective action.", "unified": "S4", "action": "escalate"}
+  ],
+  "unified_note": "A rating of 3 or lower shortens the routine inspection interval to 12 months (23 CFR 650.311).",
+  "flags": {"load_posting_review": "set at rating 3 or lower"}
+}

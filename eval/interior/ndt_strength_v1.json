@@ -1,0 +1,517 @@
+{
+  "id": "ndt_strength_v1",
+  "created": "2026-09-26T15:21:41",
+  "seconds": 97.7,
+  "label": "REAL data (Matthews et al. NDT databases; BAM drilled cores). No synthetic rows.",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "sklearn": "1.9.1"
+  },
+  "data": {
+    "sonreb_rows": 3299,
+    "sonreb_studies": 53,
+    "sonreb_in_situ_rows": 544,
+    "sonreb_in_situ_studies": 14,
+    "rebound_rows": 10428,
+    "rebound_studies": 85,
+    "upv_rows": 6103,
+    "upv_studies": 88,
+    "cleaning": "vp > 500 m/s, rn > 5, fc > 0; rows missing rn/vp/fc dropped",
+    "fc_range_mpa": [
+      1.34,
+      109.2
+    ]
+  },
+  "loso": {
+    "all": {
+      "n_rows": 3299,
+      "n_studies": 53,
+      "models": {
+        "training_mean": {
+          "n": 3299,
+          "mae": 10.931708063258139,
+          "rmse": 14.792166914019134,
+          "mape_pct": 53.588985700599636,
+          "r2": -0.029280093202931345,
+          "macro_mae_by_study": 11.73249839053942,
+          "median_study_mae": 9.217830399033769
+        },
+        "rn_only_powerlaw": {
+          "n": 3299,
+          "mae": 8.71233509103587,
+          "rmse": 12.486668268961738,
+          "mape_pct": 35.65711023745386,
+          "r2": 0.26656247849877557,
+          "macro_mae_by_study": 9.293183657255232,
+          "median_study_mae": 6.029754400992056
+        },
+        "vp_only_powerlaw": {
+          "n": 3299,
+          "mae": 9.491511683693465,
+          "rmse": 13.181927594953612,
+          "mape_pct": 38.63707304789263,
+          "r2": 0.18261282434678094,
+          "macro_mae_by_study": 9.86104781712566,
+          "median_study_mae": 6.4008329537412205
+        },
+        "sonreb_powerlaw": {
+          "n": 3299,
+          "mae": 7.9798565784272615,
+          "rmse": 11.30374918662455,
+          "mape_pct": 31.497619053597465,
+          "r2": 0.3989439110280709,
+          "macro_mae_by_study": 8.03167900802329,
+          "median_study_mae": 5.415081327486973
+        },
+        "hgb_rn_vp": {
+          "n": 3299,
+          "mae": 8.85570757561507,
+          "rmse": 11.683146166013783,
+          "mape_pct": 37.40175037669229,
+          "r2": 0.3579193291419803,
+          "macro_mae_by_study": 8.44178887335419,
+          "median_study_mae": 6.916468617016721
+        }
+      },
+      "largest_study": {
+        "study": "Najim (2017)",
+        "rows": 300
+      }
+    },
+    "in_situ": {
+      "n_rows": 544,
+      "n_studies": 14,
+      "models": {
+        "training_mean": {
+          "n": 544,
+          "mae": 14.368809441121531,
+          "rmse": 18.289489809306993,
+          "mape_pct": 77.15294749805598,
+          "r2": -0.05970915600311022,
+          "macro_mae_by_study": 12.989191919253226,
+          "median_study_mae": 12.054856218385826
+        },
+        "rn_only_powerlaw": {
+          "n": 544,
+          "mae": 12.233403919779498,
+          "rmse": 15.099046242679222,
+          "mape_pct": 66.66479007397382,
+          "r2": 0.27775834037609914,
+          "macro_mae_by_study": 9.537995790993644,
+          "median_study_mae": 7.7440054652220685
+        },
+        "vp_only_powerlaw": {
+          "n": 544,
+          "mae": 10.056952885383199,
+          "rmse": 15.085744166810965,
+          "mape_pct": 39.25370159443821,
+          "r2": 0.27903035202957105,
+          "macro_mae_by_study": 10.073890820480727,
+          "median_study_mae": 5.105625804304941
+        },
+        "sonreb_powerlaw": {
+          "n": 544,
+          "mae": 9.652031283470137,
+          "rmse": 12.294013120147284,
+          "mape_pct": 46.814122127569505,
+          "r2": 0.5211815797238042,
+          "macro_mae_by_study": 8.563162024788632,
+          "median_study_mae": 6.399176362232678
+        },
+        "hgb_rn_vp": {
+          "n": 544,
+          "mae": 10.477029128209521,
+          "rmse": 13.007902442185637,
+          "mape_pct": 57.166469765627866,
+          "r2": 0.46395895253911945,
+          "macro_mae_by_study": 9.255316918587102,
+          "median_study_mae": 8.635692745201272
+        }
+      },
+      "largest_study": {
+        "study": "Ali-Benyahia et al. (2023)",
+        "rows": 205
+      }
+    }
+  },
+  "groupkfold_vs_random": {
+    "random_rows_kfold5": {
+      "hgb_rn_vp": {
+        "n": 3299,
+        "mae": 6.445970265104537,
+        "rmse": 8.773558948224837,
+        "mape_pct": 27.490009343373046,
+        "r2": 0.6379057964012744
+      },
+      "sonreb_powerlaw": {
+        "n": 3299,
+        "mae": 7.524997416653909,
+        "rmse": 10.745723162891775,
+        "mape_pct": 29.520996049897906,
+        "r2": 0.45682312571559835
+      },
+      "training_mean": {
+        "n": 3299,
+        "mae": 10.754178954672549,
+        "rmse": 14.583706392704094,
+        "mape_pct": 52.6953552164811,
+        "r2": -0.0004739853825002083
+      }
+    },
+    "groupkfold5_by_study": {
+      "hgb_rn_vp": {
+        "n": 3299,
+        "mae": 8.998228513073345,
+        "rmse": 11.759814095807416,
+        "mape_pct": 38.04654410281196,
+        "r2": 0.3494646688219827
+      },
+      "sonreb_powerlaw": {
+        "n": 3299,
+        "mae": 8.045412425843947,
+        "rmse": 11.270768497308511,
+        "mape_pct": 32.15782792384318,
+        "r2": 0.40244616941917566
+      },
+      "training_mean": {
+        "n": 3299,
+        "mae": 11.10903379462447,
+        "rmse": 14.906218702285154,
+        "mape_pct": 54.42741639616572,
+        "r2": -0.045213363256604744
+      }
+    }
+  },
+  "calibration": {
+    "all": {
+      "n_studies": 52,
+      "draws_per_study": 20,
+      "note": "k labelled specimens from the same study (mostly lab cubes in 'all'), not real cores",
+      "by_k": {
+        "0": {
+          "pooled_mae": 7.9877158209269465,
+          "macro_mae_by_study": 8.132246150107683,
+          "n_scored_errors": 3294
+        },
+        "1": {
+          "pooled_mae": 6.668713150617666,
+          "macro_mae_by_study": 6.045584432995994,
+          "n_scored_errors": 64840
+        },
+        "3": {
+          "pooled_mae": 5.5348598025622655,
+          "macro_mae_by_study": 5.011698517770757,
+          "n_scored_errors": 62760
+        },
+        "5": {
+          "pooled_mae": 5.134491516308517,
+          "macro_mae_by_study": 4.7786273611929095,
+          "n_scored_errors": 60680
+        }
+      }
+    },
+    "in_situ": {
+      "n_studies": 12,
+      "draws_per_study": 20,
+      "note": "k labelled specimens from the same study (mostly lab cubes in 'all'), not real cores",
+      "by_k": {
+        "0": {
+          "pooled_mae": 9.790701471193282,
+          "macro_mae_by_study": 9.315892834902904,
+          "n_scored_errors": 530
+        },
+        "1": {
+          "pooled_mae": 6.680576870474477,
+          "macro_mae_by_study": 7.238798512287842,
+          "n_scored_errors": 10360
+        },
+        "3": {
+          "pooled_mae": 5.470992138024864,
+          "macro_mae_by_study": 5.958368137821132,
+          "n_scored_errors": 9880
+        },
+        "5": {
+          "pooled_mae": 4.969703300694541,
+          "macro_mae_by_study": 5.466606847265812,
+          "n_scored_errors": 9400
+        }
+      }
+    }
+  },
+  "conformal": {
+    "target_coverage": 0.9,
+    "method": "split conformal on |ln fc - ln pred|; quantile from inner 5-fold GroupKFold residuals of the training studies; coverage on the held-out study (LOSO)",
+    "k0": {
+      "pooled_row_coverage": 0.8902697787208245,
+      "n_rows_scored": 3299,
+      "in_situ_row_coverage": 0.8786764705882353,
+      "n_in_situ_rows_scored": 544,
+      "macro_study_coverage": 0.9094747167855489,
+      "n_studies": 53,
+      "median_q_log": 0.6762896865331567,
+      "median_interval_factor": 1.966567596931574
+    },
+    "k3": {
+      "pooled_row_coverage": 0.8898089171974523,
+      "n_rows_scored": 62800,
+      "in_situ_row_coverage": 0.8879250862493839,
+      "n_in_situ_rows_scored": 10145,
+      "macro_study_coverage": 0.9117540546642371,
+      "n_studies": 53,
+      "median_q_log": 0.43997707426228905,
+      "median_interval_factor": 1.5526716219609427
+    }
+  },
+  "fallbacks": {
+    "rn_only_on_rebound_db": {
+      "n_rows": 10428,
+      "n_studies": 85,
+      "n_in_situ_rows": 3042,
+      "n_in_situ_studies": 23,
+      "loso_powerlaw": {
+        "n": 10428,
+        "mae": 14.027734802712873,
+        "rmse": 18.05207509716319,
+        "mape_pct": 38.75820618544182,
+        "r2": 0.41748568004053477
+      },
+      "loso_training_mean": {
+        "n": 10428,
+        "mae": 21.42916082775393,
+        "rmse": 25.5149207947514,
+        "mape_pct": 79.25514251408693,
+        "r2": -0.1636993508154454
+      },
+      "loso_powerlaw_in_situ": {
+        "n": 3042,
+        "mae": 14.468209528672208,
+        "rmse": 18.044127577927352,
+        "mape_pct": 53.46815050042382,
+        "r2": 0.40327710526274896
+      },
+      "loso_training_mean_in_situ": {
+        "n": 3042,
+        "mae": 22.496859277588783,
+        "rmse": 26.18826612935667,
+        "mape_pct": 102.06277747323797,
+        "r2": -0.2569396150527834
+      },
+      "q_log_k0": 0.6698713015024285
+    },
+    "vp_only_on_upv_db": {
+      "n_rows": 6103,
+      "n_studies": 88,
+      "n_in_situ_rows": 1328,
+      "n_in_situ_studies": 25,
+      "loso_powerlaw": {
+        "n": 6103,
+        "mae": 9.621932393896799,
+        "rmse": 13.403909734303216,
+        "mape_pct": 42.14545645498633,
+        "r2": 0.24513250575050427
+      },
+      "loso_training_mean": {
+        "n": 6103,
+        "mae": 11.495317330832583,
+        "rmse": 15.593969700933233,
+        "mape_pct": 72.23032511604288,
+        "r2": -0.021694622287202314
+      },
+      "loso_powerlaw_in_situ": {
+        "n": 1328,
+        "mae": 8.61330084072265,
+        "rmse": 12.387470869910551,
+        "mape_pct": 32.781616420510346,
+        "r2": 0.2695537974280897
+      },
+      "loso_training_mean_in_situ": {
+        "n": 1328,
+        "mae": 11.138336970274088,
+        "rmse": 14.781998311591773,
+        "mape_pct": 66.21305780971622,
+        "r2": -0.040133873045726576
+      },
+      "q_log_k0": 0.7936409832750382
+    }
+  },
+  "bam_external": {
+    "n_cores": 20,
+    "global": {
+      "n": 20,
+      "mae": 9.92396920795959,
+      "rmse": 10.997982887960873,
+      "mape_pct": 18.353899706279126,
+      "r2": -1.9643008536670794
+    },
+    "mean_signed_error_mpa": -9.92396920795959,
+    "training_mean_baseline_note": "the Matthews training mean is reported for context",
+    "interval_coverage_k0": 1.0,
+    "per_lab_pair": [
+      {
+        "rn_lab": "Lab1",
+        "upv_lab": "Lab1",
+        "n": 20,
+        "mae": 7.8305696333892545
+      },
+      {
+        "rn_lab": "Lab1",
+        "upv_lab": "Lab2",
+        "n": 20,
+        "mae": 10.6420657558556
+      },
+      {
+        "rn_lab": "Lab1",
+        "upv_lab": "Lab3",
+        "n": 20,
+        "mae": 7.906456432202954
+      },
+      {
+        "rn_lab": "Lab1",
+        "upv_lab": "Lab4",
+        "n": 20,
+        "mae": 9.008817547607734
+      },
+      {
+        "rn_lab": "Lab1",
+        "upv_lab": "Lab5",
+        "n": 20,
+        "mae": 10.951175864040916
+      },
+      {
+        "rn_lab": "Lab1",
+        "upv_lab": "Lab6",
+        "n": 20,
+        "mae": 9.532389590537507
+      },
+      {
+        "rn_lab": "Lab2",
+        "upv_lab": "Lab1",
+        "n": 20,
+        "mae": 9.9817119305752
+      },
+      {
+        "rn_lab": "Lab2",
+        "upv_lab": "Lab2",
+        "n": 20,
+        "mae": 12.651595640291683
+      },
+      {
+        "rn_lab": "Lab2",
+        "upv_lab": "Lab3",
+        "n": 20,
+        "mae": 10.048676907333363
+      },
+      {
+        "rn_lab": "Lab2",
+        "upv_lab": "Lab4",
+        "n": 20,
+        "mae": 11.09842552630802
+      },
+      {
+        "rn_lab": "Lab2",
+        "upv_lab": "Lab5",
+        "n": 20,
+        "mae": 12.94878154136434
+      },
+      {
+        "rn_lab": "Lab2",
+        "upv_lab": "Lab6",
+        "n": 20,
+        "mae": 11.596183685076074
+      },
+      {
+        "rn_lab": "Lab5",
+        "upv_lab": "Lab1",
+        "n": 20,
+        "mae": 8.001732591914546
+      },
+      {
+        "rn_lab": "Lab5",
+        "upv_lab": "Lab2",
+        "n": 20,
+        "mae": 10.793473326210233
+      },
+      {
+        "rn_lab": "Lab5",
+        "upv_lab": "Lab3",
+        "n": 20,
+        "mae": 8.074285971463278
+      },
+      {
+        "rn_lab": "Lab5",
+        "upv_lab": "Lab4",
+        "n": 20,
+        "mae": 9.15980219354196
+      },
+      {
+        "rn_lab": "Lab5",
+        "upv_lab": "Lab5",
+        "n": 20,
+        "mae": 11.094486691197016
+      },
+      {
+        "rn_lab": "Lab5",
+        "upv_lab": "Lab6",
+        "n": 20,
+        "mae": 9.683193507733533
+      }
+    ],
+    "per_lab_pair_mae_range": [
+      7.8305696333892545,
+      12.94878154136434
+    ],
+    "k3_calibrated": {
+      "mae": 4.43060889167612,
+      "draws": 20,
+      "n_scored_per_draw": 17,
+      "interval_coverage": 1.0
+    },
+    "target_range_mpa": [
+      40.26694736842105,
+      61.64
+    ],
+    "rn_range": [
+      55.5,
+      62.0
+    ],
+    "vp_range_ms": [
+      3607.546574074074,
+      4238.085277777777
+    ],
+    "core_to_cylinder_factor": {
+      "factor": 0.968421052631579,
+      "sd": 0.00019033032256771364,
+      "n_rows": 56,
+      "source": "median fc,cyl/fc,core over Matthews RH-database rows with ~100x200 mm cores"
+    },
+    "training_mean_mae": 22.94485893332908
+  },
+  "shipped": {
+    "model_file": "models/interior/ndt_strength_v1.json",
+    "q_log_k0_sonreb": 0.6739365083957374,
+    "q_log_by_k_sonreb": {
+      "1": 0.5287988998277919,
+      "3": 0.4509975430830693,
+      "5": 0.40305094361722604
+    },
+    "coefficients": {
+      "features": [
+        "rn",
+        "vp"
+      ],
+      "intercept": -8.754781392455628,
+      "coef": [
+        0.8582590368178151,
+        1.08482725417711
+      ],
+      "form": "ln fc = intercept + coef[0]*ln(rn) + coef[1]*ln(vp)"
+    }
+  },
+  "published_comparison": {
+    "claim": "Matthews et al. (2026) report R2 0.947 for SonReb (TPE-CatBoost)",
+    "split": "10-fold k-fold cross-validation, 90/10, no grouping by study stated (Section 4.1.3)",
+    "url": "https://publications.tno.nl/publication/34645091/4b25FibC/matthews-2026-advancing.pdf",
+    "compare_with": "groupkfold_vs_random.random_rows_kfold5 (same split family), not the leave-study-out numbers"
+  }
+}

@@ -1,0 +1,578 @@
+{
+  "id": "facade_tilecls_v1",
+  "created": "2026-09-26T15:09:50",
+  "label": "REAL data: SDNET2018 walls (grouped by source photo), BFDD drone facades (grouped by flight). No synthetic tiles.",
+  "recall_target_on_val": 0.9,
+  "n_boot": 1000,
+  "manifest": {
+    "generated": "2026-09-26T13:59:42",
+    "rules": {
+      "sdnet": "group = source photo (filename prefix before '-'); groups shuffled seed 0; 60/20/20 train/val/test",
+      "ozgenel": "all tiles train only (no source ids)",
+      "bfdd": "OOD test only; 224px windows stride 224 edge-flush at native resolution; crack if >= 20 px of label value 1, no-crack if 0, drop 1-19; group = flight (counter reset or > 600s gap)",
+      "bfdd_value_map": "value 1 = Crack is INFERRED (class order on the landing page, thin shapes, red overlay check); not documented in the archive"
+    },
+    "counts": {
+      "bfdd/ood_test": {
+        "n": 7454,
+        "crack": 6485,
+        "no_crack": 969,
+        "groups": 10
+      },
+      "ozgenel/train": {
+        "n": 40000,
+        "crack": 20000,
+        "no_crack": 20000,
+        "groups": 1
+      },
+      "sdnet_walls/test": {
+        "n": 3529,
+        "crack": 787,
+        "no_crack": 2742,
+        "groups": 14
+      },
+      "sdnet_walls/train": {
+        "n": 11087,
+        "crack": 2218,
+        "no_crack": 8869,
+        "groups": 44
+      },
+      "sdnet_walls/val": {
+        "n": 3522,
+        "crack": 846,
+        "no_crack": 2676,
+        "groups": 14
+      }
+    },
+    "groups": {
+      "sdnet_test": [
+        "sdnet_7073",
+        "sdnet_7074",
+        "sdnet_7077",
+        "sdnet_7085",
+        "sdnet_7089",
+        "sdnet_7099",
+        "sdnet_7104",
+        "sdnet_7112",
+        "sdnet_7113",
+        "sdnet_7114",
+        "sdnet_7122",
+        "sdnet_7126",
+        "sdnet_7136",
+        "sdnet_7139"
+      ],
+      "sdnet_val": [
+        "sdnet_7071",
+        "sdnet_7079",
+        "sdnet_7080",
+        "sdnet_7086",
+        "sdnet_7088",
+        "sdnet_7092",
+        "sdnet_7096",
+        "sdnet_7103",
+        "sdnet_7111",
+        "sdnet_7124",
+        "sdnet_7131",
+        "sdnet_7135",
+        "sdnet_7137",
+        "sdnet_7140"
+      ],
+      "bfdd_flights": {
+        "bfdd_0624_f00": 94,
+        "bfdd_0624_f01": 219,
+        "bfdd_0625_f02": 111,
+        "bfdd_0625_f03": 56,
+        "bfdd_0625_f04": 14,
+        "bfdd_0625_f05": 76,
+        "bfdd_0626_f06": 117,
+        "bfdd_0626_f07": 107,
+        "bfdd_0628_f08": 24,
+        "bfdd_0628_f09": 20
+      }
+    },
+    "bfdd_label_check": {
+      "montage": "eval/facade/bfdd_label_check.jpg",
+      "images_sampled_for_stats": 65,
+      "value_presence": {
+        "1": 65,
+        "2": 14,
+        "3": 34,
+        "4": 44,
+        "5": 40
+      },
+      "median_max_thickness_px": {
+        "1": 4.47213595499958,
+        "2": 32.7172105398876,
+        "3": 25.990774704799854,
+        "4": 17.190483161234482,
+        "5": 42.007562479386394
+      }
+    },
+    "bfdd_frames_with_labels": 838
+  },
+  "sets": {
+    "sdnet_test": {
+      "n": 3529,
+      "crack": 787,
+      "no_crack": 2742,
+      "prevalence": 0.22300935109096062,
+      "groups": 14,
+      "models": {
+        "constant_prior": {
+          "auroc": 0.5,
+          "ap": 0.22300935109096062,
+          "threshold": 1.0,
+          "precision": NaN,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 787,
+          "tn": 2742,
+          "share_below_threshold": 1.0,
+          "specificity": 1.0,
+          "recall_at_precision_0_9_oracle": 0.0
+        },
+        "heuristic_crack_mask": {
+          "auroc": 0.6417703991836711,
+          "ap": 0.3612327061124989,
+          "threshold": 0.0,
+          "precision": 0.22300935109096062,
+          "recall": 1.0,
+          "f1": 0.36468952734012977,
+          "tp": 787,
+          "fp": 2742,
+          "fn": 0,
+          "tn": 0,
+          "share_below_threshold": 0.0,
+          "specificity": 0.0,
+          "recall_at_precision_0_9_oracle": 0.0,
+          "ci95_group_bootstrap": {
+            "auroc": [
+              0.5938112266830976,
+              0.7133220219931498
+            ],
+            "ap": [
+              0.3036292539781219,
+              0.446474156287478
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "precision": [
+              0.16888517399740072,
+              0.2790368271954674
+            ],
+            "n_boot_valid": 1000
+          }
+        },
+        "resnet18_ozgenel_only": {
+          "auroc": 0.7490382093408849,
+          "ap": 0.4968189118319599,
+          "threshold": 0.0003327412996441126,
+          "precision": 0.32924226254002137,
+          "recall": 0.783989834815756,
+          "f1": 0.4637354378053363,
+          "tp": 617,
+          "fp": 1257,
+          "fn": 170,
+          "tn": 1485,
+          "share_below_threshold": 0.4689713799943327,
+          "specificity": 0.5415754923413567,
+          "recall_at_precision_0_9_oracle": 0.0,
+          "ci95_group_bootstrap": {
+            "auroc": [
+              0.6882602256382894,
+              0.8250753585164838
+            ],
+            "ap": [
+              0.4147129713057497,
+              0.606002769959276
+            ],
+            "recall": [
+              0.7093505669276157,
+              0.8698390044561266
+            ],
+            "precision": [
+              0.279986143187067,
+              0.3763638176379951
+            ],
+            "n_boot_valid": 1000
+          }
+        },
+        "resnet18_ozgenel_sdnet": {
+          "auroc": 0.9182841710249615,
+          "ap": 0.8522905182820781,
+          "threshold": 0.20497773587703705,
+          "precision": 0.59245960502693,
+          "recall": 0.8386277001270648,
+          "f1": 0.6943713834823777,
+          "tp": 660,
+          "fp": 454,
+          "fn": 127,
+          "tn": 2288,
+          "share_below_threshold": 0.6843298384811561,
+          "specificity": 0.8344274252370533,
+          "recall_at_precision_0_9_oracle": 0.627700127064803,
+          "ci95_group_bootstrap": {
+            "auroc": [
+              0.8896336961479387,
+              0.9464476490748472
+            ],
+            "ap": [
+              0.821879197784109,
+              0.8844403138419348
+            ],
+            "recall": [
+              0.7872068059471931,
+              0.8871431696037996
+            ],
+            "precision": [
+              0.5407525026200716,
+              0.6449052954515139
+            ],
+            "n_boot_valid": 1000
+          }
+        }
+      }
+    },
+    "bfdd_ood": {
+      "n": 7454,
+      "crack": 6485,
+      "no_crack": 969,
+      "prevalence": 0.8700026831231553,
+      "groups": 10,
+      "models": {
+        "constant_prior": {
+          "auroc": 0.5,
+          "ap": 0.8700026831231553,
+          "threshold": 1.0,
+          "precision": NaN,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "fp": 0,
+          "fn": 6485,
+          "tn": 969,
+          "share_below_threshold": 1.0,
+          "specificity": 1.0,
+          "recall_at_precision_0_9_oracle": 0.0
+        },
+        "heuristic_crack_mask": {
+          "auroc": 0.4449253775283599,
+          "ap": 0.8495794039658535,
+          "threshold": 0.0,
+          "precision": 0.8700026831231553,
+          "recall": 1.0,
+          "f1": 0.9304828179926824,
+          "tp": 6485,
+          "fp": 969,
+          "fn": 0,
+          "tn": 0,
+          "share_below_threshold": 0.0,
+          "specificity": 0.0,
+          "recall_at_precision_0_9_oracle": 0.005859676175790285,
+          "ci95_group_bootstrap": {
+            "auroc": [
+              0.40009816427753164,
+              0.5043413701638179
+            ],
+            "ap": [
+              0.7764636557186299,
+              0.919950953436362
+            ],
+            "recall": [
+              1.0,
+              1.0
+            ],
+            "precision": [
+              0.818156092927534,
+              0.9240161881286691
+            ],
+            "n_boot_valid": 1000
+          }
+        },
+        "resnet18_ozgenel_only": {
+          "auroc": 0.6561216524916991,
+          "ap": 0.9245728558937297,
+          "threshold": 0.0003327412996441126,
+          "precision": 0.8860278598564796,
+          "recall": 0.9710100231303007,
+          "f1": 0.9265744555620954,
+          "tp": 6297,
+          "fp": 810,
+          "fn": 188,
+          "tn": 159,
+          "share_below_threshold": 0.046552186745371614,
+          "specificity": 0.16408668730650156,
+          "recall_at_precision_0_9_oracle": 0.70254433307633,
+          "ci95_group_bootstrap": {
+            "auroc": [
+              0.5992897245280755,
+              0.7188466713911495
+            ],
+            "ap": [
+              0.875548081204451,
+              0.9620453909687843
+            ],
+            "recall": [
+              0.958191476065704,
+              0.9883677696671972
+            ],
+            "precision": [
+              0.8365113859456067,
+              0.9373584721457195
+            ],
+            "n_boot_valid": 1000
+          }
+        },
+        "resnet18_ozgenel_sdnet": {
+          "auroc": 0.9055987740224524,
+          "ap": 0.9839586635643971,
+          "threshold": 0.20497773587703705,
+          "precision": 0.9399502177971375,
+          "recall": 0.9316885119506554,
+          "f1": 0.9358011306435375,
+          "tp": 6042,
+          "fp": 386,
+          "fn": 443,
+          "tn": 583,
+          "share_below_threshold": 0.1376442178696002,
+          "specificity": 0.6016511867905057,
+          "recall_at_precision_0_9_oracle": 0.9813415574402468,
+          "ci95_group_bootstrap": {
+            "auroc": [
+              0.8805287014104617,
+              0.9142133248050945
+            ],
+            "ap": [
+              0.9739296951857328,
+              0.9893887020555517
+            ],
+            "recall": [
+              0.8903867111313097,
+              0.9592300391225439
+            ],
+            "precision": [
+              0.9204052775530819,
+              0.9583889514755083
+            ],
+            "n_boot_valid": 1000
+          }
+        }
+      }
+    }
+  },
+  "thresholds_from_val": {
+    "constant_prior": 1.0,
+    "heuristic_crack_mask": 0.0,
+    "resnet18_ozgenel_only": 0.0003327412996441126,
+    "resnet18_ozgenel_sdnet": 0.20497773587703705
+  },
+  "sdnet_val": {
+    "n": 3522,
+    "groups": 14,
+    "models": {
+      "constant_prior": {
+        "auroc": 0.5,
+        "ap": 0.2402044293015332,
+        "precision": NaN,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 846,
+        "tn": 2676,
+        "share_below_threshold": 1.0,
+        "specificity": 1.0
+      },
+      "heuristic_crack_mask": {
+        "auroc": 0.6676015594355924,
+        "ap": 0.4152626517603855,
+        "precision": 0.2402044293015332,
+        "recall": 1.0,
+        "f1": 0.3873626373626373,
+        "tp": 846,
+        "fp": 2676,
+        "fn": 0,
+        "tn": 0,
+        "share_below_threshold": 0.0,
+        "specificity": 0.0
+      },
+      "resnet18_ozgenel_only": {
+        "auroc": 0.8045817917430835,
+        "ap": 0.6082139126127721,
+        "precision": 0.3287316652286454,
+        "recall": 0.900709219858156,
+        "f1": 0.4816687737041719,
+        "tp": 762,
+        "fp": 1556,
+        "fn": 84,
+        "tn": 1120,
+        "share_below_threshold": 0.3418512208972175,
+        "specificity": 0.41853512705530643
+      },
+      "resnet18_ozgenel_sdnet": {
+        "auroc": 0.9366686897277967,
+        "ap": 0.8879022721014832,
+        "precision": 0.6071713147410358,
+        "recall": 0.900709219858156,
+        "f1": 0.7253688719657305,
+        "tp": 762,
+        "fp": 493,
+        "fn": 84,
+        "tn": 2183,
+        "share_below_threshold": 0.6436683702441794,
+        "specificity": 0.8157698056801196
+      }
+    }
+  },
+  "bfdd_frames": {
+    "n_frames": 838,
+    "median_windows_per_frame": 9.0,
+    "median_sent_per_frame": 9.0,
+    "frames_with_crack_label_and_zero_windows_sent": 0,
+    "frames_with_crack_label": 833
+  },
+  "latency": {
+    "ort_cpu_app_env": {
+      "ms_per_tile": 30.95,
+      "threads": 4,
+      "batch": 32,
+      "n_tiles": 256
+    },
+    "ort_vs_torch_max_abs_p_diff": 0.006839960813522339,
+    "gpu_torch_fp16_b128_ms_per_tile": 0.368
+  },
+  "training": {
+    "main": {
+      "tag": "resnet18_ozg_sdnet",
+      "backbone": "resnet18.a1_in1k",
+      "train_sets": [
+        "ozgenel",
+        "sdnet_walls"
+      ],
+      "n_train": 51087,
+      "n_train_crack": 22218,
+      "n_train_no_crack": 28869,
+      "n_val": 3522,
+      "epochs": 4,
+      "batch": 128,
+      "lr": 0.0003,
+      "weight_decay": 0.05,
+      "seed": 0,
+      "class_weights": [
+        0.8848072290420532,
+        1.149675965309143
+      ],
+      "selected_epoch": 4,
+      "log": [
+        {
+          "epoch": 1,
+          "train_loss": 0.21389961409800334,
+          "val_ap": 0.8414842875902271,
+          "val_auroc": 0.9048642252117588,
+          "train_seconds": 76.9
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.07029831718261305,
+          "val_ap": 0.8825855796933718,
+          "val_auroc": 0.9311107930753002,
+          "train_seconds": 74.7
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.06382379859200396,
+          "val_ap": 0.8845037462972138,
+          "val_auroc": 0.9340466611540459,
+          "train_seconds": 77.8
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.05945344597222587,
+          "val_ap": 0.8879026631101277,
+          "val_auroc": 0.9366689105859988,
+          "train_seconds": 74.9
+        }
+      ],
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "torch": "2.11.0+cu128",
+      "timm": "1.0.30",
+      "gpu_ms_per_tile_fp16_b128": 0.368
+    },
+    "ablation": {
+      "tag": "resnet18_ozg_only",
+      "backbone": "resnet18.a1_in1k",
+      "train_sets": [
+        "ozgenel"
+      ],
+      "n_train": 40000,
+      "n_train_crack": 20000,
+      "n_train_no_crack": 20000,
+      "n_val": 3522,
+      "epochs": 4,
+      "batch": 128,
+      "lr": 0.0003,
+      "weight_decay": 0.05,
+      "seed": 0,
+      "class_weights": [
+        1.0,
+        1.0
+      ],
+      "selected_epoch": 4,
+      "log": [
+        {
+          "epoch": 1,
+          "train_loss": 0.16647363440969434,
+          "val_ap": 0.49340333765593386,
+          "val_auroc": 0.7182602469371384,
+          "train_seconds": 58.1
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.009594440672140664,
+          "val_ap": 0.5709114680526022,
+          "val_auroc": 0.7738124896196645,
+          "train_seconds": 57.2
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.006113235393945032,
+          "val_ap": 0.6026987645348396,
+          "val_auroc": 0.8024745836381177,
+          "train_seconds": 58.9
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.005846265897465249,
+          "val_ap": 0.6082136526443901,
+          "val_auroc": 0.8045826751758914,
+          "train_seconds": 57.1
+        }
+      ],
+      "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+      "torch": "2.11.0+cu128",
+      "timm": "1.0.30",
+      "gpu_ms_per_tile_fp16_b128": 0.377
+    }
+  },
+  "export": {
+    "tag": "resnet18_ozg_sdnet",
+    "backbone": "resnet18.a1_in1k",
+    "exporter": "torchscript (dynamo=False)",
+    "opset": 17,
+    "initializers_cast_to_fp16": 41,
+    "fp32_file_bytes": 44700686,
+    "shipped_file": "models/facade/tilecls_resnet18_v1.onnx",
+    "shipped_file_bytes": 22358678,
+    "parity_n_tiles": 256,
+    "fp32_max_abs_logit_diff": 7.510185241699219e-06,
+    "fp16store_max_abs_logit_diff": 0.013593435287475586,
+    "fp16store_max_abs_p_diff": 0.0024917423725128174,
+    "ort_cpu_ms_per_tile_fp32_4threads_cerebro_env": 21.47,
+    "ort_cpu_ms_per_tile_fp16store_4threads_cerebro_env": 27.65
+  },
+  "seconds": 1882.6
+}

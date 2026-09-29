@@ -1,0 +1,3826 @@
+{
+ "label": "REAL (ROBOD test days) + INJECTED (motion-sensor misses at UCI 864 rates)",
+ "rooms": {
+  "1": {
+   "recorded": {
+    "n_steps": 2592,
+    "n_days": 9,
+    "n_occupied_steps": 55,
+    "recorded_kwh": 70.99771996800001,
+    "recorded_kwh_while_vacant": 62.163083304,
+    "recorded_vacant_share": 0.8755645016772095,
+    "from": "2021-12-13 00:00:00",
+    "to": "2021-12-23 23:55:00",
+    "hypothetical_247_p95_kwh": 265.7789284752
+   },
+   "profiles": {
+    "room_rule": {
+     "zone_rule": "amenity",
+     "policies": {
+      "as_operated": {
+       "kwh": 70.99771996800001,
+       "usd": 3.64686113448392,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 60.856113378,
+       "usd": 3.2518455578034198,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 14.284411660784347
+      },
+      "ideal_sensor": {
+       "kwh": 10.174153333,
+       "usd": 0.56916295769897,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 1.3333333333333333,
+       "saved_vs_as_operated_pct": 85.66974638398855
+      },
+      "ml_only": {
+       "kwh": 47.41697999,
+       "usd": 2.60410103003188,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.14545454545454545,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 7.111111111111111,
+       "saved_vs_as_operated_pct": 33.21337641353593
+      },
+      "sensor": {
+       "kwh": 12.9980409987,
+       "usd": 0.7140065350890881,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0018181818181818182,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 7.18888888888889,
+       "saved_vs_as_operated_pct": 81.69231208472827
+      },
+      "sensor_ml": {
+       "kwh": 21.308916995699995,
+       "usd": 1.1681483088336861,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0018181818181818182,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 6.0777777777777775,
+       "saved_vs_as_operated_pct": 69.9864770230589
+      },
+      "sensor_ml_union": {
+       "kwh": 49.0865763238,
+       "usd": 2.679156123632146,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0018181818181818182,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 10.233333333333334,
+       "saved_vs_as_operated_pct": 30.861756763563353
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 12.9980409987,
+         "usd": 0.7140065350890881,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0018181818181818182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.18888888888889,
+         "saved_vs_as_operated_pct": 81.69231208472827
+        },
+        "min": {
+         "kwh": 12.158203341,
+         "usd": 0.6722686154643598,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.888888888888889
+        },
+        "max": {
+         "kwh": 14.208973336,
+         "usd": 0.78185432369789,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.01818181818181818,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.666666666666666
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 21.308916995699995,
+         "usd": 1.1681483088336861,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0018181818181818182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.0777777777777775,
+         "saved_vs_as_operated_pct": 69.9864770230589
+        },
+        "min": {
+         "kwh": 17.509760002,
+         "usd": 0.9539044684442501,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 25.249029991,
+         "usd": 1.3888592106211701,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.01818181818181818,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 49.0865763238,
+         "usd": 2.679156123632146,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0018181818181818182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.233333333333334,
+         "saved_vs_as_operated_pct": 30.861756763563353
+        },
+        "min": {
+         "kwh": 48.487946655,
+         "usd": 2.6502801700301797,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.11111111111111
+        },
+        "max": {
+         "kwh": 49.412419987999996,
+         "usd": 2.69334670359056,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.01818181818181818,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.88888888888889
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 12.8443943318,
+         "usd": 0.705748646733678,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.014545454545454545,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.144444444444444
+        },
+        "min": {
+         "kwh": 11.586913327,
+         "usd": 0.6408846962453999,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 14.200833335999999,
+         "usd": 0.7815372706978899,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.05454545454545454,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.666666666666666
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 21.105139662,
+         "usd": 1.157038988150692,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.014545454545454545,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.033333333333333
+        },
+        "min": {
+         "kwh": 17.399089994,
+         "usd": 0.9510344932252901,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 25.192063324,
+         "usd": 1.38561894660221,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.05454545454545454,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 49.0445829903,
+         "usd": 2.6772490768805284,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.007272727272727273,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.233333333333334
+        },
+        "min": {
+         "kwh": 48.307279988,
+         "usd": 2.64233851531122,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.11111111111111
+        },
+        "max": {
+         "kwh": 49.412419987999996,
+         "usd": 2.69081079891091,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.03636363636363636,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.88888888888889
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 12.491203998,
+         "usd": 0.6859218371171341,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.04727272727272727,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.033333333333334
+        },
+        "min": {
+         "kwh": 10.786133339,
+         "usd": 0.5943712239505998,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 13.619776669,
+         "usd": 0.7484867674789301,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.12727272727272726,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.666666666666666
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 20.745601328200003,
+         "usd": 1.137586515187321,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.038181818181818185,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.966666666666667
+        },
+        "min": {
+         "kwh": 16.74479333,
+         "usd": 0.92790090199247,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 24.44010999,
+         "usd": 1.34284784096429,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.07272727272727272,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 48.9750836566,
+         "usd": 2.6735586113496717,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.021818181818181816,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.188888888888888
+        },
+        "min": {
+         "kwh": 48.307279988,
+         "usd": 2.64233851531122,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.11111111111111
+        },
+        "max": {
+         "kwh": 49.361963321000005,
+         "usd": 2.68794082369195,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.05454545454545454,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.88888888888889
+        }
+       }
+      }
+     }
+    },
+    "corridor_rule": {
+     "zone_rule": "corridor",
+     "policies": {
+      "as_operated": {
+       "kwh": 70.99771996800001,
+       "usd": 3.64686113448392,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 65.926916673,
+       "usd": 3.4493533461436696,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 7.142205830392189
+      },
+      "ideal_sensor": {
+       "kwh": 40.5859366505,
+       "usd": 2.108012046091445,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 1.3333333333333333,
+       "saved_vs_as_operated_pct": 42.834873191994284
+      },
+      "ml_only": {
+       "kwh": 59.207349979,
+       "usd": 3.1254810822579,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.14545454545454545,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 7.111111111111111,
+       "saved_vs_as_operated_pct": 16.606688206767984
+      },
+      "sensor": {
+       "kwh": 41.997880483349995,
+       "usd": 2.180433834786504,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0018181818181818182,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 7.18888888888889,
+       "saved_vs_as_operated_pct": 40.84615604236416
+      },
+      "sensor_ml": {
+       "kwh": 46.15331848185,
+       "usd": 2.4075047216588032,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0018181818181818182,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 6.0777777777777775,
+       "saved_vs_as_operated_pct": 34.99323851152945
+      },
+      "sensor_ml_union": {
+       "kwh": 60.0421481459,
+       "usd": 3.1630086290580333,
+       "peak_kw_wkday_high_peak": 1.89452,
+       "underlit_occupied_share": 0.0018181818181818182,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 10.233333333333334,
+       "saved_vs_as_operated_pct": 15.430878381781687
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 41.997880483349995,
+         "usd": 2.180433834786504,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0018181818181818182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.18888888888889,
+         "saved_vs_as_operated_pct": 40.84615604236416
+        },
+        "min": {
+         "kwh": 41.5779616545,
+         "usd": 2.15956487497414,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.888888888888889
+        },
+        "max": {
+         "kwh": 42.603346652,
+         "usd": 2.2143577290909047,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.01818181818181818,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.666666666666666
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 46.15331848185,
+         "usd": 2.4075047216588032,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0018181818181818182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.0777777777777775,
+         "saved_vs_as_operated_pct": 34.99323851152945
+        },
+        "min": {
+         "kwh": 44.253739984999996,
+         "usd": 2.3003828014640852,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 48.1233749795,
+         "usd": 2.5178601725525454,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.01818181818181818,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 60.0421481459,
+         "usd": 3.1630086290580333,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0018181818181818182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.233333333333334,
+         "saved_vs_as_operated_pct": 15.430878381781687
+        },
+        "min": {
+         "kwh": 59.7428333115,
+         "usd": 3.1485706522570505,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.11111111111111
+        },
+        "max": {
+         "kwh": 60.205069978,
+         "usd": 3.1701039190372398,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.01818181818181818,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.88888888888889
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 41.9210571499,
+         "usd": 2.1763048906087987,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.014545454545454545,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.144444444444444
+        },
+        "min": {
+         "kwh": 41.2923166475,
+         "usd": 2.1438729153646596,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 42.599276652,
+         "usd": 2.2141992025909047,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.05454545454545454,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.666666666666666
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 46.051429815,
+         "usd": 2.401950061317306,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.014545454545454545,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.033333333333333
+        },
+        "min": {
+         "kwh": 44.198404980999996,
+         "usd": 2.298947813854605,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 48.094891646,
+         "usd": 2.5162400405430647,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.05454545454545454,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 60.02115147915,
+         "usd": 3.1620551056822244,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.007272727272727273,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.233333333333334
+        },
+        "min": {
+         "kwh": 59.652499977999994,
+         "usd": 3.14459982489757,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.11111111111111
+        },
+        "max": {
+         "kwh": 60.205069978,
+         "usd": 3.168835966697415,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.03636363636363636,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.88888888888889
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 41.744461982999994,
+         "usd": 2.166391485800527,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.04727272727272727,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.033333333333334
+        },
+        "min": {
+         "kwh": 40.89192665349999,
+         "usd": 2.1206161792172598,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 42.308748318499994,
+         "usd": 2.1976739509814247,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.12727272727272726,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.666666666666666
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 45.8716606481,
+         "usd": 2.3922238248356202,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.038181818181818185,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.966666666666667
+        },
+        "min": {
+         "kwh": 43.871256649,
+         "usd": 2.287381018238195,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 47.718914979000004,
+         "usd": 2.494854487724105,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.07272727272727272,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 59.986401812299995,
+         "usd": 3.160209872916796,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.021818181818181816,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.188888888888888
+        },
+        "min": {
+         "kwh": 59.652499977999994,
+         "usd": 3.14459982489757,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.11111111111111
+        },
+        "max": {
+         "kwh": 60.1798416445,
+         "usd": 3.167400979087935,
+         "peak_kw_wkday_high_peak": 1.89452,
+         "underlit_occupied_share": 0.05454545454545454,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 10.88888888888889
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "2": {
+   "recorded": {
+    "n_steps": 2592,
+    "n_days": 9,
+    "n_occupied_steps": 555,
+    "recorded_kwh": 30.427594092999996,
+    "recorded_kwh_while_vacant": 14.610769795,
+    "recorded_vacant_share": 0.4801815664538943,
+    "from": "2021-12-13 00:00:00",
+    "to": "2021-12-23 23:55:00",
+    "hypothetical_247_p95_kwh": 113.90525493119999
+   },
+   "profiles": {
+    "room_rule": {
+     "zone_rule": "amenity",
+     "policies": {
+      "as_operated": {
+       "kwh": 30.427594092999996,
+       "usd": 1.56294047845667,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 26.081191342000004,
+       "usd": 1.3936480913052198,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 14.284411503964101
+      },
+      "ideal_sensor": {
+       "kwh": 16.872908584,
+       "usd": 0.91924591996373,
+       "peak_kw_wkday_high_peak": 0.6445314320000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.4444444444444446,
+       "saved_vs_as_operated_pct": 44.547345634922586
+      },
+      "ml_only": {
+       "kwh": 16.775249969999997,
+       "usd": 0.93983068180018,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.23603603603603604,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 4.888888888888889,
+       "saved_vs_as_operated_pct": 44.86829974552862
+      },
+      "sensor": {
+       "kwh": 17.3301470045,
+       "usd": 0.9403446840569758,
+       "peak_kw_wkday_high_peak": 0.6445314320000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 6.544444444444446,
+       "saved_vs_as_operated_pct": 43.044635893552694
+      },
+      "sensor_ml": {
+       "kwh": 18.2848069853,
+       "usd": 0.990139481501652,
+       "peak_kw_wkday_high_peak": 0.6612720028,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.655555555555556,
+       "saved_vs_as_operated_pct": 39.90715490217972
+      },
+      "sensor_ml_union": {
+       "kwh": 21.1024012448,
+       "usd": 1.1412928703834861,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 7.833333333333333,
+       "saved_vs_as_operated_pct": 30.647158035887234
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 17.3301470045,
+         "usd": 0.9403446840569758,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.544444444444446,
+         "saved_vs_as_operated_pct": 43.044635893552694
+        },
+        "min": {
+         "kwh": 17.177734291,
+         "usd": 0.9316441534033999,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.888888888888889
+        },
+        "max": {
+         "kwh": 17.467907147,
+         "usd": 0.9485537375319499,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.222222222222221
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 18.2848069853,
+         "usd": 0.990139481501652,
+         "peak_kw_wkday_high_peak": 0.6612720028,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.655555555555556,
+         "saved_vs_as_operated_pct": 39.90715490217972
+        },
+        "min": {
+         "kwh": 18.023855701000002,
+         "usd": 0.97573180784183,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 18.920899988000002,
+         "usd": 1.02915700050659,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 21.1024012448,
+         "usd": 1.1412928703834861,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.833333333333333,
+         "saved_vs_as_operated_pct": 30.647158035887234
+        },
+        "min": {
+         "kwh": 20.966801389,
+         "usd": 1.1352095672904299,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        },
+        "max": {
+         "kwh": 21.173269958,
+         "usd": 1.14587798124717,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 17.2682051472,
+         "usd": 0.937177879617338,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0023423423423423427,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.7444444444444445
+        },
+        "min": {
+         "kwh": 17.070312862,
+         "usd": 0.92603429514385,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.111111111111111
+        },
+        "max": {
+         "kwh": 17.403035719000002,
+         "usd": 0.9429501096955999,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.005405405405405406,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 18.2606022708,
+         "usd": 0.989119165744478,
+         "peak_kw_wkday_high_peak": 0.6612720028,
+         "underlit_occupied_share": 0.0009009009009009009,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.655555555555556
+        },
+        "min": {
+         "kwh": 17.974331415,
+         "usd": 0.97341513907612,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 18.845564273,
+         "usd": 1.02583495095936,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0036036036036036037,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 21.0781965303,
+         "usd": 1.140272554626312,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0009009009009009009,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.833333333333333
+        },
+        "min": {
+         "kwh": 20.891465674000003,
+         "usd": 1.1318875177432,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        },
+        "max": {
+         "kwh": 21.173269958,
+         "usd": 1.14587798124717,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0036036036036036037,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 16.912247718699998,
+         "usd": 0.9184531320856468,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.02072072072072072,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.522222222222221
+        },
+        "min": {
+         "kwh": 16.655274291,
+         "usd": 0.9059289119415299,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.012612612612612612,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        },
+        "max": {
+         "kwh": 17.084257148,
+         "usd": 0.9266899998257201,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.036036036036036036,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.333333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 18.119697699299998,
+         "usd": 0.9826266247189469,
+         "peak_kw_wkday_high_peak": 0.6612720028,
+         "underlit_occupied_share": 0.00918918918918919,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.766666666666667
+        },
+        "min": {
+         "kwh": 17.857141414,
+         "usd": 0.9664491980151999,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0036036036036036037,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 18.633509987,
+         "usd": 1.01494897327168,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.016216216216216217,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 20.9413373874,
+         "usd": 1.1340101175795492,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0077477477477477475,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.944444444444445
+        },
+        "min": {
+         "kwh": 20.683595674,
+         "usd": 1.1212395422431998,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        },
+        "max": {
+         "kwh": 21.045619958,
+         "usd": 1.1388298734789901,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.016216216216216217,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       }
+      }
+     }
+    },
+    "corridor_rule": {
+     "zone_rule": "corridor",
+     "policies": {
+      "as_operated": {
+       "kwh": 30.427594092999996,
+       "usd": 1.56294047845667,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 28.254392717500004,
+       "usd": 1.478294284880945,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 7.142205751982034
+      },
+      "ideal_sensor": {
+       "kwh": 23.650251338500002,
+       "usd": 1.2410931992102,
+       "peak_kw_wkday_high_peak": 0.6445314320000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.4444444444444446,
+       "saved_vs_as_operated_pct": 22.273672817461275
+      },
+      "ml_only": {
+       "kwh": 23.6014220315,
+       "usd": 1.251385580128425,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.23603603603603604,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 4.888888888888889,
+       "saved_vs_as_operated_pct": 22.434149872764298
+      },
+      "sensor": {
+       "kwh": 23.87887054875,
+       "usd": 1.251642581256823,
+       "peak_kw_wkday_high_peak": 0.6445314320000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 6.544444444444446,
+       "saved_vs_as_operated_pct": 21.522317946776337
+      },
+      "sensor_ml": {
+       "kwh": 24.356200539150002,
+       "usd": 1.276539979979161,
+       "peak_kw_wkday_high_peak": 0.6612720028,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.655555555555556,
+       "saved_vs_as_operated_pct": 19.953577451089842
+      },
+      "sensor_ml_union": {
+       "kwh": 25.764997668899998,
+       "usd": 1.352116674420078,
+       "peak_kw_wkday_high_peak": 0.8119371400000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 7.833333333333333,
+       "saved_vs_as_operated_pct": 15.323579017943612
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 23.87887054875,
+         "usd": 1.251642581256823,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.544444444444446,
+         "saved_vs_as_operated_pct": 21.522317946776337
+        },
+        "min": {
+         "kwh": 23.802664192,
+         "usd": 1.2472923159300349,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.888888888888889
+        },
+        "max": {
+         "kwh": 23.94775062,
+         "usd": 1.2557471079943099,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.222222222222221
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 24.356200539150002,
+         "usd": 1.276539979979161,
+         "peak_kw_wkday_high_peak": 0.6612720028,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.655555555555556,
+         "saved_vs_as_operated_pct": 19.953577451089842
+        },
+        "min": {
+         "kwh": 24.225724897000003,
+         "usd": 1.26933614314925,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 24.6742470405,
+         "usd": 1.29604873948163,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 25.764997668899998,
+         "usd": 1.352116674420078,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.833333333333333,
+         "saved_vs_as_operated_pct": 15.323579017943612
+        },
+        "min": {
+         "kwh": 25.697197741000004,
+         "usd": 1.34907502287355,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        },
+        "max": {
+         "kwh": 25.8004320255,
+         "usd": 1.3544092298519201,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 23.8478996201,
+         "usd": 1.250059179037004,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0023423423423423427,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.7444444444444445
+        },
+        "min": {
+         "kwh": 23.748953477500002,
+         "usd": 1.24448738680026,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.111111111111111
+        },
+        "max": {
+         "kwh": 23.915314906000003,
+         "usd": 1.252945294076135,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.005405405405405406,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 24.3440981819,
+         "usd": 1.276029822100574,
+         "peak_kw_wkday_high_peak": 0.6612720028,
+         "underlit_occupied_share": 0.0009009009009009009,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.655555555555556
+        },
+        "min": {
+         "kwh": 24.200962754000003,
+         "usd": 1.2681778087663949,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 24.636579183000002,
+         "usd": 1.294387714708015,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0036036036036036037,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 25.75289531165,
+         "usd": 1.3516065165414912,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0009009009009009009,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.833333333333333
+        },
+        "min": {
+         "kwh": 25.6595298835,
+         "usd": 1.3474139980999351,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        },
+        "max": {
+         "kwh": 25.8004320255,
+         "usd": 1.3544092298519201,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0036036036036036037,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 23.669920905850002,
+         "usd": 1.2406968052711584,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.02072072072072072,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.522222222222221
+        },
+        "min": {
+         "kwh": 23.541434192000004,
+         "usd": 1.2344346951990999,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.012612612612612612,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        },
+        "max": {
+         "kwh": 23.7559256205,
+         "usd": 1.2448152391411949,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.036036036036036036,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 9.333333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 24.27364589615,
+         "usd": 1.2727835515878083,
+         "peak_kw_wkday_high_peak": 0.6612720028,
+         "underlit_occupied_share": 0.00918918918918919,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.766666666666667
+        },
+        "min": {
+         "kwh": 24.142367753500004,
+         "usd": 1.2646948382359349,
+         "peak_kw_wkday_high_peak": 0.6445314320000001,
+         "underlit_occupied_share": 0.0036036036036036037,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.444444444444445
+        },
+        "max": {
+         "kwh": 24.53055204,
+         "usd": 1.288944725864175,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.016216216216216217,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 25.6844657402,
+         "usd": 1.3484752980181094,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0077477477477477475,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.944444444444445
+        },
+        "min": {
+         "kwh": 25.5555948835,
+         "usd": 1.342090010349935,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.888888888888889
+        },
+        "max": {
+         "kwh": 25.7366070255,
+         "usd": 1.35088517596783,
+         "peak_kw_wkday_high_peak": 0.8119371400000001,
+         "underlit_occupied_share": 0.016216216216216217,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.444444444444445
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "3": {
+   "recorded": {
+    "n_steps": 2592,
+    "n_days": 9,
+    "n_occupied_steps": 789,
+    "recorded_kwh": 2.8986206,
+    "recorded_kwh_while_vacant": 1.9812008999999997,
+    "recorded_vacant_share": 0.6834978334177296,
+    "from": "2021-12-13 00:00:00",
+    "to": "2021-12-23 23:55:00",
+    "hypothetical_247_p95_kwh": 3.3224256000000003
+   },
+   "profiles": {
+    "room_rule": {
+     "zone_rule": "amenity",
+     "policies": {
+      "as_operated": {
+       "kwh": 2.8986206,
+       "usd": 0.135240449428,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 1.854187,
+       "usd": 0.09455976070800001,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 36.03209057439253
+      },
+      "ideal_sensor": {
+       "kwh": 0.9600219,
+       "usd": 0.053626594320000005,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.4444444444444446,
+       "saved_vs_as_operated_pct": 66.88004287280647
+      },
+      "ml_only": {
+       "kwh": 1.3348999,
+       "usd": 0.07232428339800001,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.036755386565272496,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.6666666666666665,
+       "saved_vs_as_operated_pct": 53.94706364813664
+      },
+      "sensor": {
+       "kwh": 1.0407957999999997,
+       "usd": 0.05706930889,
+       "peak_kw_wkday_high_peak": 0.019043200000000003,
+       "underlit_occupied_share": 0.00025348542458808617,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 6.344444444444444,
+       "saved_vs_as_operated_pct": 64.0934105001531
+      },
+      "sensor_ml": {
+       "kwh": 1.19157098,
+       "usd": 0.0653008957221,
+       "peak_kw_wkday_high_peak": 0.019043200000000003,
+       "underlit_occupied_share": 0.00012674271229404308,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.055555555555555,
+       "saved_vs_as_operated_pct": 58.891792185565784
+      },
+      "sensor_ml_union": {
+       "kwh": 1.43064568,
+       "usd": 0.0764766601399,
+       "peak_kw_wkday_high_peak": 0.019043200000000003,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.455555555555556,
+       "saved_vs_as_operated_pct": 50.6439138671684
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 1.0407957999999997,
+         "usd": 0.05706930889,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.00025348542458808617,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.344444444444444,
+         "saved_vs_as_operated_pct": 64.0934105001531
+        },
+        "min": {
+         "kwh": 1.0183712999999999,
+         "usd": 0.05618055343,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.333333333333333
+        },
+        "max": {
+         "kwh": 1.0634157,
+         "usd": 0.05820971861700001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.333333333333333
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 1.19157098,
+         "usd": 0.0653008957221,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.00012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.055555555555555,
+         "saved_vs_as_operated_pct": 58.891792185565784
+        },
+        "min": {
+         "kwh": 1.1380614,
+         "usd": 0.062241074822,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 1.2539672,
+         "usd": 0.06853284705500001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 1.43064568,
+         "usd": 0.0764766601399,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.455555555555556,
+         "saved_vs_as_operated_pct": 50.6439138671684
+        },
+        "min": {
+         "kwh": 1.4146116,
+         "usd": 0.075779248529,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 1.4497681999999998,
+         "usd": 0.07724599565200001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.666666666666667
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 1.03778067,
+         "usd": 0.0569060159324,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0019011406844106464,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.411111111111111
+        },
+        "min": {
+         "kwh": 1.0142209,
+         "usd": 0.055944478678,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.555555555555555
+        },
+        "max": {
+         "kwh": 1.0634157,
+         "usd": 0.05820971861700001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0038022813688212928,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.333333333333333
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 1.1904174200000002,
+         "usd": 0.06523922098820001,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0011406844106463877,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.055555555555555
+        },
+        "min": {
+         "kwh": 1.1357420999999999,
+         "usd": 0.062109153038000006,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 1.2517088,
+         "usd": 0.06842408895400001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0025348542458808617,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 1.43020623,
+         "usd": 0.0764556039828,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.00038022813688212925,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.455555555555556
+        },
+        "min": {
+         "kwh": 1.4146116,
+         "usd": 0.075779248529,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 1.4497681999999998,
+         "usd": 0.07724599565200001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.666666666666667
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 1.0227722199999998,
+         "usd": 0.0560958901352,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.013561470215462609,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.277777777777777
+        },
+        "min": {
+         "kwh": 1.003235,
+         "usd": 0.055077741123,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0063371356147021544,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        },
+        "max": {
+         "kwh": 1.0527345,
+         "usd": 0.057621869859,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.017743979721166033,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.222222222222221
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 1.1853942499999999,
+         "usd": 0.0650008886619,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.004182509505703422,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.1
+        },
+        "min": {
+         "kwh": 1.1242063999999998,
+         "usd": 0.06163904410200001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 1.2461547999999998,
+         "usd": 0.06814757323000001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.008871989860583017,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 1.4279845699999998,
+         "usd": 0.07635134185899999,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0022813688212927757,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.5
+        },
+        "min": {
+         "kwh": 1.4146116,
+         "usd": 0.075779248529,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 1.4486696000000001,
+         "usd": 0.077203205182,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0063371356147021544,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.666666666666667
+        }
+       }
+      }
+     }
+    },
+    "corridor_rule": {
+     "zone_rule": "corridor",
+     "policies": {
+      "as_operated": {
+       "kwh": 2.8986206,
+       "usd": 0.135240449428,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 2.3764038000000003,
+       "usd": 0.114900105068,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 18.01604528719626
+      },
+      "ideal_sensor": {
+       "kwh": 1.9293212499999999,
+       "usd": 0.094433521874,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.4444444444444446,
+       "saved_vs_as_operated_pct": 33.44002143640324
+      },
+      "ml_only": {
+       "kwh": 2.11676025,
+       "usd": 0.103782366413,
+       "peak_kw_wkday_high_peak": 0.0190432,
+       "underlit_occupied_share": 0.036755386565272496,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.6666666666666665,
+       "saved_vs_as_operated_pct": 26.97353182406832
+      },
+      "sensor": {
+       "kwh": 1.9697082,
+       "usd": 0.09615487915899999,
+       "peak_kw_wkday_high_peak": 0.019043200000000003,
+       "underlit_occupied_share": 0.00025348542458808617,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 6.344444444444444,
+       "saved_vs_as_operated_pct": 32.04670525007655
+      },
+      "sensor_ml": {
+       "kwh": 2.04509579,
+       "usd": 0.10027067257505,
+       "peak_kw_wkday_high_peak": 0.019043200000000003,
+       "underlit_occupied_share": 0.00012674271229404308,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.055555555555555,
+       "saved_vs_as_operated_pct": 29.445896092782895
+      },
+      "sensor_ml_union": {
+       "kwh": 2.16463314,
+       "usd": 0.10585855478394998,
+       "peak_kw_wkday_high_peak": 0.019043200000000003,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.455555555555556,
+       "saved_vs_as_operated_pct": 25.32195693358421
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 1.9697082,
+         "usd": 0.09615487915899999,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.00025348542458808617,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.344444444444444,
+         "saved_vs_as_operated_pct": 32.04670525007655
+        },
+        "min": {
+         "kwh": 1.9584959499999999,
+         "usd": 0.095710501429,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.333333333333333
+        },
+        "max": {
+         "kwh": 1.9810181499999997,
+         "usd": 0.09672508402249999,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.333333333333333
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 2.04509579,
+         "usd": 0.10027067257505,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.00012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.055555555555555,
+         "saved_vs_as_operated_pct": 29.445896092782895
+        },
+        "min": {
+         "kwh": 2.018341,
+         "usd": 0.098740762125,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 2.0762938999999996,
+         "usd": 0.10188664824150001,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 2.16463314,
+         "usd": 0.10585855478394998,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.455555555555556,
+         "saved_vs_as_operated_pct": 25.32195693358421
+        },
+        "min": {
+         "kwh": 2.1566161,
+         "usd": 0.10550984897849999,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 2.1741944,
+         "usd": 0.10624322254,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.666666666666667
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 1.9682006349999999,
+         "usd": 0.09607323268019999,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0019011406844106464,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.411111111111111
+        },
+        "min": {
+         "kwh": 1.95642075,
+         "usd": 0.095592464053,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.555555555555555
+        },
+        "max": {
+         "kwh": 1.9810181499999997,
+         "usd": 0.09672508402249999,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0038022813688212928,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.333333333333333
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 2.04451901,
+         "usd": 0.10023983520809998,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0011406844106463877,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.055555555555555
+        },
+        "min": {
+         "kwh": 2.0171813499999995,
+         "usd": 0.098674801233,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 2.0751647,
+         "usd": 0.101832269191,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0025348542458808617,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 2.164413415,
+         "usd": 0.10584802670539999,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.00038022813688212925,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.455555555555556
+        },
+        "min": {
+         "kwh": 2.1566161,
+         "usd": 0.10550984897849999,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 2.1741944,
+         "usd": 0.10624322254,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0012674271229404308,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.666666666666667
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 1.96069641,
+         "usd": 0.0956681697816,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.013561470215462609,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.277777777777777
+        },
+        "min": {
+         "kwh": 1.9509277999999999,
+         "usd": 0.09515909527549998,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0063371356147021544,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.444444444444445
+        },
+        "max": {
+         "kwh": 1.97567755,
+         "usd": 0.09643115964349999,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.017743979721166033,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.222222222222221
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 2.0420074250000004,
+         "usd": 0.10012066904495001,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.004182509505703422,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.1
+        },
+        "min": {
+         "kwh": 2.0114134999999997,
+         "usd": 0.098439746765,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.222222222222222
+        },
+        "max": {
+         "kwh": 2.0723877,
+         "usd": 0.101694011329,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.008871989860583017,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.222222222222222
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 2.1633025849999994,
+         "usd": 0.10579589564349998,
+         "peak_kw_wkday_high_peak": 0.019043200000000003,
+         "underlit_occupied_share": 0.0022813688212927757,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.5
+        },
+        "min": {
+         "kwh": 2.1566161,
+         "usd": 0.10550984897849999,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.666666666666667
+        },
+        "max": {
+         "kwh": 2.1736451,
+         "usd": 0.106221827305,
+         "peak_kw_wkday_high_peak": 0.0190432,
+         "underlit_occupied_share": 0.0063371356147021544,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.666666666666667
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "4": {
+   "recorded": {
+    "n_steps": 4320,
+    "n_days": 15,
+    "n_occupied_steps": 2522,
+    "recorded_kwh": 201.20313,
+    "recorded_kwh_while_vacant": 33.174820000000004,
+    "recorded_vacant_share": 0.16488222623574497,
+    "from": "2021-11-12 00:00:00",
+    "to": "2021-12-23 23:55:00",
+    "hypothetical_247_p95_kwh": 890.1360000000001
+   },
+   "profiles": {
+    "room_rule": {
+     "zone_rule": "amenity",
+     "policies": {
+      "as_operated": {
+       "kwh": 201.20313,
+       "usd": 10.127121775500001,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 163.94044,
+       "usd": 8.675740000000001,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.14195083267248215,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 18.519935549710386
+      },
+      "ideal_sensor": {
+       "kwh": 171.44338,
+       "usd": 8.868103854700001,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 1.8666666666666667,
+       "saved_vs_as_operated_pct": 14.790898133642349
+      },
+      "ml_only": {
+       "kwh": 180.33498,
+       "usd": 9.314307332999999,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.025376685170499604,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 3.066666666666667,
+       "saved_vs_as_operated_pct": 10.37168258764165
+      },
+      "sensor": {
+       "kwh": 172.70910700000002,
+       "usd": 8.92206148987,
+       "peak_kw_wkday_high_peak": 1.68752,
+       "underlit_occupied_share": 3.965107057890563e-05,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 4.166666666666667,
+       "saved_vs_as_operated_pct": 14.161818953810501
+      },
+      "sensor_ml": {
+       "kwh": 178.93800099999999,
+       "usd": 9.21527836548,
+       "peak_kw_wkday_high_peak": 1.68752,
+       "underlit_occupied_share": 3.965107057890563e-05,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 3.8333333333333335,
+       "saved_vs_as_operated_pct": 11.065995345102241
+      },
+      "sensor_ml_union": {
+       "kwh": 184.41995100000003,
+       "usd": 9.473416953450002,
+       "peak_kw_wkday_high_peak": 1.68752,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 4.6,
+       "saved_vs_as_operated_pct": 8.341410493961977
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 172.70910700000002,
+         "usd": 8.92206148987,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 3.965107057890563e-05,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.166666666666667,
+         "saved_vs_as_operated_pct": 14.161818953810501
+        },
+        "min": {
+         "kwh": 171.62990000000002,
+         "usd": 8.875368808700001,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.066666666666667
+        },
+        "max": {
+         "kwh": 173.50198,
+         "usd": 8.9521046004,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0003965107057890563,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.933333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 178.93800099999999,
+         "usd": 9.21527836548,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 3.965107057890563e-05,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.8333333333333335,
+         "saved_vs_as_operated_pct": 11.065995345102241
+        },
+        "min": {
+         "kwh": 172.93262,
+         "usd": 8.9261097527,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 2.933333333333333
+        },
+        "max": {
+         "kwh": 182.32227,
+         "usd": 9.3917122785,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0003965107057890563,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.8
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 184.41995100000003,
+         "usd": 9.473416953450002,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.6,
+         "saved_vs_as_operated_pct": 8.341410493961977
+        },
+        "min": {
+         "kwh": 183.91311000000002,
+         "usd": 9.4536754965,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 184.74611,
+         "usd": 9.4861208465,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.733333333333333
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 172.628446,
+         "usd": 8.918557306899999,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0009119746233148294,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.2666666666666675
+        },
+        "min": {
+         "kwh": 171.58303,
+         "usd": 8.8735432222,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.1333333333333333
+        },
+        "max": {
+         "kwh": 173.50198,
+         "usd": 8.9521046004,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0031720856463124504,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.4
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 178.882241,
+         "usd": 9.21310651348,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0007137192704203014,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.853333333333334
+        },
+        "min": {
+         "kwh": 172.88575,
+         "usd": 8.9242841662,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.0
+        },
+        "max": {
+         "kwh": 182.32227,
+         "usd": 9.3917122785,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0015860428231562252,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.866666666666666
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 184.37825200000003,
+         "usd": 9.471792777400001,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0003568596352101506,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.6
+        },
+        "min": {
+         "kwh": 183.91311000000002,
+         "usd": 9.4536754965,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 184.74611,
+         "usd": 9.4861208465,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0011895321173671688,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.733333333333333
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 170.85589099999999,
+         "usd": 8.830854351189998,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.011736716891356067,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.319999999999999
+        },
+        "min": {
+         "kwh": 169.81158,
+         "usd": 8.7855996895,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.008326724821570182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.133333333333334
+        },
+        "max": {
+         "kwh": 171.8086,
+         "usd": 8.8760604871,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.015463917525773196,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.4
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 178.702457,
+         "usd": 9.20610392668,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0030927835051546395,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.9333333333333336
+        },
+        "min": {
+         "kwh": 172.74611,
+         "usd": 8.918845188199999,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0019825535289452814,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.0
+        },
+        "max": {
+         "kwh": 182.13574,
+         "usd": 9.384446935,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.005154639175257732,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.0
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 184.292997,
+         "usd": 9.46847209515,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0010309278350515466,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.653333333333333
+        },
+        "min": {
+         "kwh": 183.86624,
+         "usd": 9.45184991,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0003965107057890563,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 184.65625,
+         "usd": 9.4826207995,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0019825535289452814,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.866666666666666
+        }
+       }
+      }
+     }
+    },
+    "corridor_rule": {
+     "zone_rule": "corridor",
+     "policies": {
+      "as_operated": {
+       "kwh": 201.20313,
+       "usd": 10.127121775500001,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 182.57178499999998,
+       "usd": 9.40143088775,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.14195083267248215,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 9.259967774855193
+      },
+      "ideal_sensor": {
+       "kwh": 186.32325500000002,
+       "usd": 9.497612815099998,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 1.8666666666666667,
+       "saved_vs_as_operated_pct": 7.395449066821158
+      },
+      "ml_only": {
+       "kwh": 190.769055,
+       "usd": 9.72071455425,
+       "peak_kw_wkday_high_peak": 1.6875200000000001,
+       "underlit_occupied_share": 0.025376685170499604,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 3.066666666666667,
+       "saved_vs_as_operated_pct": 5.185841293820815
+      },
+      "sensor": {
+       "kwh": 186.9561185,
+       "usd": 9.524591632684999,
+       "peak_kw_wkday_high_peak": 1.68752,
+       "underlit_occupied_share": 3.965107057890563e-05,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 4.166666666666667,
+       "saved_vs_as_operated_pct": 7.0809094769052505
+      },
+      "sensor_ml": {
+       "kwh": 190.0705655,
+       "usd": 9.671200070489999,
+       "peak_kw_wkday_high_peak": 1.68752,
+       "underlit_occupied_share": 3.965107057890563e-05,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 3.8333333333333335,
+       "saved_vs_as_operated_pct": 5.5329976725511205
+      },
+      "sensor_ml_union": {
+       "kwh": 192.8115405,
+       "usd": 9.800269364475,
+       "peak_kw_wkday_high_peak": 1.68752,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 4.6,
+       "saved_vs_as_operated_pct": 4.170705246980988
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 186.9561185,
+         "usd": 9.524591632684999,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 3.965107057890563e-05,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.166666666666667,
+         "saved_vs_as_operated_pct": 7.0809094769052505
+        },
+        "min": {
+         "kwh": 186.416515,
+         "usd": 9.501245292099998,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.066666666666667
+        },
+        "max": {
+         "kwh": 187.352555,
+         "usd": 9.53961318795,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0003965107057890563,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.933333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 190.0705655,
+         "usd": 9.671200070489999,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 3.965107057890563e-05,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.8333333333333335,
+         "saved_vs_as_operated_pct": 5.5329976725511205
+        },
+        "min": {
+         "kwh": 187.06787500000002,
+         "usd": 9.5266157641,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 2.933333333333333
+        },
+        "max": {
+         "kwh": 191.7627,
+         "usd": 9.759417027,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0003965107057890563,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.8
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 192.8115405,
+         "usd": 9.800269364475,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.6,
+         "saved_vs_as_operated_pct": 4.170705246980988
+        },
+        "min": {
+         "kwh": 192.55812000000003,
+         "usd": 9.790398636,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 192.97462000000002,
+         "usd": 9.806621310999999,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.733333333333333
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 186.91578799999996,
+         "usd": 9.522839541200002,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0009119746233148294,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.2666666666666675
+        },
+        "min": {
+         "kwh": 186.39308,
+         "usd": 9.50033249885,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.1333333333333333
+        },
+        "max": {
+         "kwh": 187.352555,
+         "usd": 9.53961318795,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0031720856463124504,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.4
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 190.0426855,
+         "usd": 9.670114144490002,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0007137192704203014,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.853333333333334
+        },
+        "min": {
+         "kwh": 187.04444,
+         "usd": 9.52570297085,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.0
+        },
+        "max": {
+         "kwh": 191.7627,
+         "usd": 9.759417027,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0015860428231562252,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.866666666666666
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 192.790691,
+         "usd": 9.799457276450001,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0003568596352101506,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.6
+        },
+        "min": {
+         "kwh": 192.55812000000003,
+         "usd": 9.790398636,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 192.97462000000002,
+         "usd": 9.806621310999999,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0011895321173671688,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.733333333333333
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 186.0295105,
+         "usd": 9.478988063345001,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.011736716891356067,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.319999999999999
+        },
+        "min": {
+         "kwh": 185.507355,
+         "usd": 9.4563607325,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.008326724821570182,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.133333333333334
+        },
+        "max": {
+         "kwh": 186.50586499999997,
+         "usd": 9.5015911313,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.015463917525773196,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 7.4
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 189.9527935,
+         "usd": 9.666612851089997,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0030927835051546395,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.9333333333333336
+        },
+        "min": {
+         "kwh": 186.97462000000002,
+         "usd": 9.52298348185,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0019825535289452814,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 3.0
+        },
+        "max": {
+         "kwh": 191.669435,
+         "usd": 9.755784355249999,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.005154639175257732,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.0
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 192.7480635,
+         "usd": 9.797796935325001,
+         "peak_kw_wkday_high_peak": 1.68752,
+         "underlit_occupied_share": 0.0010309278350515466,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.653333333333333
+        },
+        "min": {
+         "kwh": 192.53468500000002,
+         "usd": 9.78948584275,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0003965107057890563,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.0
+        },
+        "max": {
+         "kwh": 192.92969,
+         "usd": 9.8048712875,
+         "peak_kw_wkday_high_peak": 1.6875200000000001,
+         "underlit_occupied_share": 0.0019825535289452814,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.866666666666666
+        }
+       }
+      }
+     }
+    }
+   }
+  },
+  "5": {
+   "recorded": {
+    "n_steps": 4320,
+    "n_days": 15,
+    "n_occupied_steps": 1535,
+    "recorded_kwh": 69.72216600000002,
+    "recorded_kwh_while_vacant": 23.410155000000003,
+    "recorded_vacant_share": 0.3357634500339533,
+    "from": "2021-11-12 00:00:00",
+    "to": "2021-12-23 23:55:00",
+    "hypothetical_247_p95_kwh": 293.20272
+   },
+   "profiles": {
+    "room_rule": {
+     "zone_rule": "amenity",
+     "policies": {
+      "as_operated": {
+       "kwh": 69.72216600000002,
+       "usd": 3.5546937995500003,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 57.88135,
+       "usd": 3.0934940163499998,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 16.98285735988181
+      },
+      "ideal_sensor": {
+       "kwh": 47.766114,
+       "usd": 2.60552187522,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.2666666666666666,
+       "saved_vs_as_operated_pct": 31.490777265869806
+      },
+      "ml_only": {
+       "kwh": 48.702638,
+       "usd": 2.64548396536,
+       "peak_kw_wkday_high_peak": 1.0429680000000001,
+       "underlit_occupied_share": 0.06710097719869706,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 3.3333333333333335,
+       "saved_vs_as_operated_pct": 30.14755450942246
+      },
+      "sensor": {
+       "kwh": 48.629445100000005,
+       "usd": 2.6431312224070003,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.633333333333335,
+       "saved_vs_as_operated_pct": 30.25253245861582
+      },
+      "sensor_ml": {
+       "kwh": 51.62656510000001,
+       "usd": 2.8055686843579997,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 4.993333333333333,
+       "saved_vs_as_operated_pct": 25.953870824954006
+      },
+      "sensor_ml_union": {
+       "kwh": 53.85322549999999,
+       "usd": 2.917537447646,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.78,
+       "saved_vs_as_operated_pct": 22.760251739740866
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 48.629445100000005,
+         "usd": 2.6431312224070003,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.633333333333335,
+         "saved_vs_as_operated_pct": 30.25253245861582
+        },
+        "min": {
+         "kwh": 48.398439,
+         "usd": 2.6315692149,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 48.914063,
+         "usd": 2.65810513122,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.933333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 51.62656510000001,
+         "usd": 2.8055686843579997,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.993333333333333,
+         "saved_vs_as_operated_pct": 25.953870824954006
+        },
+        "min": {
+         "kwh": 49.987307,
+         "usd": 2.71796057243,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.266666666666667
+        },
+        "max": {
+         "kwh": 53.11817,
+         "usd": 2.8821062281599996,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.133333333333334
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 53.85322549999999,
+         "usd": 2.917537447646,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.78,
+         "saved_vs_as_operated_pct": 22.760251739740866
+        },
+        "min": {
+         "kwh": 53.49365400000001,
+         "usd": 2.90305237216,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 54.109869,
+         "usd": 2.9273603701099997,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.8
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 48.547511400000005,
+         "usd": 2.638568014151,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0007817589576547231,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.6466666666666665
+        },
+        "min": {
+         "kwh": 48.256347,
+         "usd": 2.6204841414,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 48.914063,
+         "usd": 2.65810513122,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.001954397394136808,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.933333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 51.5664576,
+         "usd": 2.8022469503579996,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0005863192182410423,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.993333333333333
+        },
+        "min": {
+         "kwh": 49.987307,
+         "usd": 2.71796057243,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.266666666666667
+        },
+        "max": {
+         "kwh": 52.94776,
+         "usd": 2.8727197310599997,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0013029315960912053,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.133333333333334
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 53.80190710000001,
+         "usd": 2.914618457054,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.00019543973941368078,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.78
+        },
+        "min": {
+         "kwh": 53.49365400000001,
+         "usd": 2.8972532410599996,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 54.07471,
+         "usd": 2.9256845033600003,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0013029315960912053,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.8
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 47.9580581,
+         "usd": 2.607411613748,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.012377850162866449,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.660000000000001
+        },
+        "min": {
+         "kwh": 47.544432,
+         "usd": 2.58779820623,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0071661237785016286,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.0
+        },
+        "max": {
+         "kwh": 48.24902800000001,
+         "usd": 2.62320201861,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.019543973941368076,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.0
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 51.304982499999994,
+         "usd": 2.789489432633,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.005537459283387622,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.1
+        },
+        "min": {
+         "kwh": 49.476077000000004,
+         "usd": 2.69030009096,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0026058631921824105,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.266666666666667
+        },
+        "max": {
+         "kwh": 52.587896,
+         "usd": 2.86022355595,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.009771986970684038,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.4
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 53.6624539,
+         "usd": 2.907182760053,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0007817589576547231,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.833333333333333
+        },
+        "min": {
+         "kwh": 53.459962000000004,
+         "usd": 2.8964925086099997,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 54.05762,
+         "usd": 2.92471242416,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.001954397394136808,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.933333333333334
+        }
+       }
+      }
+     }
+    },
+    "corridor_rule": {
+     "zone_rule": "corridor",
+     "policies": {
+      "as_operated": {
+       "kwh": 69.72216600000002,
+       "usd": 3.5546937995500003,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 0.0,
+       "saved_vs_as_operated_pct": 0.0
+      },
+      "schedule": {
+       "kwh": 63.80175799999999,
+       "usd": 3.32409390795,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.0,
+       "saved_vs_as_operated_pct": 8.491428679940928
+      },
+      "ideal_sensor": {
+       "kwh": 58.74414,
+       "usd": 3.0801078373850004,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 2.2666666666666666,
+       "saved_vs_as_operated_pct": 15.745388632934908
+      },
+      "ml_only": {
+       "kwh": 59.212402,
+       "usd": 3.100088882455,
+       "peak_kw_wkday_high_peak": 1.0429680000000001,
+       "underlit_occupied_share": 0.06710097719869706,
+       "egress_floor_violations": 0,
+       "in_use_floor_violation_steps": 0,
+       "switches_per_day": 3.3333333333333335,
+       "saved_vs_as_operated_pct": 15.07377725471124
+      },
+      "sensor": {
+       "kwh": 59.17580554999999,
+       "usd": 3.0989125109785,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.633333333333335,
+       "saved_vs_as_operated_pct": 15.126266229307939
+      },
+      "sensor_ml": {
+       "kwh": 60.674365550000005,
+       "usd": 3.180131241954,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 4.993333333333333,
+       "saved_vs_as_operated_pct": 12.976935412477019
+      },
+      "sensor_ml_union": {
+       "kwh": 61.78769574999999,
+       "usd": 3.2361156235979998,
+       "peak_kw_wkday_high_peak": 1.4375,
+       "underlit_occupied_share": 0.0,
+       "egress_floor_violations": 0.0,
+       "in_use_floor_violation_steps": 0.0,
+       "switches_per_day": 5.78,
+       "saved_vs_as_operated_pct": 11.380125869870461
+      }
+     },
+     "injected": {
+      "measured": {
+       "miss_rate": 0.005208333333333333,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 59.17580554999999,
+         "usd": 3.0989125109785,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.633333333333335,
+         "saved_vs_as_operated_pct": 15.126266229307939
+        },
+        "min": {
+         "kwh": 59.060302500000006,
+         "usd": 3.0931315072250003,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 59.3181145,
+         "usd": 3.1063994653850004,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.933333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 60.674365550000005,
+         "usd": 3.180131241954,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.993333333333333,
+         "saved_vs_as_operated_pct": 12.976935412477019
+        },
+        "min": {
+         "kwh": 59.8547365,
+         "usd": 3.13632718599,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.266666666666667
+        },
+        "max": {
+         "kwh": 61.420168000000004,
+         "usd": 3.2184000138549997,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.133333333333334
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 61.78769574999999,
+         "usd": 3.2361156235979998,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.78,
+         "saved_vs_as_operated_pct": 11.380125869870461
+        },
+        "min": {
+         "kwh": 61.60791,
+         "usd": 3.2288730858549997,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 61.9160175,
+         "usd": 3.24102708483,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.8
+        }
+       }
+      },
+      "what_if_miss_0.1": {
+       "miss_rate": 0.1,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 59.1348387,
+         "usd": 3.0966309068505,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0007817589576547231,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.6466666666666665
+        },
+        "min": {
+         "kwh": 58.9892565,
+         "usd": 3.087588970475,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 59.3181145,
+         "usd": 3.1063994653850004,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.001954397394136808,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.933333333333334
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 60.644311800000004,
+         "usd": 3.178470374954,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0005863192182410423,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.993333333333333
+        },
+        "min": {
+         "kwh": 59.8547365,
+         "usd": 3.13632718599,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.266666666666667
+        },
+        "max": {
+         "kwh": 61.334963,
+         "usd": 3.213706765305,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0013029315960912053,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.133333333333334
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 61.76203654999999,
+         "usd": 3.2346561283019994,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.00019543973941368078,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.78
+        },
+        "min": {
+         "kwh": 61.60791,
+         "usd": 3.2259735203049997,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 61.898438,
+         "usd": 3.2401891514549996,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0013029315960912053,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.8
+        }
+       }
+      },
+      "what_if_miss_0.3": {
+       "miss_rate": 0.3,
+       "n_seeds": 10,
+       "sensor": {
+        "mean": {
+         "kwh": 58.84011205,
+         "usd": 3.0810527066489994,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.012377850162866449,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.660000000000001
+        },
+        "min": {
+         "kwh": 58.633299,
+         "usd": 3.07124600289,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0071661237785016286,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.0
+        },
+        "max": {
+         "kwh": 58.985597,
+         "usd": 3.08894790908,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.019543973941368076,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 8.0
+        }
+       },
+       "sensor_ml": {
+        "mean": {
+         "kwh": 60.51357424999999,
+         "usd": 3.1720916160915,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.005537459283387622,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.1
+        },
+        "min": {
+         "kwh": 59.599121499999995,
+         "usd": 3.122496945255,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0026058631921824105,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 4.266666666666667
+        },
+        "max": {
+         "kwh": 61.155031,
+         "usd": 3.20745867775,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.009771986970684038,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.4
+        }
+       },
+       "sensor_ml_union": {
+        "mean": {
+         "kwh": 61.692309949999995,
+         "usd": 3.2309382798015003,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0007817589576547231,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.833333333333333
+        },
+        "min": {
+         "kwh": 61.591063999999996,
+         "usd": 3.2255931540800002,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.0,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 5.066666666666666
+        },
+        "max": {
+         "kwh": 61.889893,
+         "usd": 3.239703111855,
+         "peak_kw_wkday_high_peak": 1.4375,
+         "underlit_occupied_share": 0.001954397394136808,
+         "egress_floor_violations": 0.0,
+         "in_use_floor_violation_steps": 0.0,
+         "switches_per_day": 6.933333333333334
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ },
+ "all_rooms": {
+  "room_rule": {
+   "as_operated": {
+    "kwh": 375.249230661,
+    "usd": 19.02685763741859,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 0.0
+   },
+   "schedule": {
+    "kwh": 310.61328172,
+    "usd": 16.50928742616664,
+    "underlit_occupied_share": 0.0656158357771261,
+    "saved_vs_as_operated_pct": 17.224805185381477
+   },
+   "ideal_sensor": {
+    "kwh": 247.216577817,
+    "usd": 13.0156612019027,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 34.119364513678285
+   },
+   "sensor": {
+    "kwh": 252.7075359032,
+    "usd": 13.276613240313065,
+    "underlit_occupied_share": 7.331378299120235e-05,
+    "saved_vs_as_operated_pct": 32.656081543976335
+   },
+   "sensor_ml": {
+    "kwh": 271.349861061,
+    "usd": 14.244435735895438,
+    "underlit_occupied_share": 5.498533724340176e-05,
+    "saved_vs_as_operated_pct": 27.688096632998203
+   },
+   "sensor_ml_union": {
+    "kwh": 309.8927997486,
+    "usd": 16.287880055251534,
+    "underlit_occupied_share": 1.8328445747800586e-05,
+    "saved_vs_as_operated_pct": 17.416806104378924
+   },
+   "ml_only": {
+    "kwh": 294.56474786,
+    "usd": 15.576047293590058,
+    "underlit_occupied_share": 0.061400293255131966,
+    "saved_vs_as_operated_pct": 21.50157181105331
+   }
+  },
+  "corridor_rule": {
+   "as_operated": {
+    "kwh": 375.249230661,
+    "usd": 19.02685763741859,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 0.0
+   },
+   "schedule": {
+    "kwh": 342.9312561905,
+    "usd": 17.768072531792615,
+    "underlit_occupied_share": 0.0656158357771261,
+    "saved_vs_as_operated_pct": 8.612402592690739
+   },
+   "ideal_sensor": {
+    "kwh": 311.23290423900005,
+    "usd": 16.021259419660645,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 17.059682256839125
+   },
+   "sensor": {
+    "kwh": 313.97838328209997,
+    "usd": 16.151735438865824,
+    "underlit_occupied_share": 7.331378299120235e-05,
+    "saved_vs_as_operated_pct": 16.32804077198817
+   },
+   "sensor_ml": {
+    "kwh": 323.299545861,
+    "usd": 16.63564668665701,
+    "underlit_occupied_share": 5.498533724340176e-05,
+    "saved_vs_as_operated_pct": 13.844048316499102
+   },
+   "sensor_ml_union": {
+    "kwh": 342.5710152048,
+    "usd": 17.65736884633506,
+    "underlit_occupied_share": 1.8328445747800586e-05,
+    "saved_vs_as_operated_pct": 8.708403052189462
+   },
+   "ml_only": {
+    "kwh": 334.9069892605,
+    "usd": 17.301452465504326,
+    "underlit_occupied_share": 0.061400293255131966,
+    "saved_vs_as_operated_pct": 10.75078590552666
+   }
+  }
+ },
+ "pir": {
+  "window": "5min",
+  "min_samples_per_window": 8,
+  "n_occupied_windows": 192,
+  "n_vacant_windows": 846,
+  "miss_rate": 0.005208333333333333,
+  "false_trigger_rate": 0.010638297872340425,
+  "sensors": "S6_PIR or S7_PIR",
+  "sample_interval_s": 30
+ },
+ "ml_threshold": 0.5,
+ "schedule_hours": [
+  7,
+  22
+ ],
+ "policy_labels": {
+  "as_operated": "As operated (recorded)",
+  "always_on": "Always on 24/7",
+  "schedule": "Fixed schedule 07-22",
+  "ideal_sensor": "Ideal sensor (upper bound)",
+  "sensor": "Motion sensor + 15 min hold",
+  "sensor_ml": "Sensor + ML (ML may only extend a hold)",
+  "sensor_ml_union": "Sensor + ML union (ML may also switch on)",
+  "ml_only": "ML only (unsafe counterfactual)"
+ },
+ "peak_windows_weekday": [
+  [
+   13,
+   17
+  ]
+ ],
+ "profiles": {
+  "room_rule": "non-egress room rule: off after a 15 min hold (T24 130.1(c)5 style)",
+  "corridor_rule": "egress corridor rule: 50% setback when vacant, 15 min fail-safe hold (T24 130.1(c)6C, NFPA 101 7.8.1.2.2)"
+ },
+ "price_note": "ROBOD clock times (Singapore, +08:00) mapped onto LADWP A-2 Rate B periods as if local; base energy charges only",
+ "selection_on_train_days": {
+  "label": "REAL (ROBOD training days, M1 out-of-fold by day) + INJECTED",
+  "note": "The extend-only rule was first chosen after looking at the test-day replay. This block repeats the same comparison on the training days only, so the choice can be checked without the test days.",
+  "n_days": {
+   "1": 20,
+   "2": 20,
+   "3": 20,
+   "4": 32,
+   "5": 32
+  },
+  "recorded_kwh": 1246.5410587869999,
+  "all_rooms": {
+   "room_rule": {
+    "schedule": {
+     "kwh": 1054.6024023329999,
+     "usd": 55.72658630724037,
+     "underlit_occupied_share": 0.08050413073629621,
+     "saved_vs_as_operated_pct": 15.3977003084659
+    },
+    "sensor": {
+     "kwh": 1047.4751901274,
+     "usd": 54.53728671276344,
+     "underlit_occupied_share": 2.4121087861062537e-05,
+     "saved_vs_as_operated_pct": 15.969459429865019
+    },
+    "sensor_ml": {
+     "kwh": 1074.7172159294,
+     "usd": 55.75611792632407,
+     "underlit_occupied_share": 2.4121087861062537e-05,
+     "saved_vs_as_operated_pct": 13.784050003519365
+    },
+    "sensor_ml_union": {
+     "kwh": 1105.6900703883,
+     "usd": 57.21559545072019,
+     "underlit_occupied_share": 6.030271965265634e-06,
+     "saved_vs_as_operated_pct": 11.299346090995266
+    },
+    "ideal_sensor": {
+     "kwh": 1039.725333542,
+     "usd": 54.21899687274934,
+     "underlit_occupied_share": 0.0,
+     "saved_vs_as_operated_pct": 16.59116832029991
+    },
+    "ml_only": {
+     "kwh": 1003.661734969,
+     "usd": 52.32162438920208,
+     "underlit_occupied_share": 0.06820237592715432,
+     "saved_vs_as_operated_pct": 19.484261838462345
+    }
+   },
+   "corridor_rule": {
+    "schedule": {
+     "kwh": 1150.5717305599999,
+     "usd": 59.25113668571452,
+     "underlit_occupied_share": 0.08050413073629621,
+     "saved_vs_as_operated_pct": 7.69885015423295
+    },
+    "sensor": {
+     "kwh": 1147.0081244572,
+     "usd": 58.65648688847605,
+     "underlit_occupied_share": 2.4121087861062537e-05,
+     "saved_vs_as_operated_pct": 7.984729714932515
+    },
+    "sensor_ml": {
+     "kwh": 1160.6291373582,
+     "usd": 59.26590249525637,
+     "underlit_occupied_share": 2.4121087861062537e-05,
+     "saved_vs_as_operated_pct": 6.892025001759672
+    },
+    "sensor_ml_union": {
+     "kwh": 1176.11556458765,
+     "usd": 59.99564125745442,
+     "underlit_occupied_share": 6.030271965265634e-06,
+     "saved_vs_as_operated_pct": 5.6496730454976385
+    },
+    "ideal_sensor": {
+     "kwh": 1143.1331961644999,
+     "usd": 58.497341968469,
+     "underlit_occupied_share": 0.0,
+     "saved_vs_as_operated_pct": 8.29558416014996
+    },
+    "ml_only": {
+     "kwh": 1125.101396878,
+     "usd": 57.54865572669537,
+     "underlit_occupied_share": 0.06820237592715432,
+     "saved_vs_as_operated_pct": 9.742130919231162
+    }
+   }
+  }
+ }
+}

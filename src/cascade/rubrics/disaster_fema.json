@@ -1,0 +1,16 @@
+{
+  "standard": "FEMA-PDA",
+  "asset_label": "building seen from a post-disaster aerial (UAV) image",
+  "source_note": "FEMA Preliminary Damage Assessment classes (FEMA PDA Guide, July 2025) as documented in docs/research/03_competitors_underwater_industrial_disaster.md and 05_damage_grading_standards.md. Descriptors are paraphrases aligned with CAL FIRE DINS percent-damage bands (Affected 1 to 9 percent, Minor 10 to 25, Major 26 to 50, Destroyed over 50) and the xBD Joint Damage Scale. Replace with verbatim FEMA matrix text before customer use.",
+  "allowed_values": ["Undamaged", "Affected", "Minor", "Major", "Destroyed", "Inaccessible"],
+  "rows": [
+    {"value": "Undamaged", "criterion": "No visible damage to roof, walls or surroundings.", "unified": "S0", "action": "record"},
+    {"value": "Affected", "criterion": "Cosmetic damage only: some shingles or siding missing, debris on the property, building habitable; roughly 1 to 9 percent of the structure affected.", "unified": "S1", "action": "monitor"},
+    {"value": "Minor", "criterion": "Nonstructural damage such as partial roof covering loss, broken windows or doors, minor water intrusion; repairable and habitable after repair; roughly 10 to 25 percent.", "unified": "S2", "action": "schedule"},
+    {"value": "Major", "criterion": "Structural damage: roof decking or wall sections gone, partial collapse, building not safe to occupy until repaired; roughly 26 to 50 percent.", "unified": "S3", "action": "prioritize"},
+    {"value": "Destroyed", "criterion": "Total loss or damage so extensive that repair is not feasible: collapse, only foundation or debris field remaining; more than 50 percent.", "unified": "S4", "action": "escalate"},
+    {"value": "Inaccessible", "criterion": "Structure cannot be assessed from the image (obscured by water, smoke, trees, cloud or outside the frame).", "unified": "U", "action": "monitor"}
+  ],
+  "unified_note": "Mid-scale classes (Minor versus Major) are the hardest to separate from imagery; when torn between two adjacent classes, choose the lower one and lower confidence rather than escalate on guesswork, except where collapse is visible.",
+  "flags": {"not_measurable": "set when the percent-damage estimate cannot be made"}
+}

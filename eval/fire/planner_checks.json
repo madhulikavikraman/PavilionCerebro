@@ -1,0 +1,221 @@
+{
+ "generated_at": "2026-09-26T23:14:35.245052+00:00",
+ "synthetic": true,
+ "building_id": "SYN-TOWER-01",
+ "building_hash": "5d950c61c12a05f4",
+ "tower_config": {
+  "floors": 32,
+  "seed": 7,
+  "floor_height_m": 4.0
+ },
+ "cards_checked": 224,
+ "cards_passing": 224,
+ "by_zone_kind": {
+  "room": 128,
+  "shaft": 32,
+  "core": 32,
+  "electrical_room": 32
+ },
+ "violations": {},
+ "escalated_scenario": "fire in each floor's east office plus a second alarm on each other floor",
+ "escalated_cards_checked": 992,
+ "escalated_cards_passing": 992,
+ "escalated_staging_moved": 495,
+ "escalated_violations": {},
+ "escalated_rules_checked": [
+  "alert set contains the floor above and below every alarming floor",
+  "staging is the first non-alerted floor at or below FIRE_STAGING_BELOW under the fire, never an alerted floor",
+  "a staging move below the sourced rule is tagged [team-proposed, validate] in the card line's detail and basis"
+ ],
+ "rules_checked": [
+  "alert set contains the fire floor, the floor above and the floor below",
+  "staging exactly FIRE_STAGING_BELOW floors below the fire (exterior when that is below floor 1)",
+  "relocation floors at least FIRE_RELOCATE_MIN_BELOW below, never alert, staging or floor 1",
+  "evacuation stair differs from the attack stair",
+  "stair enclosures at least STAIR_MIN_SEP_FT apart at their nearest points",
+  "no line executes anything; every human decision names FSD or IC; AI role is evidence only",
+  "decision-support banner and SYNTHETIC flag present",
+  "firefighting-water watch only below the fire and ranked by path score",
+  "battery-room hazard always listed; 'near' exactly when within ESS_NEAR_FLOORS",
+  "fire department elevator only when the fire is at or above FIRE_LIFT_MIN_FIRE_FLOOR, exit FIRE_LIFT_EXIT_BELOW below",
+  "elevator recall stated as conditional on a lobby or hoistway detector",
+  "an impairment on an alert or relocation floor is the first hazard"
+ ],
+ "rules": [
+  {
+   "key": "FIRE_ALERT_ABOVE",
+   "value": 1,
+   "unit": "floors",
+   "tag": "PUBLIC",
+   "url": "https://up.codes/s/emergency-voice-alarm-communication-systems",
+   "meaning": "voice alarm reaches at least the floor above the alarming floor",
+   "note": "IBC 2021 907.5.2.2: 'at least the alarming floor, the floor above and the floor below'; LAFD high-rise sequence policy footnote a says the same for new high-rises"
+  },
+  {
+   "key": "FIRE_ALERT_BELOW",
+   "value": 1,
+   "unit": "floors",
+   "tag": "PUBLIC",
+   "url": "https://up.codes/s/emergency-voice-alarm-communication-systems",
+   "meaning": "voice alarm reaches at least the floor below the alarming floor",
+   "note": "IBC 2021 907.5.2.2"
+  },
+  {
+   "key": "FIRE_STAGING_BELOW",
+   "value": 2,
+   "unit": "floors",
+   "tag": "PUBLIC, secondary",
+   "url": "https://srfecc.ca.gov/files/bf8df60b1/High+Rise+Operations.pdf",
+   "meaning": "fire department staging at least this many floors below the fire floor",
+   "note": "Sacramento Regional Fire guideline (reviewed 08/21/22): 'Staging a minimum of two floors below'. California regional guideline, not an LAFD SOP"
+  },
+  {
+   "key": "FIRE_EQUIP_BELOW",
+   "value": 1,
+   "unit": "floors",
+   "tag": "PUBLIC, secondary",
+   "url": "https://srfecc.ca.gov/files/bf8df60b1/High+Rise+Operations.pdf",
+   "meaning": "hose line connects to the standpipe in the attack stair this many floors below the fire",
+   "note": "Sacramento guideline: 'Equipment should be placed outside fire attack stairwell one floor below'; IBC 905.4 puts a hose connection at every floor landing"
+  },
+  {
+   "key": "FIRE_LIFT_EXIT_BELOW",
+   "value": 2,
+   "unit": "floors",
+   "tag": "PUBLIC, secondary",
+   "url": "https://srfecc.ca.gov/files/bf8df60b1/High+Rise+Operations.pdf",
+   "meaning": "crews leave the fire service elevator at least this many floors below the fire",
+   "note": "Sacramento guideline: 'crews exit a minimum of two floors below'; Phase II is fire department only"
+  },
+  {
+   "key": "FIRE_LIFT_MIN_FIRE_FLOOR",
+   "value": 7,
+   "unit": "floor level",
+   "tag": "PUBLIC, secondary",
+   "url": "https://srfecc.ca.gov/files/bf8df60b1/High+Rise+Operations.pdf",
+   "meaning": "fire department elevator use expected only when the fire floor is at or above this level",
+   "note": "Sacramento guideline: 'Elevator use is authorized for fires above the sixth floor'; below that the card says stairs expected"
+  },
+  {
+   "key": "FIRE_RELOCATE_MIN_BELOW",
+   "value": 3,
+   "unit": "floors",
+   "tag": "team-proposed, validate",
+   "url": "https://www.nist.gov/system/files/documents/el/fire_research/TN1664.pdf",
+   "meaning": "highest relocation floor is at least this many floors below the fire floor (below the staging floor)",
+   "note": "NIST TN 1664 reports an 'evacuate down three floors' message in a real high-rise fire; not a code rule. The building's approved Emergency Plan overrides this"
+  },
+  {
+   "key": "FIRE_RELOCATE_FLOORS",
+   "value": 3,
+   "unit": "floors",
+   "tag": "team-proposed, validate",
+   "url": null,
+   "meaning": "number of relocation floors offered to occupants of the alert floors",
+   "note": "sized so the design load of three alert floors fits; validate with the Emergency Plan relocation areas"
+  },
+  {
+   "key": "FIRE_SMOKE_WATCH_ABOVE",
+   "value": [
+    2,
+    5
+   ],
+   "unit": "floors above fire",
+   "tag": "team-proposed, validate",
+   "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir89-4035.pdf",
+   "meaning": "floors above the alert zone whose shaft and core readings are watched for smoke spread",
+   "note": "NISTIR 89-4035: stairwells and elevator shafts frequently become smoke-logged (stack effect). The band width is our choice"
+  },
+  {
+   "key": "FIRE_SPREAD_ABOVE",
+   "value": 2,
+   "unit": "floors",
+   "tag": "team-proposed, validate",
+   "url": "https://lafire.com/famous_fires/1988-0504_1stInterstateFire/ExSummary/LAFD-ExecutiveSummary.htm",
+   "meaning": "an alarm this many floors or more above the fire floor is treated as possible upward spread (escalation trigger E2)",
+   "note": "First Interstate 1988 spread upward from floor 12 to floor 16"
+  },
+  {
+   "key": "OCC_LOAD_SQFT_PER_PERSON",
+   "value": 150,
+   "unit": "sq ft gross per person",
+   "tag": "PUBLIC, secondary",
+   "url": "https://www.houstonpermittingcenter.org/media/9311/download?inline=",
+   "meaning": "IBC business occupant load factor used for the design occupant load (a code design figure, not a headcount)",
+   "note": "Jensen Hughes memo, 2023-12-01: IBC 2018+ business load factor changed from 100 to 150 sq ft per person"
+  },
+  {
+   "key": "STAIR_MIN_SEP_FT",
+   "value": 30,
+   "unit": "ft",
+   "tag": "PUBLIC, secondary",
+   "url": "https://www.buildingcode.blog/uploads/1/2/9/9/129929641/building_code_blog_-_high_rise_cheatsheet.pdf",
+   "meaning": "high-rise exit stair enclosures at least 30 ft apart (or 1/4 of the diagonal), measured between the nearest points of the enclosures",
+   "note": "IBC 403.5.1 summary; scissor stairs count as one stairway. The synthetic layout is checked against this but no IBC compliance is claimed"
+  },
+  {
+   "key": "STAIR_PRESS_PA",
+   "value": [
+    25,
+    87
+   ],
+   "unit": "Pa",
+   "tag": "PUBLIC",
+   "url": "https://up.codes/s/stairway-and-ramp-pressurization-alternative",
+   "meaning": "stair pressurization range (0.10-0.35 in. water) that the listed smoke-control system maintains",
+   "note": "IBC 2021 909.20.5"
+  },
+  {
+   "key": "STAIR_CAMERA_EVERY",
+   "value": 5,
+   "unit": "floors",
+   "tag": "PUBLIC",
+   "url": "https://lafd.org/sites/default/files/pdf_files/EHLF-Reg10.pdf",
+   "meaning": "stair cameras on every 5th floor landing, viewable from the fire control room",
+   "note": "LAFD Requirement No. 10, Option 2 EHLF Equivalency only. Not a general high-rise requirement"
+  },
+  {
+   "key": "IBC_HEIGHT_TRIGGERS_FT",
+   "value": {
+    "smokeproof_stairs": 75,
+    "fire_service_access_elevators": 120,
+    "additional_stair": 420
+   },
+   "unit": "ft",
+   "tag": "PUBLIC, secondary",
+   "url": "https://www.buildingcode.blog/uploads/1/2/9/9/129929641/building_code_blog_-_high_rise_cheatsheet.pdf",
+   "meaning": "IBC 403 height triggers (highest occupied floor above fire department access)",
+   "note": "secondary summary of IBC 2021 section 403"
+  },
+  {
+   "key": "ESS_NEAR_FLOORS",
+   "value": 2,
+   "unit": "floors",
+   "tag": "team-proposed, validate",
+   "url": "https://fsri.org/research-update/report-four-firefighters-injured-lithium-ion-battery-energy-storage-system",
+   "meaning": "an energy storage (battery) room within this many floors of the fire is flagged 'near'",
+   "note": "UL FSRI Surprise AZ 2019 report recommends remote gas monitoring; the distance is our choice"
+  },
+  {
+   "key": "WATER_WATCH_MAX_HOPS",
+   "value": 6,
+   "unit": "hops",
+   "tag": "team-proposed, validate",
+   "url": null,
+   "meaning": "hop limit on the water graph when predicting where firefighting water migrates",
+   "note": "path score cut uses the existing REACH_MIN threshold of cascade.building.rules"
+  }
+ ],
+ "height_checks": {
+  "highest_occupied_floor": "F32",
+  "elevation_m": 124.0,
+  "elevation_ft": 406.8,
+  "triggered": {
+   "smokeproof_stairs": true,
+   "fire_service_access_elevators": true,
+   "additional_stair": false
+  },
+  "basis": "IBC_HEIGHT_TRIGGERS_FT: [PUBLIC, secondary] https://www.buildingcode.blog/uploads/1/2/9/9/129929641/building_code_blog_-_high_rise_cheatsheet.pdf"
+ },
+ "runtime_s": 3.74
+}

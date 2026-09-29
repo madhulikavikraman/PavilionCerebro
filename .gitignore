@@ -1,0 +1,18 @@
+.venv/
+.venv-site/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.env
+data/raw/
+data/cache/
+data/demo/
+runs/
+demo/*.mp4
+.DS_Store
+Thumbs.db
+# Pavilion Cerebro
+data/samples/cache/

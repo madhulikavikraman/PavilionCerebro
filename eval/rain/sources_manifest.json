@@ -1,0 +1,1629 @@
+{
+ "ca_asos.geojson": {
+  "accessed": "2026-09-26",
+  "bytes": 102725,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": null,
+  "rows": 161,
+  "url": "https://mesonet.agron.iastate.edu/geojson/network/CA_ASOS.geojson"
+ },
+ "era5/BUR.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3616240,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 34.2007,
+   "longitude": -118.3587,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/CQT.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3644752,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 34.0235,
+   "longitude": -118.2912,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/FUL.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3658528,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 33.87,
+   "longitude": -117.98,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/HHR.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3644752,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 33.9228,
+   "longitude": -118.3352,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/LAX.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3638705,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 33.9382,
+   "longitude": -118.3865,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/LGB.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3663269,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 33.8118,
+   "longitude": -118.1472,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/ONT.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3641392,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 34.056,
+   "longitude": -117.6012,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/PMD.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3645166,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 34.6294,
+   "longitude": -118.0846,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/SMO.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3638705,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 34.021,
+   "longitude": -118.4471,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/SNA.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3652248,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 33.6757,
+   "longitude": -117.8682,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/VNY.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3613780,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 34.2097,
+   "longitude": -118.4892,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5/WJF.json": {
+  "accessed": "2026-09-26",
+  "bytes": 3642062,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m,wind_speed_100m,wind_direction_100m",
+   "latitude": 34.7411,
+   "longitude": -118.2186,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": null,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/33.75_-118.50.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2882679,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 33.75,
+   "longitude": -118.5,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.00_-117.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2869524,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.0,
+   "longitude": -117.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.00_-118.00.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2872636,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.0,
+   "longitude": -118.0,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.00_-118.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2871249,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.0,
+   "longitude": -118.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.25_-117.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2870352,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.25,
+   "longitude": -117.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.25_-118.00.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2857995,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.25,
+   "longitude": -118.0,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.25_-118.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2860438,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.25,
+   "longitude": -118.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.50_-117.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2873152,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.5,
+   "longitude": -117.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.50_-118.00.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2869890,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.5,
+   "longitude": -118.0,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.50_-118.25.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2864003,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.5,
+   "longitude": -118.25,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.50_-118.50.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2867046,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.5,
+   "longitude": -118.5,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.50_-118.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2875006,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.5,
+   "longitude": -118.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.75_-117.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2879179,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.75,
+   "longitude": -117.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.75_-118.50.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2875508,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.75,
+   "longitude": -118.5,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "era5_grid/34.75_-118.75.json": {
+  "accessed": "2026-09-26",
+  "bytes": 2880635,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation,wind_speed_10m,wind_direction_10m",
+   "latitude": 34.75,
+   "longitude": -118.75,
+   "models": "era5",
+   "start_date": "2015-10-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 87672,
+  "url": "https://archive-api.open-meteo.com/v1/archive"
+ },
+ "ghcnd/BUR.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 247452,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00023152",
+   "units": "metric"
+  },
+  "rows": 7272,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/CQT.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248596,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00093134",
+   "units": "metric"
+  },
+  "rows": 7305,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/FUL.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248456,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00003166",
+   "units": "metric"
+  },
+  "rows": 7303,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/HHR.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248507,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00003167",
+   "units": "metric"
+  },
+  "rows": 7304,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/LAX.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248563,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00023174",
+   "units": "metric"
+  },
+  "rows": 7305,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/LGB.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248572,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00023129",
+   "units": "metric"
+  },
+  "rows": 7305,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/ONT.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248487,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00003102",
+   "units": "metric"
+  },
+  "rows": 7303,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/PMD.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 247270,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00023182",
+   "units": "metric"
+  },
+  "rows": 7270,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/SMO.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248325,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00093197",
+   "units": "metric"
+  },
+  "rows": 7299,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/SNA.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248300,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00093184",
+   "units": "metric"
+  },
+  "rows": 7298,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/VNY.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 247442,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00023130",
+   "units": "metric"
+  },
+  "rows": 7272,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "ghcnd/WJF.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 248440,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "PRCP",
+   "dataset": "daily-summaries",
+   "endDate": "2025-09-30",
+   "format": "csv",
+   "startDate": "2005-10-01",
+   "stations": "USW00003159",
+   "units": "metric"
+  },
+  "rows": 7304,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "iem/BUR.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6532490,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "BUR"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 175207,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/CQT.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 5780605,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "CQT"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 161946,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/FUL.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6400448,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "FUL"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 175100,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/HHR.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6489358,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "HHR"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 175083,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/LAX.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6582809,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "LAX"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 174963,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/LGB.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6474793,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "LGB"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 173759,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/ONT.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6522351,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "ONT"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 174892,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/PMD.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6618103,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "PMD"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 174935,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/SMO.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6490903,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "SMO"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 175037,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/SNA.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6502391,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "SNA"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 174941,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/VNY.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6459336,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "VNY"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 173931,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "iem/WJF.csv": {
+  "accessed": "2026-09-26",
+  "bytes": 6552909,
+  "licence": "public domain (https://mesonet.agron.iastate.edu/disclaimer.php)",
+  "origin": "copied from research pilot cache (downloaded by the pilot with these parameters)",
+  "params": [
+   [
+    "station",
+    "WJF"
+   ],
+   [
+    "data",
+    "drct"
+   ],
+   [
+    "data",
+    "sknt"
+   ],
+   [
+    "data",
+    "p01i"
+   ],
+   [
+    "tz",
+    "UTC"
+   ],
+   [
+    "format",
+    "onlycomma"
+   ],
+   [
+    "latlon",
+    "no"
+   ],
+   [
+    "missing",
+    "M"
+   ],
+   [
+    "trace",
+    "T"
+   ],
+   [
+    "report_type",
+    "3"
+   ],
+   [
+    "sts",
+    "2005-10-01T00:00Z"
+   ],
+   [
+    "ets",
+    "2025-10-01T00:00Z"
+   ]
+  ],
+  "rows": 172686,
+  "url": "https://mesonet.agron.iastate.edu/cgi-bin/request/asos.py"
+ },
+ "ncei_normals_la.json": {
+  "accessed": "2026-09-26",
+  "bytes": 17488,
+  "licence": "US federal government data (NOAA NCEI)",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "dataTypes": "ANN-PRCP-NORMAL,DJF-PRCP-NORMAL,MAM-PRCP-NORMAL,JJA-PRCP-NORMAL,SON-PRCP-NORMAL",
+   "dataset": "normals-annualseasonal-1991-2020",
+   "format": "json",
+   "includeStationLocation": "1",
+   "includeStationName": "true",
+   "stations": "64 ids from https://www.ncei.noaa.gov/access/services/search/v1/data bbox search"
+  },
+  "rows": 64,
+  "url": "https://www.ncei.noaa.gov/access/services/data/v1"
+ },
+ "prev_gfs/BUR.json": {
+  "accessed": "2026-09-26",
+  "bytes": 505400,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 34.2007,
+   "longitude": -118.3587,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/CQT.json": {
+  "accessed": "2026-09-26",
+  "bytes": 504460,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 34.0235,
+   "longitude": -118.2912,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/FUL.json": {
+  "accessed": "2026-09-26",
+  "bytes": 505127,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 33.87,
+   "longitude": -117.98,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/HHR.json": {
+  "accessed": "2026-09-26",
+  "bytes": 504219,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 33.9228,
+   "longitude": -118.3352,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/LAX.json": {
+  "accessed": "2026-09-26",
+  "bytes": 504358,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 33.9382,
+   "longitude": -118.3865,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/LGB.json": {
+  "accessed": "2026-09-26",
+  "bytes": 505054,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 33.8118,
+   "longitude": -118.1472,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/ONT.json": {
+  "accessed": "2026-09-26",
+  "bytes": 503980,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 34.056,
+   "longitude": -117.6012,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/PMD.json": {
+  "accessed": "2026-09-26",
+  "bytes": 505240,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 34.6294,
+   "longitude": -118.0846,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/SMO.json": {
+  "accessed": "2026-09-26",
+  "bytes": 502741,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 34.021,
+   "longitude": -118.4471,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/SNA.json": {
+  "accessed": "2026-09-26",
+  "bytes": 505497,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 33.6757,
+   "longitude": -117.8682,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/VNY.json": {
+  "accessed": "2026-09-26",
+  "bytes": 504403,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 34.2097,
+   "longitude": -118.4892,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ },
+ "prev_gfs/WJF.json": {
+  "accessed": "2026-09-26",
+  "bytes": 505652,
+  "licence": "CC BY 4.0, free tier non-commercial (https://open-meteo.com/en/terms); ERA5: Copernicus/ECMWF",
+  "origin": "downloaded by scripts/fetch_la_rain_data.py",
+  "params": {
+   "end_date": "2025-09-30",
+   "hourly": "precipitation_previous_day1,wind_speed_10m_previous_day1,wind_direction_10m_previous_day1",
+   "latitude": 34.7411,
+   "longitude": -118.2186,
+   "models": "gfs_seamless",
+   "start_date": "2024-01-01",
+   "timezone": "GMT",
+   "wind_speed_unit": "ms"
+  },
+  "rows": 15336,
+  "url": "https://previous-runs-api.open-meteo.com/v1/forecast"
+ }
+}

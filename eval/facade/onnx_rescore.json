@@ -1,0 +1,125 @@
+{
+  "id": "facade_tilecls_v1_onnx_rescore",
+  "created": "2026-09-26T16:03:22",
+  "label": "REAL data, same held-out rows as eval/facade/tilecls_v1.json; no synthetic tiles.",
+  "provenance": "eval/facade/tilecls_v1.json scores come from PyTorch checkpoint predictions (training env, fp16 autocast). This file re-scores the same rows with the shipped ONNX file in onnxruntime CPU (app env), the model the website runs.",
+  "onnx_file": "models/facade/tilecls_resnet18_v1.onnx",
+  "onnx_bytes": 22358678,
+  "card_threshold": 0.20497773587703705,
+  "threshold_onnx_val_would_pick": 0.20396675020062813,
+  "input": "224 px uint8 tile cache (data/raw/facade/cache224.npy), ImageNet normalisation, batch 64, 4 threads",
+  "sets": {
+    "sdnet_val": {
+      "n": 3522,
+      "crack": 846,
+      "groups": 14,
+      "pytorch_checkpoint": {
+        "auroc": 0.9366686897277967,
+        "ap": 0.8879022721014832,
+        "threshold": 0.20497773587703705,
+        "precision": 0.6071713147410358,
+        "recall": 0.900709219858156,
+        "f1": 0.7253688719657305,
+        "share_below_threshold": 0.6436683702441794,
+        "tp": 762,
+        "fp": 493,
+        "fn": 84,
+        "tn": 2183
+      },
+      "shipped_onnx": {
+        "auroc": 0.9366278309604328,
+        "ap": 0.8878628153794825,
+        "threshold": 0.20497773587703705,
+        "precision": 0.6073423782920989,
+        "recall": 0.8995271867612293,
+        "f1": 0.7251071939018581,
+        "share_below_threshold": 0.644236229415105,
+        "tp": 761,
+        "fp": 492,
+        "fn": 85,
+        "tn": 2184
+      },
+      "agreement": {
+        "max_abs_p_diff": 0.014370404386426672,
+        "mean_abs_p_diff": 0.000615866702663898,
+        "flag_flips": 4,
+        "flag_flip_share": 0.001135718341851221
+      }
+    },
+    "sdnet_test": {
+      "n": 3529,
+      "crack": 787,
+      "groups": 14,
+      "pytorch_checkpoint": {
+        "auroc": 0.9182841710249615,
+        "ap": 0.8522905182820781,
+        "threshold": 0.20497773587703705,
+        "precision": 0.59245960502693,
+        "recall": 0.8386277001270648,
+        "f1": 0.6943713834823777,
+        "share_below_threshold": 0.6843298384811561,
+        "tp": 660,
+        "fp": 454,
+        "fn": 127,
+        "tn": 2288
+      },
+      "shipped_onnx": {
+        "auroc": 0.918187551727238,
+        "ap": 0.8522102325274679,
+        "threshold": 0.20497773587703705,
+        "precision": 0.5931593159315932,
+        "recall": 0.8373570520965693,
+        "f1": 0.6944151738672287,
+        "share_below_threshold": 0.6851799376593936,
+        "tp": 659,
+        "fp": 452,
+        "fn": 128,
+        "tn": 2290
+      },
+      "agreement": {
+        "max_abs_p_diff": 0.012574138654606548,
+        "mean_abs_p_diff": 0.0006152418959419617,
+        "flag_flips": 5,
+        "flag_flip_share": 0.0014168319637291016
+      }
+    },
+    "bfdd_ood": {
+      "n": 7454,
+      "crack": 6485,
+      "groups": 10,
+      "pytorch_checkpoint": {
+        "auroc": 0.9055987740224524,
+        "ap": 0.9839586635643971,
+        "threshold": 0.20497773587703705,
+        "precision": 0.9399502177971375,
+        "recall": 0.9316885119506554,
+        "f1": 0.9358011306435375,
+        "share_below_threshold": 0.1376442178696002,
+        "tp": 6042,
+        "fp": 386,
+        "fn": 443,
+        "tn": 583
+      },
+      "shipped_onnx": {
+        "auroc": 0.9055433949743514,
+        "ap": 0.9839513929487894,
+        "threshold": 0.20497773587703705,
+        "precision": 0.9400871459694989,
+        "recall": 0.9315343099460293,
+        "f1": 0.9357911858105491,
+        "share_below_threshold": 0.1379125301851355,
+        "tp": 6041,
+        "fp": 385,
+        "fn": 444,
+        "tn": 584
+      },
+      "agreement": {
+        "max_abs_p_diff": 0.004769174420600986,
+        "mean_abs_p_diff": 0.00034113519610957726,
+        "flag_flips": 4,
+        "flag_flip_share": 0.0005366246310705661
+      }
+    }
+  },
+  "seconds": 782.6
+}

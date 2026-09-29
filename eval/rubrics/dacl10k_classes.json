@@ -1,0 +1,7 @@
+{
+  "note": "Written 2026-09-24 before any model output (D-007). dacl10k has 19 classes; for the gate ground truth only structural damage classes count as damage_present. Graffiti and Restformwork are dacl10k 'damage' classes but are not structural deterioration, so they are excluded from damage_present and listed under non_damage.",
+  "damage_classes": ["Crack", "ACrack", "Spalling", "Rust", "ExposedRebars", "Efflorescence", "Cavity", "Hollowareas", "Rockpocket", "Wetspot", "WConccor", "Weathering"],
+  "non_damage_classes": ["Bearing", "Drainage", "EJoint", "JTape", "PEquipment", "Restformwork", "Graffiti"],
+  "eval_target_classes": ["Crack", "ACrack", "Spalling", "Rust", "ExposedRebars", "Efflorescence"],
+  "corrosion_ordinal": {"Good": 0, "Fair": 1, "Poor": 2, "Severe": 3}
+}

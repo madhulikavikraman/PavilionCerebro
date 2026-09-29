@@ -1,0 +1,24 @@
+{
+  "standard": "MBEI-CS",
+  "asset_label": "reinforced or prestressed concrete bridge element (deck, beam, pier, abutment)",
+  "source_note": "AASHTO Manual for Bridge Element Inspection condition states CS1 to CS4. Numeric thresholds copied from docs/research/05_damage_grading_standards.md (IDOT MBEI 2019 handout, HDOT quick reference). CS4 requires structural review by the inspector of record.",
+  "allowed_values": ["CS1", "CS2", "CS3", "CS4"],
+  "rows": [
+    {"defect": "cracking (reinforced concrete)", "value": "CS1", "criterion": "Width less than 0.012 in (insignificant cracks or moderate-width cracks that have been sealed).", "unified": "S0", "action": "record"},
+    {"defect": "cracking (reinforced concrete)", "value": "CS2", "criterion": "Unsealed moderate-width cracks 0.012 to 0.05 in wide, or unsealed moderate pattern (map) cracking.", "unified": "S1", "action": "monitor"},
+    {"defect": "cracking (reinforced concrete)", "value": "CS3", "criterion": "Wide cracks greater than 0.05 in or heavy pattern (map) cracking.", "unified": "S2", "action": "schedule"},
+    {"defect": "cracking (prestressed concrete)", "value": "CS1", "criterion": "Width less than 0.004 in.", "unified": "S0", "action": "record"},
+    {"defect": "cracking (prestressed concrete)", "value": "CS2", "criterion": "Width 0.004 to 0.009 in.", "unified": "S1", "action": "monitor"},
+    {"defect": "cracking (prestressed concrete)", "value": "CS3", "criterion": "Width greater than 0.009 in.", "unified": "S2", "action": "schedule"},
+    {"defect": "delamination / spall / patched area", "value": "CS1", "criterion": "None.", "unified": "S0", "action": "record"},
+    {"defect": "delamination / spall / patched area", "value": "CS2", "criterion": "Delaminated; spall 1 in or less deep or 6 in or less in diameter; patched area that is sound.", "unified": "S1", "action": "monitor"},
+    {"defect": "delamination / spall / patched area", "value": "CS3", "criterion": "Spall greater than 1 in deep or greater than 6 in in diameter; patched area that is unsound or showing distress.", "unified": "S2", "action": "schedule"},
+    {"defect": "exposed rebar", "value": "CS2", "criterion": "Present without measurable section loss.", "unified": "S2", "action": "schedule"},
+    {"defect": "exposed rebar", "value": "CS3", "criterion": "Present with measurable section loss but does not warrant structural review.", "unified": "S3", "action": "prioritize"},
+    {"defect": "efflorescence / rust staining", "value": "CS2", "criterion": "Surface white without build-up or leaching without rust staining.", "unified": "S1", "action": "monitor"},
+    {"defect": "efflorescence / rust staining", "value": "CS3", "criterion": "Heavy build-up with rust staining.", "unified": "S2", "action": "schedule"},
+    {"defect": "any defect", "value": "CS4", "criterion": "The condition warrants a structural review to determine the effect on strength or serviceability of the element or bridge, or a structural review has been completed and the defects impact strength or serviceability.", "unified": "S3", "action": "prioritize", "flag": "load_posting_review"}
+  ],
+  "unified_note": "CS4 with visible instability or collapse indicators maps to S4 (escalate). Crack-width rows require crack_width_mm from gsd_mm_per_px; without GSD, set not_measurable and grade from pattern, spall size class or exposed rebar only.",
+  "flags": {"load_posting_review": "set on any CS4", "not_measurable": "set when width or depth cannot be measured"}
+}

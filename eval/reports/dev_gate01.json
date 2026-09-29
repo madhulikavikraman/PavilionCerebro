@@ -1,0 +1,17 @@
+{
+ "name": "dev_gate01",
+ "n_images_in_run": 0,
+ "n_manifest": 50,
+ "grading": {},
+ "ops": {
+  "gate": {
+   "calls": 27,
+   "median_seconds": 8.858,
+   "usd_total": 0.0,
+   "models": [
+    "qwen3-vl:4b"
+   ]
+  },
+  "usd_per_image": null
+ }
+}

@@ -1,0 +1,18 @@
+{
+  "standard": "IEC-62446-3-CoA",
+  "asset_label": "photovoltaic module in an infrared (thermographic) image",
+  "source_note": "IEC TS 62446-3:2017 Classes of Abnormality and Annex C thermal patterns with delta-T bands, as documented in docs/research/05_damage_grading_standards.md and 01_competitors_wind_solar.md. A valid thermal grade needs irradiance of at least 600 W/m2 in the module plane; when irradiance_wm2 is unknown, thermal delta-T criteria are not_measurable and the grade is based on pattern only with reduced confidence.",
+  "allowed_values": ["CoA 1", "CoA 2", "CoA 3"],
+  "rows": [
+    {"pattern": "no thermal abnormality", "value": "CoA 1", "criterion": "No abnormality; module uniform in temperature relative to neighbours.", "unified": "S0", "action": "record"},
+    {"pattern": "single hot cell", "value": "CoA 2", "criterion": "Single cell warmer than the module by 10 to 40 K.", "unified": "S3", "action": "prioritize"},
+    {"pattern": "single hot cell", "value": "CoA 3", "criterion": "Single cell warmer than the module by more than 40 K.", "unified": "S4", "action": "escalate"},
+    {"pattern": "module or substring open circuit", "value": "CoA 2", "criterion": "Whole module or a substring (one bypass-diode section) warmer by 2 to 7 K in a uniform pattern.", "unified": "S2", "action": "schedule"},
+    {"pattern": "broken front glass", "value": "CoA 3", "criterion": "Broken front glass with irregular thermal pattern, delta-T 0 to 7 K; safety relevant regardless of temperature.", "unified": "S4", "action": "escalate", "flag": "fire_shock_pathway"},
+    {"pattern": "hot spot with burn marks or exposed conductors", "value": "CoA 3", "criterion": "Localised hot spot with visible burn marks, melted encapsulant or exposed conductor; safety relevant.", "unified": "S4", "action": "escalate", "flag": "fire_shock_pathway"},
+    {"pattern": "shading, soiling or vegetation", "value": "CoA 1", "criterion": "Temperature pattern explained by external shading, soiling or vegetation rather than a module defect; note as maintenance item.", "unified": "S1", "action": "monitor"},
+    {"pattern": "string, combiner or inverter outage", "value": "CoA 2", "criterion": "A whole string or group of modules uniformly warmer than neighbours consistent with an open circuit upstream.", "unified": "S3", "action": "prioritize"}
+  ],
+  "measurement_note": "delta_t_k must be null unless the image is radiometric and irradiance is known. On 8-bit thermal crops without temperature data, grade by pattern, set not_measurable, and keep confidence at or below 0.6.",
+  "flags": {"fire_shock_pathway": "set on CoA 3 patterns", "not_measurable": "set when delta-T cannot be measured"}
+}

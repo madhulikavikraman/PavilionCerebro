@@ -1,0 +1,497 @@
+{
+ "generated_utc": "2026-09-26T23:21:53Z",
+ "model_card": [
+  {
+   "model": "M1 presence now",
+   "data": "ROBOD room 1 (Lecture room)",
+   "split": "day-blocked 70/30",
+   "n_test": 2592,
+   "n_pos": 55,
+   "prevalence": 0.021219135802469136,
+   "metric": "F1 (occupied)",
+   "model_score": 0.07221664994984955,
+   "best_baseline": "schedule_168",
+   "baseline_score": 0.06537282941777324,
+   "model_wins": true,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.011654895226623113,
+    0.07465404286948138
+   ],
+   "verdict": "no clear difference",
+   "n_days": 9
+  },
+  {
+   "model": "M1 presence now",
+   "data": "ROBOD room 2 (Lecture room)",
+   "split": "day-blocked 70/30",
+   "n_test": 2592,
+   "n_pos": 555,
+   "prevalence": 0.21412037037037038,
+   "metric": "F1 (occupied)",
+   "model_score": 0.5801418439716312,
+   "best_baseline": "schedule_168",
+   "baseline_score": 0.4912959381044487,
+   "model_wins": true,
+   "label": "REAL",
+   "diff_ci95": [
+    0.018089539484138502,
+    0.15609787473177983
+   ],
+   "verdict": "model better",
+   "n_days": 9
+  },
+  {
+   "model": "M1 presence now",
+   "data": "ROBOD room 3 (Office space)",
+   "split": "day-blocked 70/30",
+   "n_test": 2592,
+   "n_pos": 789,
+   "prevalence": 0.30439814814814814,
+   "metric": "F1 (occupied)",
+   "model_score": 0.802547770700637,
+   "best_baseline": "schedule_48",
+   "baseline_score": 0.7931208902377339,
+   "model_wins": true,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.012998807429555637,
+    0.028325407404017434
+   ],
+   "verdict": "no clear difference",
+   "n_days": 9
+  },
+  {
+   "model": "M1 presence now",
+   "data": "ROBOD room 4 (Office space)",
+   "split": "day-blocked 70/30",
+   "n_test": 4320,
+   "n_pos": 2522,
+   "prevalence": 0.5837962962962963,
+   "metric": "F1 (occupied)",
+   "model_score": 0.9112736822359783,
+   "best_baseline": "schedule_168",
+   "baseline_score": 0.9101751770406261,
+   "model_wins": true,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.01113425690920054,
+    0.013458230809139467
+   ],
+   "verdict": "no clear difference",
+   "n_days": 15
+  },
+  {
+   "model": "M1 presence now",
+   "data": "ROBOD room 5 (Library space)",
+   "split": "day-blocked 70/30",
+   "n_test": 4320,
+   "n_pos": 1535,
+   "prevalence": 0.35532407407407407,
+   "metric": "F1 (occupied)",
+   "model_score": 0.8181546730367274,
+   "best_baseline": "schedule_48",
+   "baseline_score": 0.8189445196211096,
+   "model_wins": false,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.043169420906618086,
+    0.033362377724991746
+   ],
+   "verdict": "no clear difference",
+   "n_days": 15
+  },
+  {
+   "model": "M2 presence +1 h (deployable)",
+   "data": "ROBOD room 1",
+   "split": "day-blocked 70/30",
+   "n_test": 2484,
+   "n_pos": 55,
+   "prevalence": 0.02214170692431562,
+   "metric": "F1 (occupied)",
+   "model_score": 0.08554913294797688,
+   "best_baseline": "schedule_168",
+   "baseline_score": 0.06537282941777324,
+   "model_wins": true,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.0008037978444800788,
+    0.08377931419307531
+   ],
+   "verdict": "no clear difference",
+   "n_days": 9
+  },
+  {
+   "model": "M2 presence +1 h (oracle)",
+   "data": "ROBOD room 1",
+   "split": "day-blocked 70/30",
+   "n_test": 2484,
+   "n_pos": 55,
+   "prevalence": 0.02214170692431562,
+   "metric": "F1 (occupied)",
+   "model_score": 0.13763440860215054,
+   "best_baseline": "persistence_oracle",
+   "baseline_score": 0.5818181818181818,
+   "model_wins": false,
+   "label": "REAL (oracle input)",
+   "diff_ci95": [
+    -0.567144556268115,
+    0.0
+   ],
+   "verdict": "no clear difference",
+   "n_days": 9
+  },
+  {
+   "model": "M2 presence +1 h (deployable)",
+   "data": "ROBOD room 2",
+   "split": "day-blocked 70/30",
+   "n_test": 2484,
+   "n_pos": 555,
+   "prevalence": 0.22342995169082125,
+   "metric": "F1 (occupied)",
+   "model_score": 0.516773733047823,
+   "best_baseline": "schedule_168",
+   "baseline_score": 0.4912959381044487,
+   "model_wins": true,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.05437184013883305,
+    0.10558086142198073
+   ],
+   "verdict": "no clear difference",
+   "n_days": 9
+  },
+  {
+   "model": "M2 presence +1 h (oracle)",
+   "data": "ROBOD room 2",
+   "split": "day-blocked 70/30",
+   "n_test": 2484,
+   "n_pos": 555,
+   "prevalence": 0.22342995169082125,
+   "metric": "F1 (occupied)",
+   "model_score": 0.7398843930635838,
+   "best_baseline": "persistence_oracle",
+   "baseline_score": 0.8144144144144144,
+   "model_wins": false,
+   "label": "REAL (oracle input)",
+   "diff_ci95": [
+    -0.14854535247019557,
+    -0.03312203687582325
+   ],
+   "verdict": "baseline better",
+   "n_days": 9
+  },
+  {
+   "model": "M2 presence +1 h (deployable)",
+   "data": "ROBOD room 3",
+   "split": "day-blocked 70/30",
+   "n_test": 2484,
+   "n_pos": 789,
+   "prevalence": 0.3176328502415459,
+   "metric": "F1 (occupied)",
+   "model_score": 0.7927648578811369,
+   "best_baseline": "schedule_48",
+   "baseline_score": 0.7931208902377339,
+   "model_wins": false,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.01914608958301465,
+    0.021154987445788698
+   ],
+   "verdict": "no clear difference",
+   "n_days": 9
+  },
+  {
+   "model": "M2 presence +1 h (oracle)",
+   "data": "ROBOD room 3",
+   "split": "day-blocked 70/30",
+   "n_test": 2484,
+   "n_pos": 789,
+   "prevalence": 0.3176328502415459,
+   "metric": "F1 (occupied)",
+   "model_score": 0.8152934841141626,
+   "best_baseline": "persistence_oracle",
+   "baseline_score": 0.85297845373891,
+   "model_wins": false,
+   "label": "REAL (oracle input)",
+   "diff_ci95": [
+    -0.16661462304481303,
+    0.034068994524029
+   ],
+   "verdict": "no clear difference",
+   "n_days": 9
+  },
+  {
+   "model": "M2 presence +1 h (deployable)",
+   "data": "ROBOD room 4",
+   "split": "day-blocked 70/30",
+   "n_test": 4140,
+   "n_pos": 2486,
+   "prevalence": 0.6004830917874396,
+   "metric": "F1 (occupied)",
+   "model_score": 0.9178891217374738,
+   "best_baseline": "schedule_48",
+   "baseline_score": 0.9232549170844582,
+   "model_wins": false,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.015234057453767366,
+    0.003282922578909077
+   ],
+   "verdict": "no clear difference",
+   "n_days": 15
+  },
+  {
+   "model": "M2 presence +1 h (oracle)",
+   "data": "ROBOD room 4",
+   "split": "day-blocked 70/30",
+   "n_test": 4140,
+   "n_pos": 2486,
+   "prevalence": 0.6004830917874396,
+   "metric": "F1 (occupied)",
+   "model_score": 0.9307044410413476,
+   "best_baseline": "persistence_oracle",
+   "baseline_score": 0.9412244897959183,
+   "model_wins": false,
+   "label": "REAL (oracle input)",
+   "diff_ci95": [
+    -0.08576635927100898,
+    0.030435621843238756
+   ],
+   "verdict": "no clear difference",
+   "n_days": 15
+  },
+  {
+   "model": "M2 presence +1 h (deployable)",
+   "data": "ROBOD room 5",
+   "split": "day-blocked 70/30",
+   "n_test": 4140,
+   "n_pos": 1535,
+   "prevalence": 0.37077294685990336,
+   "metric": "F1 (occupied)",
+   "model_score": 0.6609728926847382,
+   "best_baseline": "schedule_48",
+   "baseline_score": 0.8189445196211096,
+   "model_wins": false,
+   "label": "REAL",
+   "diff_ci95": [
+    -0.28127050023980016,
+    -0.06270616446030237
+   ],
+   "verdict": "baseline better",
+   "n_days": 15
+  },
+  {
+   "model": "M2 presence +1 h (oracle)",
+   "data": "ROBOD room 5",
+   "split": "day-blocked 70/30",
+   "n_test": 4140,
+   "n_pos": 1535,
+   "prevalence": 0.37077294685990336,
+   "metric": "F1 (occupied)",
+   "model_score": 0.8886910062333037,
+   "best_baseline": "persistence_oracle",
+   "baseline_score": 0.8840390879478828,
+   "model_wins": true,
+   "label": "REAL (oracle input)",
+   "diff_ci95": [
+    -0.06582324267055613,
+    0.044949019605122355
+   ],
+   "verdict": "no clear difference",
+   "n_days": 15
+  },
+  {
+   "model": "M3 garage day-ahead (no weather)",
+   "data": "BDG2 20 parking meters",
+   "split": "train 2016 / test 2017",
+   "n_test": 174258,
+   "n_pos": null,
+   "prevalence": null,
+   "metric": "median CV(RMSE) (lower is better)",
+   "model_score": 0.09060678318388915,
+   "best_baseline": "lag24",
+   "baseline_score": 0.09642762338161023,
+   "model_wins": true,
+   "label": "REAL",
+   "meters_beating_best_naive": 15
+  }
+ ],
+ "m1_rooms_beating_best_baseline": 4,
+ "m2_deployable_rooms_beating_best_baseline": 2,
+ "m2_oracle_rooms_beating_persistence": 1,
+ "n_rooms": 5,
+ "replay_all_rooms": {
+  "room_rule": {
+   "as_operated": {
+    "kwh": 375.249230661,
+    "usd": 19.02685763741859,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 0.0
+   },
+   "schedule": {
+    "kwh": 310.61328172,
+    "usd": 16.50928742616664,
+    "underlit_occupied_share": 0.0656158357771261,
+    "saved_vs_as_operated_pct": 17.224805185381477
+   },
+   "ideal_sensor": {
+    "kwh": 247.216577817,
+    "usd": 13.0156612019027,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 34.119364513678285
+   },
+   "sensor": {
+    "kwh": 252.7075359032,
+    "usd": 13.276613240313065,
+    "underlit_occupied_share": 7.331378299120235e-05,
+    "saved_vs_as_operated_pct": 32.656081543976335
+   },
+   "sensor_ml": {
+    "kwh": 271.349861061,
+    "usd": 14.244435735895438,
+    "underlit_occupied_share": 5.498533724340176e-05,
+    "saved_vs_as_operated_pct": 27.688096632998203
+   },
+   "sensor_ml_union": {
+    "kwh": 309.8927997486,
+    "usd": 16.287880055251534,
+    "underlit_occupied_share": 1.8328445747800586e-05,
+    "saved_vs_as_operated_pct": 17.416806104378924
+   },
+   "ml_only": {
+    "kwh": 294.56474786,
+    "usd": 15.576047293590058,
+    "underlit_occupied_share": 0.061400293255131966,
+    "saved_vs_as_operated_pct": 21.50157181105331
+   }
+  },
+  "corridor_rule": {
+   "as_operated": {
+    "kwh": 375.249230661,
+    "usd": 19.02685763741859,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 0.0
+   },
+   "schedule": {
+    "kwh": 342.9312561905,
+    "usd": 17.768072531792615,
+    "underlit_occupied_share": 0.0656158357771261,
+    "saved_vs_as_operated_pct": 8.612402592690739
+   },
+   "ideal_sensor": {
+    "kwh": 311.23290423900005,
+    "usd": 16.021259419660645,
+    "underlit_occupied_share": 0.0,
+    "saved_vs_as_operated_pct": 17.059682256839125
+   },
+   "sensor": {
+    "kwh": 313.97838328209997,
+    "usd": 16.151735438865824,
+    "underlit_occupied_share": 7.331378299120235e-05,
+    "saved_vs_as_operated_pct": 16.32804077198817
+   },
+   "sensor_ml": {
+    "kwh": 323.299545861,
+    "usd": 16.63564668665701,
+    "underlit_occupied_share": 5.498533724340176e-05,
+    "saved_vs_as_operated_pct": 13.844048316499102
+   },
+   "sensor_ml_union": {
+    "kwh": 342.5710152048,
+    "usd": 17.65736884633506,
+    "underlit_occupied_share": 1.8328445747800586e-05,
+    "saved_vs_as_operated_pct": 8.708403052189462
+   },
+   "ml_only": {
+    "kwh": 334.9069892605,
+    "usd": 17.301452465504326,
+    "underlit_occupied_share": 0.061400293255131966,
+    "saved_vs_as_operated_pct": 10.75078590552666
+   }
+  }
+ },
+ "tower_kpi": {
+  "kwh_saved_vs_always_on": 179888.6062499995,
+  "pct_saved_vs_always_on": 30.70458885163362,
+  "kwh_saved_vs_schedule": 39684.80624999956,
+  "pct_saved_vs_schedule": 8.90462707414753,
+  "usd_saved_vs_always_on": 7628.124042708299,
+  "usd_saved_vs_schedule": 2341.9836799083096,
+  "peak_kw_cut_vs_always_on": 2.774999999999963,
+  "dr_mean_trim_kw": 1.4820375000000066,
+  "dr_max_trim_kw": 1.6740000000000137,
+  "ladwp_dr_min_kw": 100,
+  "egress_floor_fc": 1.0,
+  "egress_floor_violations_recommended": 0,
+  "egress_floor_violations_all_deployable": 0,
+  "egress_floor_violations_note": "0 by construction: level = max(egress floor, target), and every egress vacant level is at or above the floor",
+  "stair_in_use_fc": 10.0,
+  "stair_in_use_violation_minutes_recommended": 400,
+  "stair_in_use_violation_minutes_sensor_only": 420,
+  "stair_in_use_violation_minutes_always_on": 0,
+  "ml_stair_minutes_avoided_vs_sensor_only": 20,
+  "pct_saved_sensor_only_vs_always_on": 33.97136220316443,
+  "ml_extra_kwh_vs_sensor_only": 19139.005833333358,
+  "ml_extra_usd_vs_sensor_only": 1116.0784859458363,
+  "what_if": {
+   "measured": {
+    "sensor": {
+     "stair_in_use_violation_minutes": 420,
+     "underlit_occupied_share": 7.895429034508791e-05,
+     "annual_kwh": 386841.1879166665
+    },
+    "sensor_ml": {
+     "stair_in_use_violation_minutes": 400,
+     "underlit_occupied_share": 5.3892956611956077e-05,
+     "annual_kwh": 405980.19374999986
+    },
+    "sensor_ml_union": {
+     "stair_in_use_violation_minutes": 235,
+     "underlit_occupied_share": 2.3952425160869368e-05,
+     "annual_kwh": 438251.0191666664
+    }
+   },
+   "what_if_0.1": {
+    "sensor": {
+     "stair_in_use_violation_minutes": 8425,
+     "underlit_occupied_share": 0.0016984043692772001,
+     "annual_kwh": 386472.90083333314
+    },
+    "sensor_ml": {
+     "stair_in_use_violation_minutes": 7570,
+     "underlit_occupied_share": 0.0011443936465748697,
+     "annual_kwh": 405745.35083333316
+    },
+    "sensor_ml_union": {
+     "stair_in_use_violation_minutes": 4040,
+     "underlit_occupied_share": 0.0005041098369505192,
+     "annual_kwh": 438166.6641666664
+    }
+   },
+   "what_if_0.3": {
+    "sensor": {
+     "stair_in_use_violation_minutes": 32515,
+     "underlit_occupied_share": 0.013820327536107173,
+     "annual_kwh": 384201.1766666665
+    },
+    "sensor_ml": {
+     "stair_in_use_violation_minutes": 27175,
+     "underlit_occupied_share": 0.004617495294900928,
+     "annual_kwh": 405014.5104166665
+    },
+    "sensor_ml_union": {
+     "stair_in_use_violation_minutes": 13760,
+     "underlit_occupied_share": 0.0020259759615235337,
+     "annual_kwh": 437891.8258333331
+    }
+   }
+  }
+ },
+ "pir": {
+  "miss_rate": 0.005208333333333333,
+  "false_trigger_rate": 0.010638297872340425,
+  "n_occupied_windows": 192,
+  "n_vacant_windows": 846
+ }
+}

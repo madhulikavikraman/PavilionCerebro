@@ -1,0 +1,1153 @@
+{
+ "frozen_config": {
+  "k_consecutive": 3,
+  "verify_window_s": 60,
+  "median_window": "30min",
+  "median_min_periods": 5,
+  "slope_lag_samples": 6,
+  "stage1_channel": "PM_Total_Room_d",
+  "co_channel": "CO_Room_d",
+  "stage1_quantile": 0.999,
+  "stage2_p_fire": 0.5,
+  "hgb": {
+   "max_iter": 150,
+   "learning_rate": 0.1,
+   "class_weight": "balanced",
+   "random_state": 0
+  },
+  "train_bg_subsample": 3,
+  "pre_start_s": 300,
+  "bg_before_s": 1800,
+  "bg_after_s": 3600,
+  "warmup_s": 1800,
+  "warmup_gap_s": 1800,
+  "run_gap_s": 60,
+  "sample_s": 10,
+  "en54_split_gap_s": 600,
+  "hall_merge": {
+   "13": 14
+  },
+  "n_boot": 1000,
+  "seed": 0,
+  "headline_features": "full",
+  "ablation_features": "deltas",
+  "within_site_cv": "leave-one-recording-day-out on EN54",
+  "cross_site": "train on all EN54, test once on the Industrial Hall"
+ },
+ "frozen_hash": "a08cb131d01d34be",
+ "methods": {
+  "stage1_pm": "PM rise trigger alone (naive baseline, every trigger called fire)",
+  "co_delta": "CO rise trigger alone (naive baseline)",
+  "ml_alone": "ML alone, no gate (P(fire) >= 0.5 for 3 samples)",
+  "two_stage": "Two-stage: PM trigger raises, ML labels (ours)"
+ },
+ "episodes": {
+  "en54": {
+   "n": 20,
+   "by_kind": {
+    "fire": 13,
+    "nuisance": 7
+   },
+   "by_scenario": {
+    "fire:Cable": 4,
+    "fire:Candles": 3,
+    "fire:Lunts": 3,
+    "fire:Wood": 3,
+    "nuisance:Deodorant": 2,
+    "nuisance:Ethanol": 4,
+    "nuisance:Hairspray": 1
+   }
+  },
+  "hall": {
+   "n": 31,
+   "by_kind": {
+    "fire": 17,
+    "nuisance": 11,
+    "other": 3
+   },
+   "by_scenario": {
+    "fire:Cable": 3,
+    "fire:Candles": 4,
+    "fire:Lunts": 3,
+    "fire:Wood": 7,
+    "nuisance:Abrasive_Cutting": 1,
+    "nuisance:Deodorant": 3,
+    "nuisance:Ethanol,Green_Waste": 1,
+    "nuisance:Exhaust": 3,
+    "nuisance:Smoke": 2,
+    "nuisance:Welding": 1,
+    "other:CO": 2,
+    "other:Ethanol": 1
+   }
+  }
+ },
+ "cv_en54": {
+  "full": {
+   "folds": [
+    {
+     "test_day": "2022-07-04",
+     "thr_pm": 6.0,
+     "thr_co": 1.100000023841858,
+     "n_train_rows": 109769,
+     "n_fire_rows": 34837,
+     "n_nuisance_rows": 13829,
+     "n_background_rows": 61103,
+     "n_test_rows": 31811
+    },
+    {
+     "test_day": "2022-07-05",
+     "thr_pm": 6.0,
+     "thr_co": 1.1299999952316284,
+     "n_train_rows": 89021,
+     "n_fire_rows": 25398,
+     "n_nuisance_rows": 11682,
+     "n_background_rows": 51941,
+     "n_test_rows": 77758
+    },
+    {
+     "test_day": "2022-07-06",
+     "thr_pm": 7.0,
+     "thr_co": 1.0763399708270118,
+     "n_train_rows": 91825,
+     "n_fire_rows": 32594,
+     "n_nuisance_rows": 9775,
+     "n_background_rows": 49456,
+     "n_test_rows": 77762
+    },
+    {
+     "test_day": "2022-07-07",
+     "thr_pm": 7.0,
+     "thr_co": 1.159999966621399,
+     "n_train_rows": 87885,
+     "n_fire_rows": 25099,
+     "n_nuisance_rows": 10954,
+     "n_background_rows": 51832,
+     "n_test_rows": 77713
+    },
+    {
+     "test_day": "2022-07-08",
+     "thr_pm": 7.0,
+     "thr_co": 1.0500000367164612,
+     "n_train_rows": 103171,
+     "n_fire_rows": 34664,
+     "n_nuisance_rows": 9076,
+     "n_background_rows": 59431,
+     "n_test_rows": 40260
+    }
+   ],
+   "metrics": {
+    "stage1_pm": {
+     "method": "stage1_pm",
+     "label": "PM rise trigger alone (naive baseline, every trigger called fire)",
+     "fire": {
+      "n": 13,
+      "alarmed": 13,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 3,
+      "rate": 0.42857142857142855,
+      "ci95": [
+       0.14285714285714285,
+       0.7178571428571396
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": 2.00863196849823,
+      "max": 4.310397748152415,
+      "min": -1.039204482237498,
+      "n_detected": 13,
+      "median_ci95": [
+       0.8389560500780742,
+       3.098579800128937
+      ]
+     },
+     "background": {
+      "alarms": 18,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 0.7574480934731469,
+      "ci95": [
+       0.08202635476398434,
+       1.6276310919662258
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 10
+     },
+     "n_events": 246
+    },
+    "co_delta": {
+     "method": "co_delta",
+     "label": "CO rise trigger alone (naive baseline)",
+     "fire": {
+      "n": 13,
+      "alarmed": 12,
+      "rate": 0.9230769230769231,
+      "ci95": [
+       0.7692307692307693,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 6,
+      "rate": 0.8571428571428571,
+      "ci95": [
+       0.5714285714285714,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": 7.59190761645635,
+      "max": 31.97335346539815,
+      "min": 1.1477491974830627,
+      "n_detected": 12,
+      "median_ci95": [
+       1.4292132139205933,
+       15.48409254948298
+      ]
+     },
+     "background": {
+      "alarms": 13,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 0.5470458452861616,
+      "ci95": [
+       0.19692951975180412,
+       1.1515393842463015
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 1
+     },
+     "n_events": 268
+    },
+    "ml_alone": {
+     "method": "ml_alone",
+     "label": "ML alone, no gate (P(fire) >= 0.5 for 3 samples)",
+     "fire": {
+      "n": 13,
+      "alarmed": 13,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 7,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": -3.777633865674337,
+      "max": 2.273397517204285,
+      "min": -4.867288430531819,
+      "n_detected": 13,
+      "median_ci95": [
+       -4.484408736228943,
+       1.0959131995836893
+      ]
+     },
+     "background": {
+      "alarms": 160,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 6.732871941983529,
+      "ci95": [
+       2.5382325715457656,
+       11.146697422703278
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 366
+     },
+     "n_events": 829
+    },
+    "two_stage": {
+     "method": "two_stage",
+     "label": "Two-stage: PM trigger raises, ML labels (ours)",
+     "fire": {
+      "n": 13,
+      "alarmed": 13,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 3,
+      "rate": 0.42857142857142855,
+      "ci95": [
+       0.14285714285714285,
+       0.7178571428571396
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": 2.00863196849823,
+      "max": 4.310397748152415,
+      "min": -1.039204482237498,
+      "n_detected": 13,
+      "median_ci95": [
+       0.8389560500780742,
+       3.098579800128937
+      ]
+     },
+     "background": {
+      "alarms": 1,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 0.04208044963739706,
+      "ci95": [
+       0.0,
+       0.1813893923595317
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 7
+     },
+     "n_events": 222
+    },
+    "stage2_auroc": {
+     "n_triggers": 236,
+     "n_pos": 162,
+     "n_neg": 74,
+     "auroc": 0.6532365699032365,
+     "ci95": [
+      0.4881329993982369,
+      0.9906892834505097
+     ],
+     "label_counts": {
+      "fire_triggers_labelled_fire": 159,
+      "nonfire_triggers_labelled_fire": 56
+     }
+    }
+   },
+   "n_features": 39
+  },
+  "deltas": {
+   "folds": [
+    {
+     "test_day": "2022-07-04",
+     "thr_pm": 6.0,
+     "thr_co": 1.100000023841858,
+     "n_train_rows": 109769,
+     "n_fire_rows": 34837,
+     "n_nuisance_rows": 13829,
+     "n_background_rows": 61103,
+     "n_test_rows": 31811
+    },
+    {
+     "test_day": "2022-07-05",
+     "thr_pm": 6.0,
+     "thr_co": 1.1299999952316284,
+     "n_train_rows": 89021,
+     "n_fire_rows": 25398,
+     "n_nuisance_rows": 11682,
+     "n_background_rows": 51941,
+     "n_test_rows": 77758
+    },
+    {
+     "test_day": "2022-07-06",
+     "thr_pm": 7.0,
+     "thr_co": 1.0763399708270118,
+     "n_train_rows": 91825,
+     "n_fire_rows": 32594,
+     "n_nuisance_rows": 9775,
+     "n_background_rows": 49456,
+     "n_test_rows": 77762
+    },
+    {
+     "test_day": "2022-07-07",
+     "thr_pm": 7.0,
+     "thr_co": 1.159999966621399,
+     "n_train_rows": 87885,
+     "n_fire_rows": 25099,
+     "n_nuisance_rows": 10954,
+     "n_background_rows": 51832,
+     "n_test_rows": 77713
+    },
+    {
+     "test_day": "2022-07-08",
+     "thr_pm": 7.0,
+     "thr_co": 1.0500000367164612,
+     "n_train_rows": 103171,
+     "n_fire_rows": 34664,
+     "n_nuisance_rows": 9076,
+     "n_background_rows": 59431,
+     "n_test_rows": 40260
+    }
+   ],
+   "metrics": {
+    "stage1_pm": {
+     "method": "stage1_pm",
+     "label": "PM rise trigger alone (naive baseline, every trigger called fire)",
+     "fire": {
+      "n": 13,
+      "alarmed": 13,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 3,
+      "rate": 0.42857142857142855,
+      "ci95": [
+       0.14285714285714285,
+       0.7178571428571396
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": 2.00863196849823,
+      "max": 4.310397748152415,
+      "min": -1.039204482237498,
+      "n_detected": 13,
+      "median_ci95": [
+       0.8389560500780742,
+       3.098579800128937
+      ]
+     },
+     "background": {
+      "alarms": 18,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 0.7574480934731469,
+      "ci95": [
+       0.08202635476398434,
+       1.6276310919662258
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 10
+     },
+     "n_events": 246
+    },
+    "co_delta": {
+     "method": "co_delta",
+     "label": "CO rise trigger alone (naive baseline)",
+     "fire": {
+      "n": 13,
+      "alarmed": 12,
+      "rate": 0.9230769230769231,
+      "ci95": [
+       0.7692307692307693,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 6,
+      "rate": 0.8571428571428571,
+      "ci95": [
+       0.5714285714285714,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": 7.59190761645635,
+      "max": 31.97335346539815,
+      "min": 1.1477491974830627,
+      "n_detected": 12,
+      "median_ci95": [
+       1.4292132139205933,
+       15.48409254948298
+      ]
+     },
+     "background": {
+      "alarms": 13,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 0.5470458452861616,
+      "ci95": [
+       0.19692951975180412,
+       1.1515393842463015
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 1
+     },
+     "n_events": 268
+    },
+    "ml_alone": {
+     "method": "ml_alone",
+     "label": "ML alone, no gate (P(fire) >= 0.5 for 3 samples)",
+     "fire": {
+      "n": 13,
+      "alarmed": 13,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 7,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": 0.8389560500780742,
+      "max": 4.643735766410828,
+      "min": -4.662125599384308,
+      "n_detected": 13,
+      "median_ci95": [
+       -4.1684611996014915,
+       1.3421544671058654
+      ]
+     },
+     "background": {
+      "alarms": 197,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 8.28984857856722,
+      "ci95": [
+       1.751446787641001,
+       16.932509262544663
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 472
+     },
+     "n_events": 1001
+    },
+    "two_stage": {
+     "method": "two_stage",
+     "label": "Two-stage: PM trigger raises, ML labels (ours)",
+     "fire": {
+      "n": 13,
+      "alarmed": 13,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 7,
+      "alarmed": 3,
+      "rate": 0.42857142857142855,
+      "ci95": [
+       0.14285714285714285,
+       0.7178571428571396
+      ]
+     },
+     "other": {
+      "n": 0,
+      "alarmed": 0,
+      "rate": null,
+      "ci95": [
+       null,
+       null
+      ]
+     },
+     "latency_min": {
+      "median": 2.00863196849823,
+      "max": 4.310397748152415,
+      "min": -1.039204482237498,
+      "n_detected": 13,
+      "median_ci95": [
+       0.8389560500780742,
+       3.098579800128937
+      ]
+     },
+     "background": {
+      "alarms": 6,
+      "sensor_hours": 570.3361111111111,
+      "per_24_sensor_h": 0.2524826978243823,
+      "ci95": [
+       0.0,
+       0.647471231827341
+      ],
+      "n_days": 5,
+      "near_episode_alarms": 9
+     },
+     "n_events": 227
+    },
+    "stage2_auroc": {
+     "n_triggers": 236,
+     "n_pos": 162,
+     "n_neg": 74,
+     "auroc": 0.83324991658325,
+     "ci95": [
+      0.7185601514601305,
+      0.9930272198731501
+     ],
+     "label_counts": {
+      "fire_triggers_labelled_fire": 161,
+      "nonfire_triggers_labelled_fire": 57
+     }
+    }
+   },
+   "n_features": 26
+  }
+ },
+ "cv_en54_meta": {
+  "design": "leave-one-recording-day-out on EN54",
+  "runtime_s": 192.7,
+  "run_at": "2026-09-26T21:14:08.521592+00:00"
+ },
+ "hall": {
+  "thr_pm": 6.0,
+  "thr_co": 1.100000023841858,
+  "full": {
+   "metrics": {
+    "stage1_pm": {
+     "method": "stage1_pm",
+     "label": "PM rise trigger alone (naive baseline, every trigger called fire)",
+     "fire": {
+      "n": 17,
+      "alarmed": 17,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 11,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 2,
+      "rate": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": 1.2333333333333334,
+      "max": 11.583333333333334,
+      "min": -4.833333333333333,
+      "n_detected": 17,
+      "median_ci95": [
+       -0.19249999999999567,
+       7.333333333333333
+      ]
+     },
+     "background": {
+      "alarms": 102,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 6.690809702767339,
+      "ci95": [
+       3.459296506082266,
+       10.922644347086903
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 183
+     },
+     "n_events": 810
+    },
+    "co_delta": {
+     "method": "co_delta",
+     "label": "CO rise trigger alone (naive baseline)",
+     "fire": {
+      "n": 17,
+      "alarmed": 13,
+      "rate": 0.7647058823529411,
+      "ci95": [
+       0.5294117647058824,
+       0.9411764705882353
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 7,
+      "rate": 0.6363636363636364,
+      "ci95": [
+       0.36363636363636365,
+       0.9090909090909091
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 3,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": 4.216666666666667,
+      "max": 40.0,
+      "min": -3.6666666666666665,
+      "n_detected": 13,
+      "median_ci95": [
+       -2.3333333333333335,
+       19.95
+      ]
+     },
+     "background": {
+      "alarms": 0,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 33
+     },
+     "n_events": 216
+    },
+    "ml_alone": {
+     "method": "ml_alone",
+     "label": "ML alone, no gate (P(fire) >= 0.5 for 3 samples)",
+     "fire": {
+      "n": 17,
+      "alarmed": 16,
+      "rate": 0.9411764705882353,
+      "ci95": [
+       0.8235294117647058,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 9,
+      "rate": 0.8181818181818182,
+      "ci95": [
+       0.5454545454545454,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 3,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": -4.383333333333333,
+      "max": 13.383333333333333,
+      "min": -4.983333333333333,
+      "n_detected": 16,
+      "median_ci95": [
+       -4.8,
+       -2.783333333333333
+      ]
+     },
+     "background": {
+      "alarms": 2124,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 139.32627263409634,
+      "ci95": [
+       108.56207136950991,
+       168.39683680805175
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 611
+     },
+     "n_events": 3209
+    },
+    "two_stage": {
+     "method": "two_stage",
+     "label": "Two-stage: PM trigger raises, ML labels (ours)",
+     "fire": {
+      "n": 17,
+      "alarmed": 17,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 11,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 2,
+      "rate": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": 1.2333333333333334,
+      "max": 11.583333333333334,
+      "min": -4.833333333333333,
+      "n_detected": 17,
+      "median_ci95": [
+       -0.19249999999999567,
+       7.333333333333333
+      ]
+     },
+     "background": {
+      "alarms": 98,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 6.4284250085411685,
+      "ci95": [
+       2.950576431658404,
+       10.922644347086903
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 165
+     },
+     "n_events": 753
+    },
+    "stage2_auroc": {
+     "n_triggers": 627,
+     "n_pos": 303,
+     "n_neg": 324,
+     "auroc": 0.6689891211343357,
+     "ci95": [
+      0.5138658903384935,
+      0.8086709945285253
+     ],
+     "label_counts": {
+      "fire_triggers_labelled_fire": 296,
+      "nonfire_triggers_labelled_fire": 292
+     }
+    }
+   },
+   "train": {
+    "n_train_rows": 120418,
+    "n_fire_rows": 38148,
+    "n_nuisance_rows": 13829,
+    "n_background_rows": 68441
+   },
+   "n_features": 39,
+   "model_file": "models/fire/verifier_hgb_full.joblib",
+   "model_bytes": 537938
+  },
+  "deltas": {
+   "metrics": {
+    "stage1_pm": {
+     "method": "stage1_pm",
+     "label": "PM rise trigger alone (naive baseline, every trigger called fire)",
+     "fire": {
+      "n": 17,
+      "alarmed": 17,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 11,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 2,
+      "rate": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": 1.2333333333333334,
+      "max": 11.583333333333334,
+      "min": -4.833333333333333,
+      "n_detected": 17,
+      "median_ci95": [
+       -0.19249999999999567,
+       7.333333333333333
+      ]
+     },
+     "background": {
+      "alarms": 102,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 6.690809702767339,
+      "ci95": [
+       3.459296506082266,
+       10.922644347086903
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 183
+     },
+     "n_events": 810
+    },
+    "co_delta": {
+     "method": "co_delta",
+     "label": "CO rise trigger alone (naive baseline)",
+     "fire": {
+      "n": 17,
+      "alarmed": 13,
+      "rate": 0.7647058823529411,
+      "ci95": [
+       0.5294117647058824,
+       0.9411764705882353
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 7,
+      "rate": 0.6363636363636364,
+      "ci95": [
+       0.36363636363636365,
+       0.9090909090909091
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 3,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": 4.216666666666667,
+      "max": 40.0,
+      "min": -3.6666666666666665,
+      "n_detected": 13,
+      "median_ci95": [
+       -2.3333333333333335,
+       19.95
+      ]
+     },
+     "background": {
+      "alarms": 0,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 33
+     },
+     "n_events": 216
+    },
+    "ml_alone": {
+     "method": "ml_alone",
+     "label": "ML alone, no gate (P(fire) >= 0.5 for 3 samples)",
+     "fire": {
+      "n": 17,
+      "alarmed": 17,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 11,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 2,
+      "rate": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": -4.666666666666667,
+      "max": 3.1333333333333333,
+      "min": -4.966666666666667,
+      "n_detected": 17,
+      "median_ci95": [
+       -4.816666666666666,
+       -3.25
+      ]
+     },
+     "background": {
+      "alarms": 494,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 32.40450973693201,
+      "ci95": [
+       13.379337957347587,
+       80.17179899517565
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 552
+     },
+     "n_events": 1788
+    },
+    "two_stage": {
+     "method": "two_stage",
+     "label": "Two-stage: PM trigger raises, ML labels (ours)",
+     "fire": {
+      "n": 17,
+      "alarmed": 17,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "nuisance": {
+      "n": 11,
+      "alarmed": 11,
+      "rate": 1.0,
+      "ci95": [
+       1.0,
+       1.0
+      ]
+     },
+     "other": {
+      "n": 3,
+      "alarmed": 2,
+      "rate": 0.6666666666666666,
+      "ci95": [
+       0.0,
+       1.0
+      ]
+     },
+     "latency_min": {
+      "median": 1.6833333333333333,
+      "max": 12.733333333333333,
+      "min": -4.8,
+      "n_detected": 17,
+      "median_ci95": [
+       0.25041666666667134,
+       7.483333333333333
+      ]
+     },
+     "background": {
+      "alarms": 71,
+      "sensor_hours": 365.875,
+      "per_24_sensor_h": 4.65732832251452,
+      "ci95": [
+       1.3735442009444294,
+       9.792715621526188
+      ],
+      "n_days": 4,
+      "near_episode_alarms": 99
+     },
+     "n_events": 575
+    },
+    "stage2_auroc": {
+     "n_triggers": 627,
+     "n_pos": 303,
+     "n_neg": 324,
+     "auroc": 0.7154636759972293,
+     "ci95": [
+      0.5778817179820909,
+      0.8482018477137223
+     ],
+     "label_counts": {
+      "fire_triggers_labelled_fire": 260,
+      "nonfire_triggers_labelled_fire": 216
+     }
+    }
+   },
+   "train": {
+    "n_train_rows": 120418,
+    "n_fire_rows": 38148,
+    "n_nuisance_rows": 13829,
+    "n_background_rows": 68441
+   },
+   "n_features": 26,
+   "model_file": "models/fire/verifier_hgb_deltas.joblib",
+   "model_bytes": 680450
+  },
+  "meta": {
+   "design": "train on all EN54, test once on the Industrial Hall",
+   "runtime_s": 53.3,
+   "run_at": "2026-09-26T21:15:39.609254+00:00",
+   "frozen_hash": "a08cb131d01d34be",
+   "frozen_at": "2026-09-26T21:14:08.525801+00:00",
+   "hall_run_number": 1,
+   "reason": "first scoring of the frozen configuration",
+   "python": "3.13.15",
+   "sklearn": "1.9.1",
+   "pandas": "3.0.6",
+   "numpy": "2.5.3"
+  }
+ },
+ "episodes_by_scenario_note": "by_scenario rebuilt by scripts/fire_summarize.py from eval/fire/episodes_<site>.csv after a key-formatting bug in the original write; counts and metrics unchanged"
+}

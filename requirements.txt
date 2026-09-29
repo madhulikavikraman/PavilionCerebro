@@ -1,0 +1,12 @@
+anthropic>=0.60
+pydantic>=2.7
+pillow>=10.0
+numpy>=1.26
+pandas>=2.2
+pyarrow>=15.0
+requests>=2.31
+huggingface_hub>=0.23
+tqdm>=4.66
+python-dotenv>=1.0
+pytest>=8.0
+scikit-learn>=1.4

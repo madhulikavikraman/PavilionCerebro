@@ -1,0 +1,43 @@
+{
+ "licence": {
+  "name": "CC BY 4.0",
+  "url": "https://creativecommons.org/licenses/by/4.0/",
+  "contributor": "Pascal V, Otto von Guericke Universitat Magdeburg (as listed on the Mendeley records)",
+  "changes": "features derived (rolling-median deltas, 6-sample differences); episodes segmented; Hall id 13 merged into 14"
+ },
+ "datasets": {
+  "en54": {
+   "title": "Indoor Fire Dataset with Distributed Multi-Sensor Nodes (EN54 Test Room)",
+   "doi": "10.17632/npk2zcm85h.1",
+   "version": 1,
+   "published": "2023-06-07",
+   "page": "https://data.mendeley.com/datasets/npk2zcm85h/1",
+   "url": "https://data.mendeley.com/public-files/datasets/npk2zcm85h/files/0c5ed6b5-d59a-4e09-ada2-6f58e34b7666/file_downloaded",
+   "sha256": "65a568cf84bf17c0e7d25fe89f3547c93a097a18c65b9f357eab3c7104c97c1a",
+   "bytes": 44149547,
+   "citation": "V, Pascal (2023), 'Indoor Fire Dataset with Distributed Multi-Sensor Nodes (EN54 Test Room)', Mendeley Data, V1, doi: 10.17632/npk2zcm85h.1",
+   "note": "A version 2 (doi 10.17632/npk2zcm85h.2, 2025-06-20) with revised labels exists (no Nuisance class in ternary_label, one Cable run removed, later fire starts). This build uses the V1 file.",
+   "local_file": "en54_room.csv",
+   "sha256_measured": "65a568cf84bf17c0e7d25fe89f3547c93a097a18c65b9f357eab3c7104c97c1a",
+   "sha256_ok": true,
+   "bytes_measured": 44149547
+  },
+  "hall": {
+   "title": "Indoor Fire Dataset with Distributed Multi-Sensor Nodes (Industrial Hall)",
+   "doi": "10.17632/yghykzm4km.1",
+   "version": 1,
+   "published": "2024-09-16",
+   "page": "https://data.mendeley.com/datasets/yghykzm4km/1",
+   "url": "https://data.mendeley.com/public-files/datasets/yghykzm4km/files/ac22049a-6c73-4276-8583-05b2cf735601/file_downloaded",
+   "sha256": "b431b611a44e4282510bd53158aaa71512554481433d8f3a90f9475c17134839",
+   "bytes": 35800222,
+   "citation": "V, Pascal (2024), 'Indoor Fire Dataset with Distributed Multi-Sensor Nodes (Industrial Hall)', Mendeley Data, V1, doi: 10.17632/yghykzm4km.1",
+   "note": "Episode ids from anomaly_scenario; id 13 (1 row) merged into id 14; Ethanol (5) and CO release (6, 17) carry neither the fire nor the nuisance flag and are reported as 'other'; anomaly_label is ignored.",
+   "local_file": "industrial_hall.csv",
+   "sha256_measured": "b431b611a44e4282510bd53158aaa71512554481433d8f3a90f9475c17134839",
+   "sha256_ok": true,
+   "bytes_measured": 35800222
+  }
+ },
+ "generated_at": "2026-09-26T21:10:19.219808+00:00"
+}

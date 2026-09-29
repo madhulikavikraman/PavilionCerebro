@@ -1,0 +1,11 @@
+# Pavilion Cerebro marketing site. Static files only: no Python pipeline runs here.
+modules = ["python-3.11"]
+run = "python3 -m http.server 8080 --bind 0.0.0.0"
+
+[[ports]]
+localPort = 8080
+externalPort = 80
+
+[deployment]
+deploymentTarget = "static"
+publicDir = "."
