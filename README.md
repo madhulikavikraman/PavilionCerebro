@@ -8,13 +8,19 @@ Instead of one narrow tool, Pavilion Cerebro runs one agent per building subsyst
 
 > **Technical thesis.** Pavilion Cerebro is one platform (one coordinator, one shared agent interface), not a bag of unrelated tools. Every agent, whether it watches cracks, internal sensor telemetry, batteries or HVAC, implements the same interface: it ingests its data, outputs a calibrated 0-1 risk score plus supporting evidence, and reports to the coordinator. That is what makes it a platform rather than a pile of point solutions. It is also why adding a new subsystem later means writing one more agent to the same interface, not rebuilding anything. The coordinator never imports an agent class.
 
-
+---
 Demo video:-
 
 
 
 https://github.com/user-attachments/assets/a520f043-4e59-4d35-a9b9-7ae9f81affd3
 
+
+---
+
+Business website hosted here :- https://origin-xnovi.vercel.app/index.html
+
+---
 
 
 This repo also contains the team's existing inspection grading cascade (`src/cascade/`, documented in [docs/cascade_README.md](docs/cascade_README.md)). Pavilion Cerebro wraps it as Agent 0 without changing any of its code.
