@@ -1,4 +1,4 @@
-# Pavilion Cerebro
+# Pavilion Cerebro - Built by Novi-Infra
 
 **A coordinated swarm of specialist AI agents for building structural health, damage detection and maintenance prediction.**
 
